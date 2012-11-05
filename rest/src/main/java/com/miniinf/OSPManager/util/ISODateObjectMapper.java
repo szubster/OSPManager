@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 @Component
 public class ISODateObjectMapper extends ObjectMapper {
 
-    private static final SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd");
+    private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
     @PostConstruct
     private void setupDate() {

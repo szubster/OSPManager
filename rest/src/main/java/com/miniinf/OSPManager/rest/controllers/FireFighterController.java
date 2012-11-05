@@ -49,11 +49,9 @@ public class FireFighterController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    FireFighter add(@RequestParam(value = "name", required = false, defaultValue = "Hello") String name,
-                    @RequestParam(value = "surname", required = false, defaultValue = "Hhh") String surname,
-                    @RequestParam(value = "date", required = false, defaultValue = "1990-01-01") Date date) {
+    public FireFighter add(@RequestParam(value = "name", required = false, defaultValue = "Hello") String name,
+                           @RequestParam(value = "surname", required = false, defaultValue = "Hhh") String surname,
+                           @RequestParam(value = "date", required = false, defaultValue = "1990-01-01") Date date) {
         FireFighter ff = new FireFighter();
         ff.setBirthDate(date);
         ff.setName(name);
