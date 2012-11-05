@@ -25,10 +25,6 @@ public class FireTruck {
         return id;
     }
 
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
     public String getNumber() {
         return number;
     }
