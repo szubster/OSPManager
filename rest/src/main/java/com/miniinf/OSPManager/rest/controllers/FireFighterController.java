@@ -2,8 +2,8 @@ package com.miniinf.OSPManager.rest.controllers;
 
 import com.miniinf.OSPManager.data.FireFighter;
 import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,41 +18,45 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("fireFighter")
 public class FireFighterController {
 
     @Autowired
     FireFighterRepository repository;
 
-    @RequestMapping("/get/")
+    @RequestMapping("get")
     public
-    FireFighter get(@RequestParam(value = "name", required = false) String name,
+    Iterable<FireFighter> get(@RequestParam(value = "name", required = false) String name,
                     @RequestParam(value = "surname", required = false) String surname,
-                    @RequestParam(value = "date", required = false) Date date) {
-        if(name!=null)
+                    @RequestParam(value = "birthDate", required = false) Date date) {
+        if(name!=null){
+            if(surname!=null)
+                return repository.findByNameAndSurname(name,surname);
             return repository.findByName(name);
+        }
         if(surname!=null)
             return repository.findBySurname(surname);
         if(date!=null)
-            return repository.findByDate(date);
-        return null;
+            return repository.findByBirthDate(date);
+        return repository.findAll();
+        //po imnieniu, nazwisku,obu, 2 datach,
     }
 
-    @RequestMapping("/get/{id}")
+    @RequestMapping("get/{id}")
     public FireFighter findById(@PathVariable("id") BigInteger id) {
         return repository.findOne(id);
     }
 
-    @RequestMapping("/get/")
+    @RequestMapping("getAll")
     public
     Iterable<FireFighter> getAll() {
         return repository.findAll() ;
     }
-    @RequestMapping(value = "add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.PUT)
     public
     FireFighter add(@RequestParam(value = "name", required = true) String name,
                     @RequestParam(value = "surname", required = true) String surname,
-                    @RequestParam(value = "date", required = true) Date date) {
+                    @RequestParam(value = "birthDate", required = true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date) {
         FireFighter ff = new FireFighter();
         ff.setBirthDate(date);
         ff.setName(name);
@@ -61,7 +65,7 @@ public class FireFighterController {
         return ff;
     }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("delete/{id}")
     public
     String delete(@PathVariable("id") BigInteger id) {
         repository.delete(id);
@@ -69,12 +73,12 @@ public class FireFighterController {
 
     }
 
-    @RequestMapping("/update/{id}")
+    @RequestMapping("update/{id}")
     public
     FireFighter update(@PathVariable("id") BigInteger id,
                     @RequestParam(value = "name", required = false) String name,
                     @RequestParam(value = "surname", required = false) String surname,
-                    @RequestParam(value = "date", required = false) Date date) {
+                    @RequestParam(value = "birthDate", required = false) Date date) {
         FireFighter ff = repository.findOne(id);
         if(date!=null)
             ff.setBirthDate(date);

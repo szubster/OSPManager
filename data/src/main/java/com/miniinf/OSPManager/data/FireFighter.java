@@ -1,6 +1,7 @@
 package com.miniinf.OSPManager.data;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Document
 public class FireFighter {
@@ -30,6 +32,9 @@ public class FireFighter {
     @Past
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     Date birthDate;
+
+    @DBRef
+    List<Operation> operations;
 
     public BigInteger getId() {
         return id;
@@ -57,5 +62,13 @@ public class FireFighter {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public List<Operation> getOperations() {
+        return operations;
+    }
+
+    public void setOperations(List<Operation> operations) {
+        this.operations = operations;
     }
 }

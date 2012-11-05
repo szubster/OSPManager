@@ -5,6 +5,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,4 +16,11 @@ import java.math.BigInteger;
  */
 @Repository
 public interface FireFighterRepository extends PagingAndSortingRepository<FireFighter, BigInteger> {
+    Iterable<FireFighter> findByName(String Name);
+
+    Iterable<FireFighter> findBySurname(String Surname);
+
+    Iterable<FireFighter> findByBirthDate(Date Birthdate);
+
+    Iterable<FireFighter> findByNameAndSurname(String Name, String Surname);
 }

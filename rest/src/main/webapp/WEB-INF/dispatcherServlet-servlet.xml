@@ -40,7 +40,7 @@
         <property name="defaultViews">
             <list>
                 <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
-                    <property name="objectMapper" value="YYYY-MM-DD"/>
+                    <property name="objectMapper" ref="ISODateObjectMapper"/>
                 </bean>
             </list>
         </property>
