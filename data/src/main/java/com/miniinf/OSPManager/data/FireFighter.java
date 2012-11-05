@@ -14,20 +14,27 @@ import java.util.Date;
 @Document
 public class FireFighter {
 
+    private static final String NAME_PATTERN = "[A-z][a-z]+";
+
     @Id
     BigInteger id;
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = "[A-Z][a-z]*")
+    @Pattern(regexp = NAME_PATTERN)
     String name;
+
+    @Size(min = 3)
+    @Pattern(regexp = NAME_PATTERN)
+    String secondName;
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = "[A-Z][a-z]*")
+    @Pattern(regexp = NAME_PATTERN)
     String surname;
 
     @Past
+    @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     Date birthDate;
 
@@ -57,5 +64,13 @@ public class FireFighter {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 }

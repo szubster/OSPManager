@@ -1,5 +1,6 @@
 package com.miniinf.OSPManager.data;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
@@ -11,38 +12,46 @@ import javax.validation.constraints.Pattern;
  */
 
 public class Address {
-// ------------------------------ FIELDS ------------------------------
+    // ------------------------------ FIELDS ------------------------------
+    private static final String STREET_PATTERN = "[A-Z][a-z]+( ([A-Z][a-z])|\\d)* \\d+";
+    private static final String CITY_PATTERN = "[A-Z][a-z]+( [A-Z][a-z])*";
+    private static final String POSTCODE_PATTERN = "\\d\\d-\\d\\d\\d";
 
-    private String Street;
+    @NotNull
+    @Pattern(regexp = STREET_PATTERN)
+    private String street;
 
-    private String City;
+    @NotNull
+    @Pattern(regexp = CITY_PATTERN)
+    private String city;
 
-    @Pattern(regexp = "\\d\\d\\d-\\d\\d")
-    private String PostCode;
+    @NotNull
+    @Pattern(regexp = POSTCODE_PATTERN)
+    private String postCode;
 
 // -------------------------- OTHER METHODS --------------------------
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public String getPostCode() {
-        return PostCode;
+        return postCode;
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public void setPostCode(String postCode) {
-        PostCode = postCode;
+        this.postCode = postCode;
     }
 
     public void setStreet(String street) {
-        Street = street;
+        this.street = street;
     }
 }

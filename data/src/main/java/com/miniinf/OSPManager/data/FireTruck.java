@@ -14,6 +14,7 @@ import java.math.BigInteger;
  */
 @Document
 public class FireTruck {
+
     @Id
     BigInteger id;
 

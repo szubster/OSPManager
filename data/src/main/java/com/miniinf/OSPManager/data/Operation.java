@@ -3,6 +3,7 @@ package com.miniinf.OSPManager.data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
@@ -22,7 +23,7 @@ import java.util.List;
 public class Operation {
 // -------------------------- INNER CLASSES --------------------------
 
-    public class FireFighter {
+    public static class FireFighter {
 
         private BigInteger id;
         private String name;
@@ -60,12 +61,14 @@ public class Operation {
     private Address place;
 
     @Past
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
 
     List<FireFighter> participants;
 
     @DBRef
-    FireTruck truck;
+    @Valid
+    List<FireTruck> truck;
 
     public BigInteger getId() {
         return id;
@@ -96,11 +99,11 @@ public class Operation {
     }
 
 
-    public FireTruck getTruck() {
+    public List<FireTruck> getTruck() {
         return truck;
     }
 
-    public void setTruck(FireTruck truck) {
+    public void setTruck(List<FireTruck> truck) {
         this.truck = truck;
     }
 }
