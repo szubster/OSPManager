@@ -1,6 +1,7 @@
 package com.miniinf.OSPManager.data;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.Valid;
@@ -63,6 +64,9 @@ public class Operation {
 
     List<FireFighter> participants;
 
+    @DBRef
+    FireTruck truck;
+
     public BigInteger getId() {
         return id;
     }
@@ -89,5 +93,14 @@ public class Operation {
 
     public void setParticipants(List<FireFighter> participants) {
         this.participants = participants;
+    }
+
+
+    public FireTruck getTruck() {
+        return truck;
+    }
+
+    public void setTruck(FireTruck truck) {
+        this.truck = truck;
     }
 }
