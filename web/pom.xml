@@ -8,8 +8,13 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>rest</artifactId>
+
+    <artifactId>web</artifactId>
     <packaging>war</packaging>
+
+    <properties>
+        <tiles-version>2.2.2</tiles-version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -19,7 +24,21 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${tiles-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${tiles-version}</version>
         </dependency>
     </dependencies>
 
@@ -32,6 +51,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
