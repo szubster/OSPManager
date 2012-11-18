@@ -22,12 +22,14 @@
             </list>
         </property>
     </bean>
+    <!--suppress SpringModelInspection -->
     <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
     <mvc:default-servlet-handler/>
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
     </mvc:interceptors>
+    <!--suppress SpringModelInspection -->
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="/uncaughtException"/>
     <mvc:view-controller path="/resourceNotFound"/>
