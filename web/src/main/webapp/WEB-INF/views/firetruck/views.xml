@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-    <definition extends="default" name="rsvps/list">
-        <put-attribute name="body" value="/WEB-INF/views/rsvps/list.jspx"/>
+    <definition extends="default" name="firetruck">
+        <put-attribute name="body" value="/WEB-INF/views/firetruck/list.jspx"/>
     </definition>
-<definition extends="default" name="rsvps/show">
-        <put-attribute name="body" value="/WEB-INF/views/rsvps/show.jspx"/>
+    <definition extends="default" name="firetuck/*">
+        <put-attribute name="body" value="/WEB-INF/views/firetruck/show.jspx"/>
     </definition>
-<definition extends="default" name="rsvps/create">
-        <put-attribute name="body" value="/WEB-INF/views/rsvps/create.jspx"/>
+    <definition extends="default" name="firetruck/create">
+        <put-attribute name="body" value="/WEB-INF/views/firetruck/create.jspx"/>
     </definition>
-<definition extends="default" name="rsvps/update">
-        <put-attribute name="body" value="/WEB-INF/views/rsvps/update.jspx"/>
+    <definition extends="default" name="firetruck/*/update">
+        <put-attribute name="body" value="/WEB-INF/views/firetruck/update.jspx"/>
     </definition>
 </tiles-definitions>
