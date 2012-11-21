@@ -1,13 +1,13 @@
 /* main elements */
 
 body,div,td {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #330000;
+	color: #f99547;
 }
 
 body {
-	background-color: #FFCC66;
+	background-color: #4c1501;
 	text-align: center;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 #menu {
-	background: #330000;
+	background: #a23a07;
 	position:relative;
 	float:left;  	
 	left:0px;
@@ -64,8 +64,8 @@ body {
 }
 
 #menu h2 {
-	color: #fff;
-	background: #660000;
+	color: #FF9933;
+	background: black;
 	text-transform: uppercase;
 	font-weight:bold;
 	font-size: 12px;
@@ -79,22 +79,22 @@ body {
 }
 
 #menu a:hover {
-	color: #FF3333;
-	background: #fff;
+	color: #660000;
+	background: #f0cd35;
 }
 
 #footer {
-	background:#FF9933;
+	background:#4c1501;
 	border:none;
 	margin-top:15px;
-	border-top:1px solid #330000;
+	border-top:1px solid #FF9933;
 }
 
 #footer .new {
 	float:left;
 }
 
-#footer a:link {color: #993300;}
+#footer a:link {color: #FF9933;}
 
 .quicklinks {
 	clear:both; 
@@ -166,7 +166,6 @@ h2 {
 h3 {
 	font-size: 15px;
 	line-height: 21px;
-	color:#555;
 }
 
 h4 {
@@ -200,19 +199,19 @@ tr:nth-child(even) {
 }
 
 a:link {
-	color: #CC3300;
+	color: #f0cd35;
 }
 
 a:hover {
-	color: #660000;
+	color: #FF9933;
 }
 
 a:active {
-	color: #CC3300;
+	color: #f0cd35;
 }
 
 a:visited {
-	color: #CC3300;
+	color: #f0cd35;
 }
 
 li {
@@ -361,6 +360,56 @@ fieldset th {
 	overflow-y: auto !important;
 	max-width: 175px;
 }
+.dijitTitlePaneTitleFocus{
+    background-color: #4c1501;
+
+}
+
+.dijitTitlePaneContentInner{
+    background-color: #4c1501;
+}
+/* .osp
+.dijitTitlePaneTitle {
+    border:1px solid #d86202;
+    background:#d86202;
+}
+
+.osp
+.dijitTitlePaneContentOuter{
+    border:1px solid #d86202;
+    background:#d86202;
+}*/
+.osp
+.dijitTitlePaneTitleFocus{
+    background-color: #FF9933;
+    color: black;
+    font-weight:bold;
+}
+
+ .osp
+.dijitTitlePaneTitle {
+    border:1px solid #FF9933;
+    background:#FF9933;
+}
+
+.osp
+.dijitTitlePaneContentOuter{
+    border:1px solid #FF9933;
+    background:#FF9933;
+}
+
+
+.submit input {
+border: 1px solid #88510c;
+color: black;
+background-color: #FF9933;
+padding: 2px 7px;
+font-size: 11px;
+text-transform: uppercase;
+font-weight: bold;
+height: 24px;
+}
+
 
 .RichTextEditable{
 	min-height:18em !important;
