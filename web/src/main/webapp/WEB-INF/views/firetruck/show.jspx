@@ -7,5 +7,7 @@
                z="m0cYxQEdfBKkRokK9kJLRXW/uSg=">
         <field:display field="number" id="s_com_wedding_domain_Firetruck_Number" object="${fireTruck}"
                        z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
+        <field:display field="licensePlate" id="c_com_wedding_domain_Firetruck_licensePlate" object="${fireTruck}"
+                               z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
     </page:show>
 </div>

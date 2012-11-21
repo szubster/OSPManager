@@ -5,6 +5,7 @@
     <page:list id="pl_com_wedding_domain_Firetruck" items="${fireTrucks}" z="exlVozf8tVm0QDNvp/wEzTlqDzM=">
         <table:table data="${fireTrucks}" id="l_com_wedding_domain_Firetruck" path="/firetruck" z="44EfK93zRwvYe5Vk2waePdnSujo=">
             <table:column id="c_com_wedding_domain_Firetruck_number" property="number" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
+            <table:column id="c_com_wedding_domain_Firetruck_licensePlate" property="licensePlate" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
         </table:table>
     </page:list>
 </div>

@@ -7,6 +7,6 @@
                  z="2q5qPdGkopy00k4Zvov47C5CkjQ=">
         <field:input field="number" id="c_com_wedding_domain_Firetruck_Number" min="2" required="true"
                      z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <!--<field:input field="licensePlate" id="c_com_wedding_domain_Firetruck_licensePlate" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>-->
+        <field:input field="licensePlate" id="c_com_wedding_domain_Firetruck_licensePlate" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
     </form:update>
 </div>

@@ -70,9 +70,7 @@
             </span>
             <span>
               <c:if test="${create}">
-                <spring:url value="${path}" var="create_form_url">
-                  <spring:param name="form" />
-                </spring:url>
+                <spring:url value="${path}/create" var="create_form_url"/>
                 <spring:url value="/resources/images/create.png" var="create_image_url" />
                 <spring:message arguments="${typeName}" code="entity_create" var="create_label" htmlEscape="false" />
                 <a href="${create_form_url}" alt="${fn:escapeXml(create_label)}" title="${fn:escapeXml(create_label)}">
