@@ -9,7 +9,7 @@
                  <menu:item id="i_rsvp_list" messageCode="global_menu_list" url="/rsvps?page=1&amp;size=${empty param.size ? 10 : param.size}" z="16K0e8XBgML/O7eDdegGvSCZPm8="/>
              </menu:category>
         <menu:category id="c_firetruck" z="NMXxBzZPRlgYrR1uvS5sXKF1PUQ=">
-            <menu:item id="i_firetruck_new" messageCode="global_menu_new" url="/firetruck?form" z="K9k2/1+vrSFIhSLMFQl45FIJ+gU="/>
+            <menu:item id="i_firetruck_new" messageCode="global_menu_new" url="/firetruck/create" z="K9k2/1+vrSFIhSLMFQl45FIJ+gU="/>
             <menu:item id="i_firetruck_list" messageCode="global_menu_list" url="/firetruck?page=1&amp;size=${empty param.size ? 10 : param.size}" z="16K0e8XBgML/O7eDdegGvSCZPm8="/>
         </menu:category>
         <menu:category id="c_seleniumtests" z="PPLMd2yNB6/LSbjIWogAacRPU+Q=">
