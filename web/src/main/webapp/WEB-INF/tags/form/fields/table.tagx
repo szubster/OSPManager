@@ -3,7 +3,7 @@
   <jsp:output omit-xml-declaration="yes" />
 
   <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
-  <jsp:directive.attribute name="data" type="java.util.Collection" required="true" rtexprvalue="true" description="The collection to be displayed in the table" />
+  <jsp:directive.attribute name="data" type="org.springframework.data.domain.Page" required="true" rtexprvalue="true" description="The collection to be displayed in the table" />
   <jsp:directive.attribute name="path" type="java.lang.String" required="true" rtexprvalue="true" description="Specify the URL path" />
   <jsp:directive.attribute name="typeIdFieldName" type="java.lang.String" required="false" rtexprvalue="true" description="The identifier field name for the type (defaults to 'id')" />
   <jsp:directive.attribute name="create" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Include 'create' link into table (default true)" />
@@ -61,7 +61,8 @@
           </c:if>
         </tr>
       </thead>
-      <c:forEach items="${data}" var="item">
+      <spring:eval var="iterator" expression="data.iterator()"/>
+      <c:forEach items="${iterator}" var="item">
         <tr>
           <c:forTokens items="${columnProperties}" delims="${'&#9999;'}" var="column" varStatus="num">
             <c:set var="columnMaxLength" value="${lengths[num.count-1]}" />
@@ -102,9 +103,7 @@
           </td>
           <c:if test="${update}">
             <td class="utilbox">
-              <spring:url value="${path}/${itemId}" var="update_form_url">
-                <spring:param name="form" />
-              </spring:url>
+              <spring:url value="${path}/update/${itemId}" var="update_form_url"/>
               <spring:url value="/resources/images/update.png" var="update_image_url" />
               <spring:message arguments="${typeName}" code="entity_update" var="update_label" htmlEscape="false" />
               <a href="${update_form_url}" alt="${fn:escapeXml(update_label)}" title="${fn:escapeXml(update_label)}">
@@ -139,9 +138,7 @@
         <td colspan="${colCounter}">
           <c:if test="${empty create or create}">
             <span class="new">
-              <spring:url value="${path}" var="create_url">
-                <spring:param name="form" />
-              </spring:url>
+              <spring:url value="${path}/create" var="create_url"/>
               <a href="${create_url}">
                 <spring:url value="/resources/images/add.png" var="create_img_url" />
                 <spring:message arguments="${typeName}" code="global_menu_new" var="add_message" htmlEscape="false" />
@@ -150,8 +147,8 @@
             </span>
             <c:out value=" " />
           </c:if>
-          <c:if test="${not empty maxPages}">
-            <util:pagination maxPages="${maxPages}" page="${param.page}" size="${param.size}" />
+          <c:if test="${not empty data.totalPages}">
+            <util:pagination maxPages="${data.totalPages}" page="${param.page}" size="${param.size}" />
           </c:if>
         </td>
       </tr>
