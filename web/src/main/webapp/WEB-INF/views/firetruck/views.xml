@@ -5,13 +5,13 @@
     <definition extends="default" name="firetruck">
         <put-attribute name="body" value="/WEB-INF/views/firetruck/list.jspx"/>
     </definition>
-    <definition extends="default" name="firetuck/*">
-        <put-attribute name="body" value="/WEB-INF/views/firetruck/show.jspx"/>
-    </definition>
     <definition extends="default" name="firetruck/create">
         <put-attribute name="body" value="/WEB-INF/views/firetruck/create.jspx"/>
     </definition>
-    <definition extends="default" name="firetruck/*/update">
+    <definition extends="default" name="firetruck/update/*">
         <put-attribute name="body" value="/WEB-INF/views/firetruck/update.jspx"/>
+    </definition>
+    <definition extends="default" name="firetruck/*">
+        <put-attribute name="body" value="/WEB-INF/views/firetruck/show.jspx"/>
     </definition>
 </tiles-definitions>

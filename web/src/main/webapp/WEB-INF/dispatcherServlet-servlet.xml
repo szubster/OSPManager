@@ -62,4 +62,6 @@
     </bean>
     <bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
           id="multipartResolver"/>
+    <bean id="methodValidationPostProcessor"
+          class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
 </beans>
