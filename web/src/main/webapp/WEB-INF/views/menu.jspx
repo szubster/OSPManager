@@ -7,6 +7,10 @@
             <menu:item id="i_firetruck_new" messageCode="global_menu_new" url="/firetruck/create" z="K9k2/1+vrSFIhSLMFQl45FIJ+gU="/>
             <menu:item id="i_firetruck_list" messageCode="global_menu_list" url="/firetruck?page=1&amp;size=${empty param.size ? 10 : param.size}" z="16K0e8XBgML/O7eDdegGvSCZPm8="/>
         </menu:category>
+        <menu:category id="c_firefighter" z="NMXxBzZPRlgYrR1uvS5sXKF1PUQ=">
+                   <menu:item id="i_firefighter_new" messageCode="global_menu_new" url="/firefighter/create" z="K9k2/1+vrSFIhSLMFQl45FIJ+gU="/>
+                   <menu:item id="i_firefighter_list" messageCode="global_menu_list" url="/firefighter?page=1&amp;size=${empty param.size ? 10 : param.size}" z="16K0e8XBgML/O7eDdegGvSCZPm8="/>
+        </menu:category>
 
     </menu:menu>
 </div>

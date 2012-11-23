@@ -3,11 +3,11 @@
      xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_wedding_domain_Firetruck" object="${fireTruck}" path="/firetruck"
+    <page:show id="ps_com_Firetruck" object="${fireTruck}" path="/firetruck"
                z="m0cYxQEdfBKkRokK9kJLRXW/uSg=">
-        <field:display field="number" id="s_com_wedding_domain_Firetruck_Number" object="${fireTruck}"
+        <field:display field="number" id="s_com_Firetruck_Number" object="${fireTruck}"
                        z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="licensePlate" id="c_com_wedding_domain_Firetruck_licensePlate" object="${fireTruck}"
+        <field:display field="licensePlate" id="c_com_Firetruck_licensePlate" object="${fireTruck}"
                                z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
     </page:show>
 </div>
