@@ -1,9 +1,14 @@
 /* main elements */
 
-body, div, td {
+body, td {
     font-family: Calibri, Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #f99547;
+}
+div{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: white;
 }
 
 body {
