@@ -1,14 +1,16 @@
 /* main elements */
 
-body, td {
+body, div {
     font-family: Calibri, Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #f99547;
 }
-div{
-    font-family: Calibri, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    color: white;
+
+td{
+        font-family: Calibri, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+
+
 }
 
 body {
@@ -202,11 +204,13 @@ a img {
 }
 
 tr:nth-child(odd) {
-    background-color: #FFFFFF;
+    background-color: #FF9933;
+    color: black;
 }
 
 tr:nth-child(even) {
-    background-color: #EFEFEF;
+     background-color: #a23a07;
+     color: #FF9933;
 }
 
 a:link {
@@ -253,7 +257,7 @@ table table {
 
 table td, table th {
     padding: 2px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid black;
 }
 
 table td form {
@@ -266,8 +270,8 @@ table th {
     font-size: 0.9em;
     text-align: left;
     font-weight: bold;
-    color: #FFF;
-    background: #999;
+    color: #FF9933;
+    background: black;
 }
 
 table thead {
@@ -279,7 +283,10 @@ table thead {
 table a:link {
     color: #303030;
 }
-
+tr:hover {
+    color: #660000;
+    background: #f0cd35;
+}
 .utilbox {
     width: 18px;
 }
@@ -415,6 +422,10 @@ fieldset th {
     background: #FF9933;
 }
 
+.osp
+.dijitReset {
+color: black;
+}
 .submit input {
     border: 1px solid #88510c;
     color: black;
@@ -428,10 +439,4 @@ fieldset th {
 
 .RichTextEditable {
     min-height: 18em !important;
-    max-height: 18em !important;
-}
-
-.flag {
-    height: 11px;
-    width: 16px;
-}
+    max-height: 18em
