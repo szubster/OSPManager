@@ -62,6 +62,17 @@ public class FireTruckController {
     public void edit(@ModelAttribute("fireTruck") FireTruck fireTruck) {
     }
 
+    @RequestMapping(value = "/update/{fireTruck}", method = RequestMethod.PUT)
+    public String update(@Valid FireTruck fireTruck, BindingResult bindingResult, Model uiModel) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("fireTruck", fireTruck);
+            return "firetruck/update/" + fireTruck.getId();
+        }
+        uiModel.asMap().clear();
+        fireTruck = repository.save(fireTruck);
+        return "redirect:/firetruck/" + fireTruck.getId();
+    }
+
     @RequestMapping()
     public
     @ModelAttribute("fireTrucks")
