@@ -7,8 +7,10 @@
                  z="2q5qPdGkopy00k4Zvov47C5CkjQ=">
         <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"
                      z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:input field="secondname" id="c_com_Firefighter_secondname" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:input field="birthdate" id="c_com_Firefighter_birthdate" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
+        <field:input field="secondName" id="c_com_Firefighter_secondname" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
+        <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"
+                     z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
+        <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
+                        z="6ZmjtggwMKc5hQDQt7SkIEU4IJY=" dateTimePattern="yyyy-MM-dd"/>
     </form:update>
 </div>

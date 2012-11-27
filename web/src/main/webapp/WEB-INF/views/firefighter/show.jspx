@@ -8,11 +8,11 @@
 
         <field:display field="name" id="c_com_Firefighter_name" object="${fireFighter}"
                        z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="secondname" id="c_com_Firefighter_secondname" object="${fireFighter}"
-                               z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
+        <field:display field="secondName" id="c_com_Firefighter_secondname" object="${fireFighter}"
+                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
         <field:display field="surname" id="c_com_Firefighter_surname" object="${fireFighter}"
-                               z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="birthdate" id="c_com_Firefighter_birthdate" object="${fireFighter}"
-                                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
+                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
+        <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${fireFighter}"
+                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM=" date="true"/>
     </page:show>
 </div>

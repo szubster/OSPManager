@@ -41,16 +41,15 @@ public class FireTruckController {
         return "redirect:/firetruck/" + fireTruck.getId();
     }
 
-    @RequestMapping(value = "/create")
+    @RequestMapping("/create")
     public
     @ModelAttribute
     FireTruck form() {
         return new FireTruck();
     }
 
-    @RequestMapping(value = "/{fireTruck}")
+    @RequestMapping("/{fireTruck}")
     public void show(@ModelAttribute("fireTruck") FireTruck fireTruck) {
-        BigInteger id = fireTruck.getId();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -58,7 +57,7 @@ public class FireTruckController {
         repository.delete(id);
     }
 
-    @RequestMapping(value = "/update/{fireTruck}")
+    @RequestMapping("/update/{fireTruck}")
     public void edit(@ModelAttribute("fireTruck") FireTruck fireTruck) {
     }
 

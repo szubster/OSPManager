@@ -14,7 +14,7 @@ import java.util.Date;
 @Document
 public class FireFighter {
 
-    private static final String NAME_PATTERN = "[A-z][a-z]+";
+    private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
 
     @Id
     BigInteger id;
@@ -24,7 +24,6 @@ public class FireFighter {
     @Pattern(regexp = NAME_PATTERN)
     String name;
 
-    @Size(min = 3)
     @Pattern(regexp = NAME_PATTERN)
     String secondName;
 

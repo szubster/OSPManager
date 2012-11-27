@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_Firefighter" items="${fireFighter}" z="exlVozf8tVm0QDNvp/wEzTlqDzM=">
-        <table:table data="${fireFighter}" id="l_com_Firefighter" path="/firefighter" z="44EfK93zRwvYe5Vk2waePdnSujo=">
+    <page:list id="pl_com_Firefighter" items="${fireFighters}" z="exlVozf8tVm0QDNvp/wEzTlqDzM=">
+        <table:table data="${fireFighters}" id="l_com_Firefighter" path="/firefighter" z="44EfK93zRwvYe5Vk2waePdnSujo=">
             <table:column id="c_com_Firefighter_name" property="name" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
-            <table:column id="c_com_Firefighter_secondname" property="secondname" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
+            <table:column id="c_com_Firefighter_secondname" property="secondName" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
             <table:column id="c_com_Firefighter_surname" property="surname" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
-            <table:column id="c_com_Firefighter_birthdate" property="birthdate" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="/>
+            <table:column id="c_com_Firefighter_birthdate" property="birthDate" z="5vnlNHuyShrRrbkCNuB/LqW0sXs="
+                          date="true"/>
 
         </table:table>
     </page:list>
