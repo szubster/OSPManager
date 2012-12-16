@@ -13,7 +13,21 @@
     <bean class="org.springframework.data.repository.support.DomainClassConverter">
         <constructor-arg ref="conversionService"/>
     </bean>
-    <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="1">
+        <property name="mediaTypes">
+            <map>
+                <entry key="pdf" value="application/pdf"/>
+            </map>
+        </property>
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+                <bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"
+                      p:prefix="WEB-INF/jasper/" p:suffix=".jrxml"
+                      p:viewClass="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"/>
+            </list>
+        </property>
+    </bean>
     <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">
             <list>
@@ -30,7 +44,7 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
     </mvc:interceptors>
     <!--suppress SpringModelInspection -->
-    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:view-controller path="/" view-name="index.pdf"/>
     <mvc:view-controller path="/uncaughtException"/>
     <mvc:view-controller path="/resourceNotFound"/>
     <mvc:view-controller path="/dataAccessFailure"/>
