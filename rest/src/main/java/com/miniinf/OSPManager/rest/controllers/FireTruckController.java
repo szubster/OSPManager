@@ -22,7 +22,7 @@ public class FireTruckController {
     private FireTruckRepository repository;
 
     @RequestMapping(value = "add", method = RequestMethod.PUT)
-    private FireTruck addTruck(@RequestParam String number, @RequestParam String licensePlate) {
+    public FireTruck addTruck(@RequestParam String number, @RequestParam String licensePlate) {
         FireTruck ft = new FireTruck();
         ft.setLicensePlate(licensePlate);
         ft.setNumber(number);
