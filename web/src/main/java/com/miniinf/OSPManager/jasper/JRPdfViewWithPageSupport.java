@@ -1,9 +1,12 @@
 package com.miniinf.OSPManager.jasper;
 
 import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JasperReport;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.data.domain.Page;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
 
+import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -29,5 +32,17 @@ public class JRPdfViewWithPageSupport extends JasperReportsPdfView {
             return super.convertReportData(page.getContent());
         }
         return super.convertReportData(value);
+    }
+
+    @Override
+    protected JasperReport loadReport() {
+        try {
+            return super.loadReport();
+        } catch (ApplicationContextException e) {
+            if (e.getCause() instanceof IOException) {
+                return null;
+            }
+            throw e;
+        }
     }
 }
