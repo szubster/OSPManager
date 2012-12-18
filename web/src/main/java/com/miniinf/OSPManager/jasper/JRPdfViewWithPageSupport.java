@@ -45,4 +45,9 @@ public class JRPdfViewWithPageSupport extends JasperReportsPdfView {
             throw e;
         }
     }
+
+    @Override
+    protected boolean isUrlRequired() {
+        return true;
+    }
 }
