@@ -61,6 +61,7 @@ public class FireFighterController {
 
     @RequestMapping("/{fireFighter}")
     public void show(@ModelAttribute("fireFighter") FireFighter fireFighter) {
+        System.out.print("controller");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -89,6 +90,7 @@ public class FireFighterController {
     Page<FireFighter> list(
             @Min(1) @RequestParam(value = "page", defaultValue = "1", required = false) int page,
             @Min(1) @RequestParam(value = "size", defaultValue = "10", required = false) int size) {
+        System.out.print("list");
         return repository.findAll(new PageRequest(page - 1, size));
     }
 }

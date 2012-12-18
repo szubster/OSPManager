@@ -2,6 +2,7 @@ package com.miniinf.OSPManager.data;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +12,7 @@ import javax.validation.constraints.Pattern;
  * To change this template use File | Settings | File Templates.
  */
 
-public class Address {
+public class Address implements Serializable {
     // ------------------------------ FIELDS ------------------------------
     private static final String STREET_PATTERN = "[A-Z][a-z]+( ([A-Z][a-z])|\\d)* \\d+";
     private static final String CITY_PATTERN = "[A-Z][a-z]+( [A-Z][a-z])*";

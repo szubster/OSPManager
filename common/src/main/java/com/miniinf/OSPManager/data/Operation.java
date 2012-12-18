@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 
 @Document
-public class Operation {
+public class Operation implements Serializable {
 // -------------------------- INNER CLASSES --------------------------
 
     public static class FireFighter {

@@ -23,8 +23,8 @@
             <list>
                 <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
                 <bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"
-                      p:prefix="WEB-INF/jasper/" p:suffix=".jrxml"
-                      p:viewClass="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"/>
+                      p:suffix=".jrxml" p:prefix="WEB-INF/jasper/"
+                      p:viewClass="com.miniinf.OSPManager.jasper.JRPdfViewWithPageSupport"/>
             </list>
         </property>
     </bean>
