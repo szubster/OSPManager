@@ -107,7 +107,7 @@ ZA ROK]]></text>
 				</staticText>
 				<image>
 					<reportElement uuid="ba99a15e-74a1-4285-9ae5-33cd37850f88" x="487" y="0" width="108" height="91"/>
-				<imageExpression><![CDATA[$P{REPORTS_DIR}+"osp1.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["jasper/osp1.jpg"]]></imageExpression>
 				</image>
 			</frame>
 		</band>
