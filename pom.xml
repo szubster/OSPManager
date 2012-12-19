@@ -11,6 +11,7 @@
         <module>common</module>
         <module>rest</module>
         <module>web</module>
+        <module>selenium</module>
     </modules>
     <packaging>pom</packaging>
 
