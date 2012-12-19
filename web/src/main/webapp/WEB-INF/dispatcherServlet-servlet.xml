@@ -13,7 +13,21 @@
     <bean class="org.springframework.data.repository.support.DomainClassConverter">
         <constructor-arg ref="conversionService"/>
     </bean>
-    <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="1">
+        <property name="mediaTypes">
+            <map>
+                <entry key="pdf" value="application/pdf"/>
+            </map>
+        </property>
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+                <bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"
+                      p:suffix=".jrxml" p:prefix="WEB-INF/jasper/"
+                      p:viewClass="com.miniinf.OSPManager.jasper.JRPdfViewWithPageSupport"/>
+            </list>
+        </property>
+    </bean>
     <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">
             <list>
@@ -50,13 +64,9 @@
         <property name="exceptionMappings">
             <props>
                 <prop key=".DataAccessException">dataAccessFailure</prop>
-                <prop
-                        key=".NoSuchRequestHandlingMethodException">resourceNotFound
-                </prop>
+                <prop key=".NoSuchRequestHandlingMethodException">resourceNotFound</prop>
                 <prop key=".TypeMismatchException">resourceNotFound</prop>
-                <prop
-                        key=".MissingServletRequestParameterException">resourceNotFound
-                </prop>
+                <prop key=".MissingServletRequestParameterException">resourceNotFound</prop>
             </props>
         </property>
     </bean>
