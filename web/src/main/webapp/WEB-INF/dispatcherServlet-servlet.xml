@@ -28,6 +28,13 @@
             </list>
         </property>
     </bean>
+                <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+                <bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"
+                      p:suffix=".jrxml" p:prefix="WEB-INF/jasper/"
+                      p:viewClass="com.miniinf.OSPManager.jasper.JRPdfViewWithPageSupport"/>
+            </list>
+        </property>
+    </bean>
     <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">
             <list>
