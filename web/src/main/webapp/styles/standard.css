@@ -138,8 +138,9 @@ input.image {
     vertical-align: middle;
 }
 
-submit {
+.submit {
     height: 25px;
+    padding: 2px 5px;
 }
 
 div {
@@ -435,8 +436,34 @@ color: black;
     text-transform: uppercase;
     font-weight: bold;
     height: 24px;
+    float: right;
 }
 
 .RichTextEditable {
     min-height: 18em !important;
     max-height: 18em
+}
+
+.divLogLabels
+{
+    position:relative;
+    top: 0px;
+    left: 0px;
+    float: left;
+    width: 50px;
+    padding-left: 2px;
+    padding-bottom: 10px;
+
+}
+
+.divLogData
+{
+    position:relative;
+    top: 0px;
+    left: 0px;
+    padding: 2px 7px;
+    float: right;
+
+
+}
+
