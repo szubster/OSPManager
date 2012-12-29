@@ -3,9 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<field name="name" class="java.lang.String">
-    		<fieldDescription><![CDATA[]]></fieldDescription>
-    </field>
+	<field name="name" class="java.lang.String"/>
 	<field name="secondName" class="java.lang.String"/>
 	<field name="surname" class="java.lang.String"/>
 	<group name="Group1">
