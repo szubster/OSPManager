@@ -1,11 +1,11 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.web.controllers;
 
-import com.miniinf.OSPManager.data.FireFighter;
 import com.miniinf.OSPManager.data.FireTruck;
-import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
 import com.miniinf.OSPManager.data.repositories.FireTruckRepository;
-import com.miniinf.OSPManager.web.conttrollers.FireFighterController;
-import com.miniinf.OSPManager.web.conttrollers.FireTruckController;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -17,9 +17,7 @@ import org.springframework.validation.BindingResult;
 import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 /**
@@ -33,12 +31,14 @@ public class FireTruckControllerTest {
 //    create,delete,update,list
 
     private ArgumentCaptor argument;
+
     @Before
-    public void before(){
+    public void before() {
         argument = ArgumentCaptor.forClass(BigInteger.class);
     }
+
     @Test
-    public void createTest(){
+    public void createTest() {
         FireTruckController controller = new FireTruckController();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         FireTruck ff = new FireTruck();
@@ -49,12 +49,12 @@ public class FireTruckControllerTest {
         when(br.hasErrors()).thenReturn(true);
         setField(ff, "id", BigInteger.valueOf(10));
         setField(controller, "repository", repository);
-        String result = controller.create(ff,br,m);
-        assertEquals("firetruck/create",result);
+        String result = controller.create(ff, br, m);
+        assertEquals("firetruck/create", result);
     }
 
     @Test
-    public void updateTest(){
+    public void updateTest() {
         FireTruckController controller = new FireTruckController();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         FireTruck ff = new FireTruck();
@@ -66,25 +66,25 @@ public class FireTruckControllerTest {
         setField(ff, "id", BigInteger.valueOf(10));
         setField(controller, "repository", repository);
         String result = controller.update(ff, br, m);
-        assertEquals("firetruck/update/" + ff.getId(),result);
+        assertEquals("firetruck/update/" + ff.getId(), result);
     }
 
     @Test
-    public void deleteTest(){
+    public void deleteTest() {
         FireTruckController controller = new FireTruckController();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         setField(controller, "repository", repository);
         controller.delete(BigInteger.valueOf(10));
         verify(repository).delete((BigInteger) argument.capture());
-        assertEquals(BigInteger.valueOf(10),argument.getValue());
+        assertEquals(BigInteger.valueOf(10), argument.getValue());
     }
 
     @Test
-    public void listTest(){
+    public void listTest() {
         FireTruckController controller = new FireTruckController();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         setField(controller, "repository", repository);
-        controller.list(2,1);
+        controller.list(2, 1);
         verify(repository).findAll((Pageable) argument.capture());
         assertEquals(new PageRequest(1, 1), argument.getValue());
     }

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
      xmlns:jsp="http://java.sun.com/JSP/Page"
      version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_Firefighter" modelAttribute="fireFighter" path="/firefighter/create"
+    <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create"
                  render="${empty dependencies}" z="9qydg87fAJldwtbc5TM5NYrpZTw=">
         <field:input field="name" id="c_com_Firefighter_name" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
         <field:input field="secondName" id="c_com_Firefighter_secondname" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.util;
 
 import org.codehaus.jackson.map.ObjectMapper;

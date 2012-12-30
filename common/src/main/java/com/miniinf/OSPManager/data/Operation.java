@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.data;
 
 import org.springframework.data.annotation.Id;
@@ -7,7 +11,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +24,7 @@ import java.util.List;
  */
 
 @Document
-public class Operation implements Serializable {
+public class Operation implements BigIntegerEntity {
 // -------------------------- INNER CLASSES --------------------------
 
     public static class FireFighter {

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.data;
 
 import org.springframework.data.annotation.Id;
@@ -8,12 +12,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 
 @Document
-public class FireFighter implements Serializable {
+public class FireFighter implements BigIntegerEntity {
 
     private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
 

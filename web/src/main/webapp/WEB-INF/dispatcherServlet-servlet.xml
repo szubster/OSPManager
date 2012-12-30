@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:p="http://www.springframework.org/schema/p"
@@ -7,71 +11,66 @@
                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                            http://www.springframework.org/schema/mvc
                            http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
-    <import resource="classpath:com/miniinf/OSPManager/persistance.xml"/>
-    <mvc:annotation-driven conversion-service="conversionService"/>
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
-    <bean class="org.springframework.data.repository.support.DomainClassConverter">
-        <constructor-arg ref="conversionService"/>
-    </bean>
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="1">
-        <property name="mediaTypes">
-            <map>
-                <entry key="pdf" value="application/pdf"/>
-            </map>
-        </property>
-        <property name="viewResolvers">
-            <list>
-                <bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
-                <bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"
-                      p:suffix=".jrxml" p:prefix="WEB-INF/jasper/"
-                      p:viewClass="com.miniinf.OSPManager.jasper.JRPdfViewWithPageSupport"/>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/layouts/layouts.xml</value>
-                <value>/WEB-INF/views/**/views.xml</value>
-            </list>
-        </property>
-    </bean>
-    <!--suppress SpringModelInspection -->
-    <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
-    <mvc:default-servlet-handler/>
-    <mvc:interceptors>
-        <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
-        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
-    </mvc:interceptors>
-    <!--suppress SpringModelInspection -->
-    <mvc:view-controller path="/" view-name="index"/>
-    <mvc:view-controller path="/uncaughtException"/>
-    <mvc:view-controller path="/resourceNotFound"/>
-    <mvc:view-controller path="/dataAccessFailure"/>
-    <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-          id="messageSource" p:fileEncodings="UTF-8" p:defaultEncoding="UTF-8"
-          p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
-          p:fallbackToSystemLocale="false"/>
-    <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
-          id="localeResolver" p:cookieName="locale"/>
-    <bean class="org.springframework.ui.context.support.ResourceBundleThemeSource"
-          id="themeSource"/>
-    <bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
-          id="themeResolver" p:cookieName="theme"
-          p:defaultThemeName="standard"/>
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
-          p:defaultErrorView="uncaughtException">
-        <property name="exceptionMappings">
-            <props>
-                <prop key=".DataAccessException">dataAccessFailure</prop>
-                <prop key=".NoSuchRequestHandlingMethodException">resourceNotFound</prop>
-                <prop key=".TypeMismatchException">resourceNotFound</prop>
-                <prop key=".MissingServletRequestParameterException">resourceNotFound</prop>
-            </props>
-        </property>
-    </bean>
-    <bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
-          id="multipartResolver"/>
-    <bean id="methodValidationPostProcessor"
-          class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+  <import resource="classpath:com/miniinf/OSPManager/persistance.xml"/>
+  <mvc:annotation-driven conversion-service="conversionService"/>
+  <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"/>
+  <bean class="org.springframework.data.repository.support.DomainClassConverter">
+    <constructor-arg ref="conversionService"/>
+  </bean>
+  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="1">
+    <property name="contentNegotiationManager">
+      <bean class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
+            p:favorPathExtension="true"/>
+    </property>
+  </bean>
+  <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+  <bean class="com.miniinf.OSPManager.jasper.JasperAnnotationViewResolver"
+        p:suffix=".jrxml" p:prefix="WEB-INF/jasper/" p:order="2" p:cache="false"
+        p:viewClass="com.miniinf.OSPManager.jasper.JRPdfViewWithPageSupport"/>
+  <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="definitions">
+      <list>
+        <value>/WEB-INF/layouts/layouts.xml</value>
+        <value>/WEB-INF/views/**/views.xml</value>
+      </list>
+    </property>
+  </bean>
+  <!--suppress SpringModelInspection -->
+  <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
+  <mvc:default-servlet-handler/>
+  <mvc:interceptors>
+    <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
+  </mvc:interceptors>
+  <!--suppress SpringModelInspection -->
+  <mvc:view-controller path="/" view-name="index"/>
+  <mvc:view-controller path="/uncaughtException"/>
+  <mvc:view-controller path="/resourceNotFound"/>
+  <mvc:view-controller path="/dataAccessFailure"/>
+  <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+        id="messageSource" p:fileEncodings="UTF-8" p:defaultEncoding="UTF-8"
+        p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
+        p:fallbackToSystemLocale="false"/>
+  <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
+        id="localeResolver" p:cookieName="locale"/>
+  <bean class="org.springframework.ui.context.support.ResourceBundleThemeSource"
+        id="themeSource"/>
+  <bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
+        id="themeResolver" p:cookieName="theme"
+        p:defaultThemeName="standard"/>
+  <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
+        p:defaultErrorView="uncaughtException">
+    <property name="exceptionMappings">
+      <props>
+        <prop key=".DataAccessException">dataAccessFailure</prop>
+        <prop key=".NoSuchRequestHandlingMethodException">resourceNotFound</prop>
+        <prop key=".TypeMismatchException">resourceNotFound</prop>
+        <prop key=".MissingServletRequestParameterException">resourceNotFound</prop>
+      </props>
+    </property>
+  </bean>
+  <bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
+        id="multipartResolver"/>
+  <bean id="methodValidationPostProcessor"
+        class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
 </beans>

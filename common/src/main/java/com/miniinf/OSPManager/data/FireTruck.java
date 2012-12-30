@@ -1,9 +1,12 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.data;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
 import java.math.BigInteger;
 
 /**
@@ -14,7 +17,7 @@ import java.math.BigInteger;
  * To change this template use File | Settings | File Templates.
  */
 @Document
-public class FireTruck implements Serializable {
+public class FireTruck implements BigIntegerEntity {
 
     @Id
     BigInteger id;

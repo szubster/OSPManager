@@ -1,19 +1,8 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.web.controllers;
-
-import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
-import com.miniinf.OSPManager.web.conttrollers.FireFighterController;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.servlet.ModelAndView;
-
-import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created with IntelliJ IDEA.

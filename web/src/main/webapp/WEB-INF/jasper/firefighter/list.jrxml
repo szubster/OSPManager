@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="8dc63ec4-b2fb-4b30-b0d0-a56a936e58f7">
+  <property name="ireport.zoom" value="1.0"/>
+  <property name="ireport.x" value="0"/>
+  <property name="ireport.y" value="0"/>
+  <field name="name" class="java.lang.String"/>
+  <field name="secondName" class="java.lang.String"/>
+  <field name="surname" class="java.lang.String"/>
+  <group name="Group1">
+    <groupExpression><![CDATA[$F{name}]]></groupExpression>
+    <groupHeader>
+      <band height="23">
+        <textField>
+          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="2" width="455" height="20"
+                         forecolor="#006699"/>
+          <textElement>
+            <font size="16" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
+        </textField>
+        <staticText>
+          <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="2" width="100" height="20"
+                         forecolor="#666666"/>
+          <textElement>
+            <font size="12"/>
+          </textElement>
+          <text><![CDATA[Imię]]></text>
+        </staticText>
+        <textField>
+          <reportElement uuid="b35491de-019d-45d6-9c61-07d995e36ca4" x="165" y="3" width="100" height="20"/>
+          <textElement/>
+          <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+        </textField>
+      </band>
+    </groupHeader>
+    <groupFooter>
+      <band/>
+    </groupFooter>
+  </group>
+  <group name="Group2">
+    <groupHeader>
+      <band height="20">
+        <staticText>
+          <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="0" width="100" height="20"
+                         forecolor="#666666"/>
+          <textElement>
+            <font size="12"/>
+          </textElement>
+          <text><![CDATA[Drugie imię]]></text>
+        </staticText>
+        <textField>
+          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="0" width="455" height="20"
+                         forecolor="#006699"/>
+          <textElement>
+            <font size="16" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
+          <textElement/>
+          <textFieldExpression><![CDATA[$F{secondName}]]></textFieldExpression>
+        </textField>
+      </band>
+    </groupHeader>
+    <groupFooter>
+      <band/>
+    </groupFooter>
+  </group>
+  <group name="Group3">
+    <groupHeader>
+      <band height="20">
+        <staticText>
+          <reportElement uuid="437aa9fc-2cba-48ba-ac7d-5e0d234effc7" x="0" y="0" width="100" height="20"
+                         forecolor="#666666"/>
+          <textElement>
+            <font size="12"/>
+          </textElement>
+          <text><![CDATA[Nazwisko]]></text>
+        </staticText>
+        <textField>
+          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="0" width="455" height="20"
+                         forecolor="#006699"/>
+          <textElement>
+            <font size="16" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
+          <textElement/>
+          <textFieldExpression><![CDATA[$F{surname}]]></textFieldExpression>
+        </textField>
+      </band>
+    </groupHeader>
+    <groupFooter>
+      <band/>
+    </groupFooter>
+  </group>
+  <background>
+    <band/>
+  </background>
+  <title>
+    <band height="72">
+      <frame>
+        <reportElement uuid="11ced23a-e34c-4c79-bdd8-f0d102619ec0" mode="Opaque" x="-20" y="-20" width="595" height="92"
+                       backcolor="#21557D"/>
+        <staticText>
+          <reportElement uuid="16d8672a-0d05-4606-8476-f0110710d3b2" x="46" y="14" width="401" height="77"
+                         forecolor="#FFFFFF"/>
+          <textElement textAlignment="Center">
+            <font size="18" isBold="true"/>
+          </textElement>
+          <text><![CDATA[RAPORT OCHOTNICZEJ STRAŻY POŻARNEJ W SULEJÓWKU
+ZA ROK]]></text>
+        </staticText>
+        <image>
+          <reportElement uuid="ba99a15e-74a1-4285-9ae5-33cd37850f88" x="487" y="0" width="108" height="91"/>
+          <imageExpression><![CDATA["jasper/osp1.jpg"]]></imageExpression>
+        </image>
+      </frame>
+    </band>
+  </title>
+  <pageHeader>
+    <band height="13"/>
+  </pageHeader>
+  <columnHeader>
+    <band height="21">
+      <staticText>
+        <reportElement uuid="4fb88e1e-6956-4839-84a7-153ad0aeef98" mode="Opaque" x="0" y="0" width="183" height="20"
+                       forecolor="#006699" backcolor="#E6E6E6"/>
+        <textElement textAlignment="Center">
+          <font size="14" isBold="true"/>
+        </textElement>
+        <text><![CDATA[Adres OSP]]></text>
+      </staticText>
+      <line>
+        <reportElement uuid="e48c84e7-c8ba-47ff-a971-cfd9bbff4679" x="-20" y="20" width="595" height="1"
+                       forecolor="#666666"/>
+      </line>
+    </band>
+  </columnHeader>
+  <detail>
+    <band height="20">
+      <line>
+        <reportElement uuid="c15aec6e-fb97-4fe1-a424-d1523cd6b1bc" positionType="FixRelativeToBottom" x="0" y="0" width="555"
+                       height="1"/>
+      </line>
+    </band>
+  </detail>
+  <columnFooter>
+    <band/>
+  </columnFooter>
+  <pageFooter>
+    <band height="17">
+      <textField>
+        <reportElement uuid="3d6cf095-4611-4ade-9556-c770493cd353" mode="Opaque" x="0" y="4" width="515" height="13"
+                       backcolor="#E6E6E6"/>
+        <textElement textAlignment="Right"/>
+        <textFieldExpression><![CDATA["Strona "+$V{PAGE_NUMBER}+" z"]]></textFieldExpression>
+      </textField>
+      <textField evaluationTime="Report">
+        <reportElement uuid="043a92d6-2422-4ca3-8d48-802368d5e8c2" mode="Opaque" x="515" y="4" width="40" height="13"
+                       backcolor="#E6E6E6"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+      <textField pattern="EEEEE dd MMMMM yyyy">
+        <reportElement uuid="7de98615-6971-423c-8ccf-52b588a61a9d" x="0" y="4" width="100" height="13"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+      </textField>
+    </band>
+  </pageFooter>
+  <summary>
+    <band/>
+  </summary>
+</jasperReport>
