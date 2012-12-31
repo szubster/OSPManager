@@ -4,20 +4,13 @@
   -->
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
-     xmlns:jsp="http://java.sun.com/JSP/Page"
-     version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create"
-                 render="${empty dependencies}" z="9qydg87fAJldwtbc5TM5NYrpZTw=">
-        <field:input field="name" id="c_com_Firefighter_name" min="2" required="true" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:input field="secondName" id="c_com_Firefighter_secondname" z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"
-                     z="6ZmjtggwMKc5hQDQt7SkIEU4IJY="/>
-        <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
-                        z="6ZmjtggwMKc5hQDQt7SkIEU4IJY=" dateTimePattern="yyyy-MM-dd"/>
-
-    </form:create>
-    <form:dependency dependencies="${dependencies}" id="d_com_Firefighter" render="${not empty dependencies}"
-                     z="lwL83rvJwDsFQpzmU6gPznazovQ="/>
+     xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create">
+    <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
+    <field:input field="secondName" id="c_com_Firefighter_secondname"/>
+    <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
+    <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true" dateTimePattern="yyyy-MM-dd"/>
+  </form:create>
 </div>

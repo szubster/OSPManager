@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.math.BigInteger;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Szubster
+ * Created by Tomasz Szuba
  * Date: 27.11.12
- * Time: 19:21
- * To change this template use File | Settings | File Templates.
  */
 @Controller
 @RequestMapping("firefighter")

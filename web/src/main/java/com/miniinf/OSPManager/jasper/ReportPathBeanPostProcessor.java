@@ -16,11 +16,8 @@ import java.lang.reflect.Method;
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Tomek
+ * Created by Tomasz Szuba
  * Date: 23.12.12
- * Time: 20:19
- * To change this template use File | Settings | File Templates.
  */
 @Component
 public class ReportPathBeanPostProcessor implements BeanPostProcessor {
@@ -31,6 +28,14 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
 
     @Autowired(required = true)
     JasperAnnotationViewResolver resolver;
+
+    private static String[] filterParams(String[] mappings) {
+        String[] ret = new String[mappings.length];
+        for (int i = 0; i < mappings.length; i++) {
+            ret[i] = mappings[i].replaceAll("\\{.*}", "*");
+        }
+        return ret;
+    }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -76,14 +81,6 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
                 resolver.addReportPath(classMapping + methodMapping, reportPath);
             }
         }
-    }
-
-    private static String[] filterParams(String[] mappings) {
-        String[] ret = new String[mappings.length];
-        for (int i = 0; i < mappings.length; i++) {
-            ret[i] = mappings[i].replaceAll("\\{.*}", "*");
-        }
-        return ret;
     }
 
     @Override

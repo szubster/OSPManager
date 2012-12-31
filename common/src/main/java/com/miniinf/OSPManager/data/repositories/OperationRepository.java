@@ -11,11 +11,8 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 
 /**
- * Created with IntelliJ IDEA.
- * User: asus
+ * Created by Michał Tkaczyk
  * Date: 05.11.12
- * Time: 14:38
- * To change this template use File | Settings | File Templates.
  */
 @Repository
 public interface OperationRepository extends MongoRepository<Operation, BigInteger> {

@@ -16,47 +16,15 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Szubster
+ * Created by Tomasz Szuba
  * Date: 05.11.12
- * Time: 13:20
- * To change this template use File | Settings | File Templates.
  */
-
 @Document
 public class Operation implements BigIntegerEntity {
-// -------------------------- INNER CLASSES --------------------------
 
-    public static class FireFighter {
-
-        private BigInteger id;
-        private String name;
-        private String surname;
-
-        public BigInteger getId() {
-            return id;
-        }
-
-        public void setId(BigInteger id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getSurname() {
-            return surname;
-        }
-
-        public void setSurname(String surname) {
-            this.surname = surname;
-        }
-    }
+    @DBRef
+    @Valid
+    List<FireTruck> truck;
 
     @Id
     private BigInteger id;
@@ -68,11 +36,7 @@ public class Operation implements BigIntegerEntity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
 
-    List<FireFighter> participants;
-
-    @DBRef
-    @Valid
-    List<FireTruck> truck;
+    private List<FireFighter> participants;
 
     public BigInteger getId() {
         return id;
@@ -102,12 +66,44 @@ public class Operation implements BigIntegerEntity {
         this.participants = participants;
     }
 
-
     public List<FireTruck> getTruck() {
         return truck;
     }
 
     public void setTruck(List<FireTruck> truck) {
         this.truck = truck;
+    }
+
+    public static class FireFighter {
+
+        private BigInteger id;
+
+        private String name;
+
+        private String surname;
+
+        public BigInteger getId() {
+            return id;
+        }
+
+        public void setId(BigInteger id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getSurname() {
+            return surname;
+        }
+
+        public void setSurname(String surname) {
+            this.surname = surname;
+        }
     }
 }

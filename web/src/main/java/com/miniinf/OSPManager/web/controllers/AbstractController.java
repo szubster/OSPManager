@@ -30,6 +30,7 @@ import java.util.Date;
 public abstract class AbstractController<R extends MongoRepository<E, ID>, E extends Entity<ID>, ID extends Serializable> {
 
     private final Class<E> entityClass;
+
     private final String basePath;
 
     public AbstractController(Class<E> entityClass) {
@@ -76,9 +77,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
             uiModel.addAttribute("entity", entity);
             return basePath + "/create";
         }
-        uiModel.asMap().clear();
-        entity = getRepository().save(entity);
-        return "redirect:/" + basePath + "/" + entity.getId();
+        return saveAndRedirect(entity, uiModel);
     }
 
     @RequestMapping(value = "/create")
@@ -108,6 +107,10 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
             uiModel.addAttribute("entity", entity);
             return basePath + "/update/" + entity.getId();
         }
+        return saveAndRedirect(entity, uiModel);
+    }
+
+    private String saveAndRedirect(E entity, Model uiModel) {
         uiModel.asMap().clear();
         entity = getRepository().save(entity);
         return "redirect:/" + basePath + "/" + entity.getId();

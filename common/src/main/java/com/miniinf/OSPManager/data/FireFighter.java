@@ -21,25 +21,25 @@ public class FireFighter implements BigIntegerEntity {
     private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
 
     @Id
-    BigInteger id;
+    private BigInteger id;
 
     @NotNull
     @Size(min = 3)
     @Pattern(regexp = NAME_PATTERN)
-    String name;
+    private String name;
 
     @Pattern(regexp = NAME_PATTERN)
-    String secondName;
+    private String secondName;
 
     @NotNull
     @Size(min = 3)
     @Pattern(regexp = NAME_PATTERN)
-    String surname;
+    private String surname;
 
     @Past
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    Date birthDate;
+    private Date birthDate;
 
     public BigInteger getId() {
         return id;

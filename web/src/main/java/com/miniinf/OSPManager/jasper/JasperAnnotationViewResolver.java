@@ -15,11 +15,8 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Tomek
+ * Created by Tomasz Szuba
  * Date: 23.12.12
- * Time: 19:54
- * To change this template use File | Settings | File Templates.
  */
 public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
 

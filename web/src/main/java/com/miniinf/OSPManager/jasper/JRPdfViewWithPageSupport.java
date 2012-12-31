@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.jasper;
 
 import net.sf.jasperreports.engine.JRDataSource;
@@ -10,11 +14,8 @@ import java.io.IOException;
 import java.util.Collection;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Tomek
+ * Created by Tomasz Szuba
  * Date: 18.12.12
- * Time: 00:42
- * To change this template use File | Settings | File Templates.
  */
 public class JRPdfViewWithPageSupport extends JasperReportsPdfView {
 

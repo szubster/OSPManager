@@ -5,13 +5,10 @@
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
      xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_Firetruck" object="${entity}" path="/firetruck"
-               z="m0cYxQEdfBKkRokK9kJLRXW/uSg=">
-        <field:display field="number" id="s_com_Firetruck_Number" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="licensePlate" id="c_com_Firetruck_licensePlate" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-    </page:show>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <page:show id="ps_com_Firetruck" object="${entity}" path="/firetruck">
+    <field:display field="number" id="s_com_Firetruck_Number" object="${entity}"/>
+    <field:display field="licensePlate" id="c_com_Firetruck_licensePlate" object="${entity}"/>
+  </page:show>
 </div>

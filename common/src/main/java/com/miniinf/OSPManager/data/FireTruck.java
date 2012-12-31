@@ -10,21 +10,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigInteger;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Szubster
+ * Created by Tomasz Szuba
  * Date: 05.11.12
- * Time: 14:41
- * To change this template use File | Settings | File Templates.
  */
 @Document
 public class FireTruck implements BigIntegerEntity {
 
     @Id
-    BigInteger id;
+    private BigInteger id;
 
-    String number;
+    private String number;
 
-    String licensePlate;
+    private String licensePlate;
 
     public BigInteger getId() {
         return id;

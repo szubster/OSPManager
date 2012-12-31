@@ -12,11 +12,8 @@ import java.math.BigInteger;
 import java.util.Date;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Szubster
+ * Created by Tomasz Szuba
  * Date: 15.10.12
- * Time: 11:29
- * To change this template use File | Settings | File Templates.
  */
 @Repository
 public interface FireFighterRepository extends MongoRepository<FireFighter, BigInteger> {

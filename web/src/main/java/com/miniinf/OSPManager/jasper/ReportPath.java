@@ -10,11 +10,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Tomek
+ * Created by Tomasz Szuba
  * Date: 23.12.12
- * Time: 19:50
- * To change this template use File | Settings | File Templates.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})

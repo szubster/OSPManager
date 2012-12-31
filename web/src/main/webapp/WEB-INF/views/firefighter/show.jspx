@@ -5,18 +5,13 @@
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
      xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_Firefighter" object="${entity}" path="/firefighter"
-               z="m0cYxQEdfBKkRokK9kJLRXW/uSg=">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <page:show id="ps_com_Firefighter" object="${entity}" path="/firefighter">
 
-        <field:display field="name" id="c_com_Firefighter_name" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="secondName" id="c_com_Firefighter_secondname" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="surname" id="c_com_Firefighter_surname" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM="/>
-        <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${entity}"
-                       z="7YIutZCpGQOe+Vhes8/w7cG8rmM=" date="true"/>
-    </page:show>
+    <field:display field="name" id="c_com_Firefighter_name" object="${entity}"/>
+    <field:display field="secondName" id="c_com_Firefighter_secondname" object="${entity}"/>
+    <field:display field="surname" id="c_com_Firefighter_surname" object="${entity}"/>
+    <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${entity}" date="true"/>
+  </page:show>
 </div>

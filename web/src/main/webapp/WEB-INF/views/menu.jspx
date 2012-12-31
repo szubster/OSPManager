@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0"
      xmlns:spring="http://www.springframework.org/tags">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <menu:menu id="_menu">
-        <menu:category id="c_firetruck">
-            <menu:item id="i_firetruck_new" messageCode="global_menu_new_wy" url="/firetruck/create"/>
-            <menu:item id="i_firetruck_list" messageCode="global_menu_list_stkie" url="/firetruck"/>
-        </menu:category>
-        <menu:category id="c_firefighter">
-            <menu:item id="i_firefighter_new" messageCode="global_menu_new_wego" url="/firefighter/create"/>
-            <menu:item id="i_firefighter_list" messageCode="global_menu_list_scy" url="/firefighter"/>
-        </menu:category>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <menu:menu id="_menu">
+    <menu:category id="c_firetruck">
+      <menu:item id="i_firetruck_new" messageCode="global_menu_new_wy" url="/firetruck/create"/>
+      <menu:item id="i_firetruck_list" messageCode="global_menu_list_stkie" url="/firetruck"/>
+    </menu:category>
+    <menu:category id="c_firefighter">
+      <menu:item id="i_firefighter_new" messageCode="global_menu_new_wego" url="/firefighter/create"/>
+      <menu:item id="i_firefighter_list" messageCode="global_menu_list_scy" url="/firefighter"/>
+    </menu:category>
     <menu:category id="c_logowanie">
-        <spring:url value="j_spring_security_check" var="logon"/>
-        <div> <br/>
+      <spring:url value="j_spring_security_check" var="logon"/>
+
+      <div><br/>
+
         <form name='f' action="${logon}" method='POST'>
-            <div class="divLogLabels">
-                 Użytkownik: <br/>
-                <br/>
-                Hasło:
-            </div>
-            <div class="divLogData">
-                <input type='text' name='j_username' value='' style="width:130px"/>  <br/>
-                <input type='password' name='j_password' style="width:130px"/>
-            </div>
-            <div class="submit">
-                <td><input name="submit" type="submit"/>
-                </td>
-                <td><input name="reset" type="reset"/>
-                </td>
-            </div>
+          <div class="divLogLabels">
+            Użytkownik: <br/>
+            <br/>
+            Hasło:
+          </div>
+          <div class="divLogData">
+            <input type='text' name='j_username' value='' style="width:130px"/> <br/>
+            <input type='password' name='j_password' style="width:130px"/>
+          </div>
+          <div class="submit">
+            <td><input name="submit" type="submit"/>
+            </td>
+            <td><input name="reset" type="reset"/>
+            </td>
+          </div>
         </form>
-        </div>
-        </menu:category>
-    </menu:menu>
+      </div>
+    </menu:category>
+  </menu:menu>
 </div>

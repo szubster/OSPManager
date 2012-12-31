@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 /* main elements */
 
 body, div {
@@ -6,10 +10,9 @@ body, div {
     color: #f99547;
 }
 
-td{
-        font-family: Calibri, Arial, Helvetica, sans-serif;
-        font-size: 12px;
-
+td {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 12px;
 
 }
 
@@ -210,8 +213,8 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-     background-color: #a23a07;
-     color: #FF9933;
+    background-color: #a23a07;
+    color: #FF9933;
 }
 
 a:link {
@@ -284,10 +287,12 @@ table thead {
 table a:link {
     color: #303030;
 }
+
 tr:hover {
     color: #660000;
     background: #f0cd35;
 }
+
 .utilbox {
     width: 18px;
 }
@@ -425,8 +430,9 @@ fieldset th {
 
 .osp
 .dijitReset {
-color: black;
+    color: black;
 }
+
 .submit input {
     border: 1px solid #88510c;
     color: black;
@@ -444,9 +450,8 @@ color: black;
     max-height: 18em
 }
 
-.divLogLabels
-{
-    position:relative;
+.divLogLabels {
+    position: relative;
     top: 0px;
     left: 0px;
     float: left;
@@ -456,14 +461,12 @@ color: black;
 
 }
 
-.divLogData
-{
-    position:relative;
+.divLogData {
+    position: relative;
     top: 0px;
     left: 0px;
     padding: 2px 7px;
     float: right;
-
 
 }
 
