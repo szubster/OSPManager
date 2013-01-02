@@ -9,7 +9,7 @@
   <jsp:output omit-xml-declaration="yes"/>
   <page:show id="ps_com_Operation" object="${entity}" path="/firefighter">
 
-    <field:display field="truckCodeName" id="c_com_Operation_name" object="${entity}"/>
+    <field:display field="truckCodeName" id="c_com_Operation_truckCodeName" object="${entity}"/>
 
   </page:show>
 </div>

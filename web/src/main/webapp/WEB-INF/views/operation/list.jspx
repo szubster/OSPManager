@@ -9,7 +9,7 @@
   <jsp:output omit-xml-declaration="yes"/>
   <page:list id="pl_com_Operation" items="${entities}">
     <table:table data="${entities}" id="l_com_Operation" path="/operation">
-      <table:column id="c_com_Operation_name" property="truckCodeName"/>
+      <table:column id="c_com_Operation_truckCodeName" property="truckCodeName"/>
 
 
     </table:table>

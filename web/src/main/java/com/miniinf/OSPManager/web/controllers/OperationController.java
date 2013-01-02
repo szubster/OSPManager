@@ -5,6 +5,7 @@
 package com.miniinf.OSPManager.web.controllers;
 
 import com.miniinf.OSPManager.data.Operation;
+import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
 import com.miniinf.OSPManager.data.repositories.OperationRepository;
 import com.miniinf.OSPManager.data.services.UnitService;
 import com.miniinf.OSPManager.jasper.ReportPath;
@@ -35,6 +36,9 @@ public class OperationController extends AbstractController<OperationRepository,
     OperationRepository repository;
 
     @Autowired
+    FireFighterRepository FFRepository;
+
+    @Autowired
     UnitService unitService;
 
     public OperationController() {
@@ -59,6 +63,7 @@ public class OperationController extends AbstractController<OperationRepository,
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid Operation entity, BindingResult bindingResult, Model uiModel) {
         unitService.setCounter(entity.getNumber()+1);
+        uiModel.addAttribute("firefighters", FFRepository.findAll());
         return super.create(entity, bindingResult, uiModel);    //To change body of overridden methods use File | Settings | File Templates.
     }
 }
