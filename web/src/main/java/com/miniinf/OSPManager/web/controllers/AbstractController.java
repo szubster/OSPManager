@@ -80,10 +80,8 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     }
 
     @RequestMapping(value = "/create")
-    public
-    @ModelAttribute
-    E form() throws IllegalAccessException, InstantiationException {
-        return entityClass.newInstance();
+    public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
+        uiModel.addAttribute("entity", entityClass.newInstance());
     }
 
     @RequestMapping("/{entity}")

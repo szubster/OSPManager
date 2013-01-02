@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -52,18 +51,18 @@ public class OperationController extends AbstractController<OperationRepository,
 
     @Override
     @RequestMapping(value = "/create")
-    public @ModelAttribute
-    Operation form() throws IllegalAccessException, InstantiationException {
+    public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
         Operation entity = new Operation();
         entity.setNumber(unitService.getCounter());
-        return entity;
+        uiModel.addAttribute("entity", entity);
+        uiModel.addAttribute("firefighters", FFRepository.findAll());
     }
 
     @Override
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid Operation entity, BindingResult bindingResult, Model uiModel) {
-        unitService.setCounter(entity.getNumber()+1);
-        uiModel.addAttribute("firefighters", FFRepository.findAll());
-        return super.create(entity, bindingResult, uiModel);    //To change body of overridden methods use File | Settings | File Templates.
+        unitService.setCounter(entity.getNumber() + 1);
+        return super.create(entity, bindingResult, uiModel);    //To change body of overridden methods use File | Settings
+        // | File Templates.
     }
 }
