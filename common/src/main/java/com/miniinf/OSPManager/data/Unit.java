@@ -4,9 +4,12 @@
 
 package com.miniinf.OSPManager.data;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.math.BigInteger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,12 +19,19 @@ import javax.validation.constraints.Min;
  * To change this template use File | Settings | File Templates.
  */
 @Document
-public class Unit {
+public class Unit implements BigIntegerEntity, Serializable {
+
+    @Id
+    private BigInteger id;
 
     @Min(0)
     private int departureCounter;
 
     private String KSRGEntity;
+
+    public BigInteger getId() {
+        return id;
+    }
 
     public String getKSRGEntity() {
         return KSRGEntity;
