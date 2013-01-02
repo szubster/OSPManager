@@ -27,7 +27,6 @@ import java.util.Map;
 @Document
 public class Operation implements BigIntegerEntity, Serializable {
 
-    private static final String CODENAME_PATTERN = "\\d\\d\\d-\\d\\d";
 
     @Id
     private BigInteger id;
@@ -57,7 +56,7 @@ public class Operation implements BigIntegerEntity, Serializable {
     private String author;
 
     @NotNull
-    @Pattern(regexp = CODENAME_PATTERN  , message="{com.miniinf.OSPManager.validation.codename}")
+    @Pattern(regexp = FireTruck.CODENAME_PATTERN  , message="{com.miniinf.OSPManager.validation.codename}")
     private String truckCodeName;
 
     @Min(0)

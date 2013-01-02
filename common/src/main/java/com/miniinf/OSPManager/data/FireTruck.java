@@ -19,7 +19,7 @@ import java.math.BigInteger;
 @Document
 public class FireTruck implements BigIntegerEntity {
 
-    private static final String CODENAME_PATTERN = "\\d\\d\\d-\\d\\d";
+    public static final String CODENAME_PATTERN = "\\d\\d\\d-\\d\\d";
 
     @Id
     private BigInteger id;
