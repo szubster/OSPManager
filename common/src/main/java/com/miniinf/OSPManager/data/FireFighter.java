@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.data;
@@ -29,15 +29,15 @@ public class FireFighter implements BigIntegerEntity {
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
+    @Pattern(regexp = NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
     private String name;
 
-    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
+    @Pattern(regexp = NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
     private String secondName;
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
+    @Pattern(regexp = NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
     private String surname;
 
     @Past
@@ -51,7 +51,7 @@ public class FireFighter implements BigIntegerEntity {
     @PESEL
     private String pesel;
 
-    @Pattern(regexp = LEGITIMATION_PATTERN  , message="{com.miniinf.OSPManager.validation.legitimation}")
+    @Pattern(regexp = LEGITIMATION_PATTERN, message = "{com.miniinf.OSPManager.validation.legitimation}")
     private String legitimation;
 
     private String rank;
@@ -100,5 +100,9 @@ public class FireFighter implements BigIntegerEntity {
 
     public void setSecondName(String secondName) {
         this.secondName = secondName;
+    }
+
+    public String getNameAndSurname() {
+        return name + secondName;
     }
 }

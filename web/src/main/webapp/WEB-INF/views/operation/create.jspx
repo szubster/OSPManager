@@ -9,7 +9,7 @@
   <jsp:output omit-xml-declaration="yes"/>
   <form:create id="fc_com_Operation" modelAttribute="entity" path="/operation/create">
     <field:input field="truckCodeName" id="c_com_Operation_truckCodeName" min="2" required="true"/>
-    <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"
-                  multiple="true" itemValue="id" itemLabel="name"/>
+      <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"
+                    multiple="true" itemValue="id" itemLabel="nameAndSurname"/>
   </form:create>
 </div>
