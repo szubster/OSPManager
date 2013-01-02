@@ -28,6 +28,7 @@ public class InspectionEquipmentController extends AbstractController<Inspection
     @Autowired
     InspectionEquipmentRepository repository;
 
+
     public InspectionEquipmentController() {
         super(InspectionEquipment.class);
     }
