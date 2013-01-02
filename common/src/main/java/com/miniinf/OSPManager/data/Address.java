@@ -20,14 +20,14 @@ public class Address implements Serializable {
     private static final String POSTCODE_PATTERN = "\\d\\d-\\d\\d\\d";
 
     @NotNull
-    @Pattern(regexp = STREET_PATTERN)
+    @Pattern(regexp = STREET_PATTERN , message="{com.miniinf.OSPManager.validation.street}")
     private String street;
 
     @NotNull
-    @Pattern(regexp = CITY_PATTERN)
+    @Pattern(regexp = CITY_PATTERN , message="{com.miniinf.OSPManager.validation.city}")
     private String city;
 
-    @Pattern(regexp = POSTCODE_PATTERN)
+    @Pattern(regexp = POSTCODE_PATTERN , message="{com.miniinf.OSPManager.validation.postcode}")
     private String postCode;
 
     public String getCity() {

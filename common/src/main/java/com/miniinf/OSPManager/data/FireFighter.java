@@ -29,15 +29,15 @@ public class FireFighter implements BigIntegerEntity {
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = NAME_PATTERN)
+    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
     private String name;
 
-    @Pattern(regexp = NAME_PATTERN)
+    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
     private String secondName;
 
     @NotNull
     @Size(min = 3)
-    @Pattern(regexp = NAME_PATTERN)
+    @Pattern(regexp = NAME_PATTERN  , message="{com.miniinf.OSPManager.validation.name}")
     private String surname;
 
     @Past
@@ -51,7 +51,7 @@ public class FireFighter implements BigIntegerEntity {
     @PESEL
     private String pesel;
 
-    @Pattern(regexp = LEGITIMATION_PATTERN)
+    @Pattern(regexp = LEGITIMATION_PATTERN  , message="{com.miniinf.OSPManager.validation.legitimation}")
     private String legitimation;
 
     private String rank;

@@ -57,7 +57,7 @@ public class Operation implements BigIntegerEntity, Serializable {
     private String author;
 
     @NotNull
-    @Pattern(regexp = CODENAME_PATTERN)
+    @Pattern(regexp = CODENAME_PATTERN  , message="{com.miniinf.OSPManager.validation.codename}")
     private String truckCodeName;
 
     @Min(0)
