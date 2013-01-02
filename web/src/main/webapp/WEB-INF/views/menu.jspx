@@ -16,6 +16,10 @@
       <menu:item id="i_firefighter_new" messageCode="global_menu_new_wego" url="/firefighter/create"/>
       <menu:item id="i_firefighter_list" messageCode="global_menu_list_scy" url="/firefighter"/>
     </menu:category>
+    <menu:category id="c_operation">
+        <menu:item id="i_operation_new" messageCode="global_menu_new_wego" url="/operation/create"/>
+        <menu:item id="i_operation_list" messageCode="global_menu_list_scy" url="/operation"/>
+    </menu:category>
     <menu:category id="c_logowanie">
       <spring:url value="j_spring_security_check" var="logon"/>
 

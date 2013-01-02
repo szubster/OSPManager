@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition extends="default" name="operation">
+    <put-attribute name="body" value="/WEB-INF/views/operation/list.jspx"/>
+  </definition>
+  <definition extends="default" name="operation/create">
+    <put-attribute name="body" value="/WEB-INF/views/operation/create.jspx"/>
+  </definition>
+  <definition extends="default" name="operation/update/*">
+    <put-attribute name="body" value="/WEB-INF/views/operation/update.jspx"/>
+  </definition>
+  <definition extends="default" name="operation/*">
+    <put-attribute name="body" value="/WEB-INF/views/operation/show.jspx"/>
+  </definition>
+</tiles-definitions>
