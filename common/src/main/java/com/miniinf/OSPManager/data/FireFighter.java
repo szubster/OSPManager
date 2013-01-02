@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -41,8 +42,22 @@ public class FireFighter implements BigIntegerEntity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date birthDate;
 
+    @Valid
+    private Address address;
+
+
+    private String pesel;
+
     public BigInteger getId() {
         return id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getName() {

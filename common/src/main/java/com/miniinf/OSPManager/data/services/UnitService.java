@@ -6,6 +6,7 @@ package com.miniinf.OSPManager.data.services;
 
 import com.miniinf.OSPManager.data.Unit;
 import com.miniinf.OSPManager.data.repositories.UnitRepository;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
  * To change this template use File | Settings | File Templates.
  */
 @Component
-public class UnitService {
+public class UnitService implements InitializingBean {
     @Autowired
     UnitRepository repository;
 
@@ -41,5 +42,15 @@ public class UnitService {
     public int getCounter(){
         Unit entity = repository.findAll().get(0);
         return entity.getDepartureCounter();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        if(repository.count() == 0) {
+            Unit entity = new Unit();
+            entity.setDepartureCounter(1);
+            entity.setKSRGEntity("SP Mińsk");
+            repository.save(entity);
+        }
     }
 }
