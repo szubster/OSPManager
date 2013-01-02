@@ -47,6 +47,7 @@ public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
         try {
             result = applyLifecycleMethods(viewName, view);
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
         return (view.checkResource(locale) ? result : null);

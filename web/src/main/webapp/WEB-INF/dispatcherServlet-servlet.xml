@@ -21,12 +21,6 @@
     <property name="contentNegotiationManager">
       <bean class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
             p:favorPathExtension="true">
-        <property name="mediaTypes">
-          <props>
-            <prop key=".pdf">application/pdf</prop>
-            <prop key=".xls">application/vnd.ms-excel</prop>
-          </props>
-        </property>
       </bean>
     </property>
   </bean>
