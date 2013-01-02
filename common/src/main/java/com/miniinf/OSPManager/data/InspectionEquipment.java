@@ -4,6 +4,7 @@
 
 package com.miniinf.OSPManager.data;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,7 @@ import java.util.Date;
  * Time: 16:35
  * To change this template use File | Settings | File Templates.
  */
+@Document
 public class InspectionEquipment extends Equipment {
 
 

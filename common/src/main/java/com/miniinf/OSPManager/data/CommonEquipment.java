@@ -4,6 +4,8 @@
 
 package com.miniinf.OSPManager.data;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * Created with IntelliJ IDEA.
  * User: asus
@@ -11,6 +13,7 @@ package com.miniinf.OSPManager.data;
  * Time: 16:43
  * To change this template use File | Settings | File Templates.
  */
+@Document
 public class CommonEquipment extends Equipment {
 
     private int count;
