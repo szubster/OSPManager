@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.data;
@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  * Date: 05.11.12
  */
 @Document
-public class Operation implements BigIntegerEntity {
+public class Operation implements BigIntegerEntity, Serializable {
 
     @DBRef
     @Valid
@@ -74,7 +75,7 @@ public class Operation implements BigIntegerEntity {
         this.truck = truck;
     }
 
-    public static class FireFighter {
+    public static class FireFighter implements Serializable {
 
         private BigInteger id;
 
