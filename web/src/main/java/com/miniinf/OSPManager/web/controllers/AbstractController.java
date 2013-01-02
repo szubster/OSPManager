@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.web.controllers;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -117,11 +116,14 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     }
 
     @RequestMapping()
-    @ReportPath("/list")
+    @ReportPath("list")
     public
     @ModelAttribute("entities")
-    Page<E> list(@Min(1) @RequestParam(value = "page", defaultValue = "1", required = false) int page,
-                 @Min(1) @RequestParam(value = "size", defaultValue = "10", required = false) int size) {
+    Page<E> list(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
+                 @RequestParam(value = "size", defaultValue = "10", required = false) int size) {
+        if (size == -1) {
+            size = Integer.MAX_VALUE;
+        }
         return getRepository().findAll(new PageRequest(page - 1, size));
     }
 }
