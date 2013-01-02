@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.rest.controllers;
 
 import com.miniinf.OSPManager.data.FireTruck;
@@ -25,7 +29,7 @@ public class FireTruckController {
     public FireTruck addTruck(@RequestParam String number, @RequestParam String licensePlate) {
         FireTruck ft = new FireTruck();
         ft.setLicensePlate(licensePlate);
-        ft.setNumber(number);
+        //ft.setNumber(number);
         ft = repository.save(ft);
         return ft;
     }

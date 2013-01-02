@@ -1,70 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="excel" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e9994b81-821a-4733-8850-619f3077fd0e">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<subDataset name="table_dataset" uuid="5eea31f7-ca09-4f4c-90b8-3da813af2bde">
-		<field name="name" class="java.lang.String"/>
-	</subDataset>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band height="79" splitType="Stretch">
-			<componentElement>
-				<reportElement uuid="4d733f73-02ef-439a-8925-f6fe88089f54" x="251" y="0" width="360" height="140"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="table_dataset" uuid="6499f155-566e-4a51-aab8-a6895c772af5">
-						<dataSourceExpression><![CDATA[$F{name}]]></dataSourceExpression>
-					</datasetRun>
-					<jr:column uuid="e29de11f-48f3-4d76-9eb6-d688ab4c54e0" width="90">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-					<jr:column uuid="ac929297-021b-47df-9097-8520eb645aa3" width="90">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-					<jr:column uuid="5f34eca7-554c-4c51-97cd-a1a6d253d899" width="90">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-					<jr:column uuid="6ebafbc6-26c6-4fe0-b11f-f5f0395da192" width="90">
-						<jr:tableHeader height="30"/>
-						<jr:tableFooter height="30"/>
-						<jr:columnHeader height="30"/>
-						<jr:columnFooter height="30"/>
-						<jr:detailCell height="20"/>
-					</jr:column>
-				</jr:table>
-			</componentElement>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
+<!--
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="excel" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20"
+              bottomMargin="20" uuid="e9994b81-821a-4733-8850-619f3077fd0e">
+  <property name="ireport.zoom" value="1.0"/>
+  <property name="ireport.x" value="0"/>
+  <property name="ireport.y" value="0"/>
+  <subDataset name="table_dataset" uuid="5eea31f7-ca09-4f4c-90b8-3da813af2bde">
+    <field name="name" class="java.lang.String"/>
+  </subDataset>
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <title>
+    <band height="79" splitType="Stretch">
+      <componentElement>
+        <reportElement uuid="4d733f73-02ef-439a-8925-f6fe88089f54" x="251" y="0" width="360" height="140"/>
+        <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+          <datasetRun subDataset="table_dataset" uuid="6499f155-566e-4a51-aab8-a6895c772af5">
+            <dataSourceExpression><![CDATA[$F{name}]]></dataSourceExpression>
+          </datasetRun>
+          <jr:column uuid="e29de11f-48f3-4d76-9eb6-d688ab4c54e0" width="90">
+            <jr:tableHeader height="30"/>
+            <jr:tableFooter height="30"/>
+            <jr:columnHeader height="30"/>
+            <jr:columnFooter height="30"/>
+            <jr:detailCell height="20"/>
+          </jr:column>
+          <jr:column uuid="ac929297-021b-47df-9097-8520eb645aa3" width="90">
+            <jr:tableHeader height="30"/>
+            <jr:tableFooter height="30"/>
+            <jr:columnHeader height="30"/>
+            <jr:columnFooter height="30"/>
+            <jr:detailCell height="20"/>
+          </jr:column>
+          <jr:column uuid="5f34eca7-554c-4c51-97cd-a1a6d253d899" width="90">
+            <jr:tableHeader height="30"/>
+            <jr:tableFooter height="30"/>
+            <jr:columnHeader height="30"/>
+            <jr:columnFooter height="30"/>
+            <jr:detailCell height="20"/>
+          </jr:column>
+          <jr:column uuid="6ebafbc6-26c6-4fe0-b11f-f5f0395da192" width="90">
+            <jr:tableHeader height="30"/>
+            <jr:tableFooter height="30"/>
+            <jr:columnHeader height="30"/>
+            <jr:columnFooter height="30"/>
+            <jr:detailCell height="20"/>
+          </jr:column>
+        </jr:table>
+      </componentElement>
+    </band>
+  </title>
+  <pageHeader>
+    <band height="35" splitType="Stretch"/>
+  </pageHeader>
+  <columnHeader>
+    <band height="61" splitType="Stretch"/>
+  </columnHeader>
+  <detail>
+    <band height="125" splitType="Stretch"/>
+  </detail>
+  <columnFooter>
+    <band height="45" splitType="Stretch"/>
+  </columnFooter>
+  <pageFooter>
+    <band height="54" splitType="Stretch"/>
+  </pageFooter>
+  <summary>
+    <band height="42" splitType="Stretch"/>
+  </summary>
 </jasperReport>

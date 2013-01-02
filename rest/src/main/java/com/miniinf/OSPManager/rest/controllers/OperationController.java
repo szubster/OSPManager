@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 package com.miniinf.OSPManager.rest.controllers;
 
 import com.miniinf.OSPManager.data.Address;
@@ -69,9 +73,9 @@ public class OperationController {
                             @RequestParam(value = "date", required = false) Date date) {
         Operation op = operationRepository.findOne(id);
         if (date != null)
-            op.setDate(date);
-        if (place != null)
-            op.setPlace(place);
+            //op.setDate(date);
+            if (place != null)
+                op.setPlace(place);
         op = operationRepository.save(op);
         return op;
     }

@@ -7,21 +7,18 @@ package com.miniinf.OSPManager.jasper;
 import com.miniinf.OSPManager.data.Entity;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperReport;
-import org.springframework.context.ApplicationContextException;
 import org.springframework.data.domain.Page;
-import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
+import org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView;
 
-import java.io.IOException;
 import java.util.Collection;
 
 /**
  * Created by Tomasz Szuba
  * Date: 18.12.12
  */
-public class JRPdfViewWithPageSupport extends JasperReportsPdfView {
+public class JRXlsWithPageSupport extends JasperReportsXlsView {
 
-    private static final Class[] REPORT_DATA_TYPES = new Class[]
-                                                             {Collection.class, Object[].class, Page.class, Entity.class};
+    private static final Class[] REPORT_DATA_TYPES = new Class[]{Collection.class, Object[].class, Page.class, Entity.class};
 
     @Override
     protected Class[] getReportDataTypes() {
@@ -42,14 +39,7 @@ public class JRPdfViewWithPageSupport extends JasperReportsPdfView {
 
     @Override
     protected JasperReport loadReport() {
-        try {
-            return super.loadReport();
-        } catch (ApplicationContextException e) {
-            if (e.getCause() instanceof IOException) {
-                return null;
-            }
-            throw e;
-        }
+        return super.loadReport();
     }
 
     @Override
