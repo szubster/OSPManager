@@ -27,7 +27,6 @@ public class Address implements Serializable {
     @Pattern(regexp = CITY_PATTERN)
     private String city;
 
-    @NotNull
     @Pattern(regexp = POSTCODE_PATTERN)
     private String postCode;
 

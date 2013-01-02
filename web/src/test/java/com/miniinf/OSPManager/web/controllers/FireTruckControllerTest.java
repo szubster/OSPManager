@@ -43,7 +43,7 @@ public class FireTruckControllerTest {
         FireTruckRepository repository = mock(FireTruckRepository.class);
         FireTruck ff = new FireTruck();
         ff.setLicensePlate("ABC");
-        ff.setNumber("1234");
+        ff.setCodeName("123-44");
         BindingResult br = mock(BindingResult.class);
         Model m = mock(Model.class);
         when(br.hasErrors()).thenReturn(true);
@@ -59,7 +59,7 @@ public class FireTruckControllerTest {
         FireTruckRepository repository = mock(FireTruckRepository.class);
         FireTruck ff = new FireTruck();
         ff.setLicensePlate("ABC");
-        ff.setNumber("1234");
+        ff.setCodeName("123-44");
         BindingResult br = mock(BindingResult.class);
         Model m = mock(Model.class);
         when(br.hasErrors()).thenReturn(true);

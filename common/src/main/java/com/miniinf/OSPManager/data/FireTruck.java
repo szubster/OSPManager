@@ -7,6 +7,9 @@ package com.miniinf.OSPManager.data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.math.BigInteger;
 
 /**
@@ -16,23 +19,30 @@ import java.math.BigInteger;
 @Document
 public class FireTruck implements BigIntegerEntity {
 
+    private static final String CODENAME_PATTERN = "\\d\\d\\d-\\d\\d";
+
     @Id
     private BigInteger id;
 
-    private String number;
-
     private String licensePlate;
+
+    @Min(0)
+    private int milage;
+
+    @NotNull
+    @Pattern(regexp = CODENAME_PATTERN)
+    private String codeName;
 
     public BigInteger getId() {
         return id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getCodeName() {
+        return codeName;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setCodeName(String number) {
+        this.codeName = number;
     }
 
     public String getLicensePlate() {
@@ -41,5 +51,12 @@ public class FireTruck implements BigIntegerEntity {
 
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
+    }
+
+    public void setMilage(int milage){
+        this.milage = milage;
+    }
+    public int getMilage(){
+        return this.milage;
     }
 }
