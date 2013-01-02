@@ -4,6 +4,7 @@
 
 package com.miniinf.OSPManager.data;
 
+import com.miniinf.OSPManager.validation.PESEL;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,11 +16,13 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Document
 public class FireFighter implements BigIntegerEntity {
 
     private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
+    private static final String LEGITIMATION_PATTERN = "\\d+/\\d{4}";
 
     @Id
     private BigInteger id;
@@ -45,8 +48,15 @@ public class FireFighter implements BigIntegerEntity {
     @Valid
     private Address address;
 
-
+    @PESEL
     private String pesel;
+
+    @Pattern(regexp = LEGITIMATION_PATTERN)
+    private String legitimation;
+
+    private String rank;
+
+    private List<String> awards;
 
     public BigInteger getId() {
         return id;
