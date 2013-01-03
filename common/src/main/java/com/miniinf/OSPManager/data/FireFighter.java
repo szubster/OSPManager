@@ -5,6 +5,7 @@
 package com.miniinf.OSPManager.data;
 
 import com.miniinf.OSPManager.validation.PESEL;
+import org.joda.time.LocalDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,13 +16,13 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigInteger;
-import java.util.Date;
 import java.util.List;
 
 @Document
 public class FireFighter implements BigIntegerEntity {
 
     private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
+
     private static final String LEGITIMATION_PATTERN = "\\d+/\\d{4}";
 
     @Id
@@ -43,7 +44,7 @@ public class FireFighter implements BigIntegerEntity {
     @Past
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Valid
     private Address address;
@@ -86,11 +87,11 @@ public class FireFighter implements BigIntegerEntity {
         this.surname = surname;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

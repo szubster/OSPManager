@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -16,9 +16,20 @@
   <context:annotation-config/>
   <context:component-scan base-package="com.miniinf.OSPManager"/>
   <mongo:mongo host="localhost" port="27017"/>
+  <mongo:mapping-converter id="converter">
+    <mongo:custom-converters>
+      <mongo:converter>
+        <bean class="com.miniinf.OSPManager.data.converters.LocalDateToDateConverter"/>
+      </mongo:converter>
+      <mongo:converter>
+        <bean class="com.miniinf.OSPManager.data.converters.DateToLocalDateConverter"/>
+      </mongo:converter>
+    </mongo:custom-converters>
+  </mongo:mapping-converter>
+  <mongo:db-factory dbname="manager" id="mongoDbFactory"/>
   <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-    <constructor-arg ref="mongo"/>
-    <constructor-arg name="databaseName" value="manager"/>
+    <constructor-arg ref="mongoDbFactory"/>
+    <constructor-arg name="mongoConverter" ref="converter"/>
   </bean>
   <mongo:repositories base-package="com.miniinf.OSPManager.data.repositories"/>
 </beans>

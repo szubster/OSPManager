@@ -4,19 +4,17 @@
 
 package com.miniinf.OSPManager.data;
 
+import org.joda.time.Duration;
+import org.joda.time.Interval;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +24,6 @@ import java.util.Map;
  */
 @Document
 public class Operation implements BigIntegerEntity, Serializable {
-
 
     @Id
     private BigInteger id;
@@ -45,7 +42,7 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private String[] cooperatingUnits;
 
-    private Map<String,Integer> means;
+    private Map<String, Integer> means;
 
     private String declarant;
 
@@ -56,7 +53,7 @@ public class Operation implements BigIntegerEntity, Serializable {
     private String author;
 
     @NotNull
-    @Pattern(regexp = FireTruck.CODENAME_PATTERN  , message="{com.miniinf.OSPManager.validation.codename}")
+    @Pattern(regexp = FireTruck.CODENAME_PATTERN, message = "{com.miniinf.OSPManager.validation.codename}")
     private String truckCodeName;
 
     @Min(0)
@@ -64,13 +61,7 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private int mileageEnd;
 
-    @Past
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private Date departureDateTime;
-
-    @Past
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private Date arrivalDateTime;
+    private Interval interval;
 
     private List<FireFighter> participants;
 
@@ -190,20 +181,12 @@ public class Operation implements BigIntegerEntity, Serializable {
         this.mileageEnd = mileageEnd;
     }
 
-    public Date getDepartureDateTime() {
-        return departureDateTime;
+    public Interval getInterval() {
+        return interval;
     }
 
-    public void setDepartureDateTime(Date departureDateTime) {
-        this.departureDateTime = departureDateTime;
-    }
-
-    public Date getArrivalDateTime() {
-        return arrivalDateTime;
-    }
-
-    public void setArrivalDateTime(Date arrivalDateTime) {
-        this.arrivalDateTime = arrivalDateTime;
+    public void setInterval(Interval interval) {
+        this.interval = interval;
     }
 
     public Map<String, Integer> getMeans() {
@@ -222,11 +205,9 @@ public class Operation implements BigIntegerEntity, Serializable {
 
         private String surname;
 
-        @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-        private Date operatingTime;
+        private Duration operatingTime;
 
-        @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-        private Date paidTime;
+        private Duration paidTime;
 
         public BigInteger getId() {
             return id;
@@ -252,19 +233,19 @@ public class Operation implements BigIntegerEntity, Serializable {
             this.surname = surname;
         }
 
-        public Date getOperatingTime() {
+        public Duration getOperatingTime() {
             return operatingTime;
         }
 
-        public void setOperatingTime(Date operatingTime) {
+        public void setOperatingTime(Duration operatingTime) {
             this.operatingTime = operatingTime;
         }
 
-        public Date getPaidTime() {
+        public Duration getPaidTime() {
             return paidTime;
         }
 
-        public void setPaidTime(Date paidTime) {
+        public void setPaidTime(Duration paidTime) {
             this.paidTime = paidTime;
         }
     }
