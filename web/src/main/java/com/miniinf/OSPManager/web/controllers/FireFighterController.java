@@ -58,19 +58,17 @@ public class FireFighterController extends AbstractController<FireFighterReposit
                 uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
                 entity.setSurname(StringUtils.capitalize(entity.getSurname()));
             }
-            if (bindingResult.getFieldErrorCount("address") > 0) {
-                if (bindingResult.getFieldErrorCount("address.street") > 0) {
-                    uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
-                    Address ad = entity.getAddress();
-                    ad.setStreet(StringUtils.capitalize(ad.getStreet()));
-                    entity.setAddress(ad);
-                }
-                if (bindingResult.getFieldErrorCount("address.city") > 0) {
-                    uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
-                    Address ad = entity.getAddress();
-                    ad.setCity(StringUtils.capitalize(ad.getCity()));
-                    entity.setAddress(ad);
-                }
+            if (bindingResult.getFieldErrorCount("address.street") > 0) {
+                uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
+                Address ad = entity.getAddress();
+                ad.setStreet(StringUtils.capitalize(ad.getStreet()));
+                entity.setAddress(ad);
+            }
+            if (bindingResult.getFieldErrorCount("address.city") > 0) {
+                uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
+                Address ad = entity.getAddress();
+                ad.setCity(StringUtils.capitalize(ad.getCity()));
+                entity.setAddress(ad);
             }
         }
         return super.create(entity, bindingResult, uiModel);

@@ -10,3 +10,4 @@ target/
 !.idea/encodings.xml
 !.idea/copyright/
 .idea/*
+*.iml
