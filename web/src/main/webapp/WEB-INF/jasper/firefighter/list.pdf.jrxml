@@ -12,10 +12,11 @@
   <property name="ireport.x" value="0"/>
   <property name="ireport.y" value="0"/>
   <field name="name" class="java.lang.String"/>
+  <field name="id" class="java.math.BigInteger"/>
   <field name="secondName" class="java.lang.String"/>
   <field name="surname" class="java.lang.String"/>
   <group name="Group1">
-    <groupExpression><![CDATA[$F{name}]]></groupExpression>
+    <groupExpression><![CDATA[$F{id}]]></groupExpression>
     <groupHeader>
       <band height="23">
         <textField>

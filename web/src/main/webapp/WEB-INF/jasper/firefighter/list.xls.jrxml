@@ -25,7 +25,7 @@
   <field name="name" class="java.lang.String"/>
   <field name="surname" class="java.lang.String"/>
   <field name="secondName" class="java.lang.String"/>
-  <field name="birthDate" class="java.util.Date"/>
+  <field name="birthDate" class="org.joda.time.LocalDate"/>
   <field name="address" class="com.miniinf.OSPManager.data.Address"/>
   <field name="pesel" class="java.lang.String"/>
   <field name="legitimation" class="java.lang.String"/>
@@ -116,7 +116,7 @@
                        height="20"/>
         <textElement/>
         <textFieldExpression>
-          <![CDATA[""+$F{birthDate}.getDate()+"."+ ($F{birthDate}.getMonth()+1)+"."+($F{birthDate}.getYear()+1900)]]></textFieldExpression>
+          <![CDATA[$F{birthDate}]]></textFieldExpression>
       </textField>
       <textField>
         <reportElement uuid="2d2e0e21-c721-43e4-a48e-ede21abf6bd9" style="table_R" x="400" y="0" width="100"
