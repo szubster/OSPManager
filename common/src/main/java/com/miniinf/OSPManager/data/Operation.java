@@ -29,7 +29,7 @@ public class Operation implements BigIntegerEntity, Serializable {
     private BigInteger id;
 
     @Valid
-    private Address place;
+    private Address place = new Address();
 
     @Min(0)
     private int number;

@@ -7,7 +7,8 @@
      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_Operation" modelAttribute="entity" path="/operation/create">
+    <form:create id="fc_com_Operation" modelAttribute="entity" path="/operation/create" title="global_menu_new_we"
+                 label="menu_item_operation_new_label">
         <field:input field="truckCodeName" id="c_com_Operation_truckCodeName" min="2" required="true"/>
         <field:input field="number" id="c_com_Operation_number" min="2" required="true"/>
         <field:input field="owner" id="c_com_Operation_owner" min="2" required="true"/>

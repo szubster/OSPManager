@@ -13,9 +13,9 @@
         <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
         <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
                         dateTimePattern="yyyy-MM-dd"/>
-        <field:input field="address.street" id="c_com_Firefighter_address_street"/>
-        <field:input field="address.city" id="c_com_Firefighter_address_city"/>
-        <field:input field="address.postCode" id="c_com_Firefighter_address_postCode"/>
+        <field:input field="address.street" id="c_com_Address_street"/>
+        <field:input field="address.city" id="c_com_Address_city"/>
+        <field:input field="address.postCode" id="c_com_Address_postCode"/>
         <field:input field="pesel" id="c_com_Firefighter_pesel"/>
         <field:input field="legitimation" id="c_com_Firefighter_legitimation"/>
         <field:input field="rank" id="c_com_Firefighter_rank"/>

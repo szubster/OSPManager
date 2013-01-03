@@ -47,7 +47,7 @@ public class FireFighter implements BigIntegerEntity {
     private LocalDate birthDate;
 
     @Valid
-    private Address address;
+    private Address address = new Address();
 
     @PESEL
     private String pesel;

@@ -13,7 +13,8 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class PESELValidator implements ConstraintValidator<PESEL, String> {
     @Override
-    public void initialize(PESEL constraintAnnotation) {}
+    public void initialize(PESEL constraintAnnotation) {
+    }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
@@ -40,6 +41,7 @@ public class PESELValidator implements ConstraintValidator<PESEL, String> {
                     break;
                 case 2:
                     checksum += digit * 7;
+                    break;
                 case 3:
                     checksum += digit * 9;
             }

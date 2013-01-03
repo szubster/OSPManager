@@ -7,7 +7,8 @@
      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create">
+    <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create" title="global_menu_new_wego"
+                 label="menu_item_firefighter_new_a_label">
         <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
         <field:input field="secondName" id="c_com_Firefighter_secondname"/>
         <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
