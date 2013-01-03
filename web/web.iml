@@ -31,7 +31,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
-      <excludeFolder url="file://$MODULE_DIR$/target/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/target/web-1.0" />
     </content>
     <orderEntry type="inheritedJdk" />

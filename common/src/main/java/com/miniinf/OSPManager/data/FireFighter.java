@@ -105,4 +105,36 @@ public class FireFighter implements BigIntegerEntity {
     public String getNameAndSurname() {
         return name + secondName;
     }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getLegitimation() {
+        return legitimation;
+    }
+
+    public void setLegitimation(String legitimation) {
+        this.legitimation = legitimation;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public List<String> getAwards() {
+        return awards;
+    }
+
+    public void setAwards(List<String> awards) {
+        this.awards = awards;
+    }
 }
