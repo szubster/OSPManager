@@ -11,6 +11,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -48,7 +49,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
                     break;
                 default:
                     throw new IllegalStateException("Classes extending from AbstractController " +
-                                                            "cannot have more than one mapping");
+                            "cannot have more than one mapping");
             }
         } else {
             basePath = "";
@@ -70,6 +71,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
@@ -79,6 +81,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         return saveAndRedirect(entity, uiModel);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create")
     public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
         uiModel.addAttribute("entity", entityClass.newInstance());
@@ -94,10 +97,12 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         getRepository().delete(id);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping("/update/{entity}")
     public void edit(@ModelAttribute("entity") E entity) {
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/update/{entity}", method = RequestMethod.PUT)
     public String update(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
@@ -124,4 +129,6 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         }
         return getRepository().findAll(new PageRequest(page - 1, size));
     }
+
+
 }
