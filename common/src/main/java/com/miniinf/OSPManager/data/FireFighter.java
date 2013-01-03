@@ -104,7 +104,7 @@ public class FireFighter implements BigIntegerEntity {
     }
 
     public String getNameAndSurname() {
-        return name + secondName;
+        return name + " " + surname;
     }
 
     public String getPesel() {
