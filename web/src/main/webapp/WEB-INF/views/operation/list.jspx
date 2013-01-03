@@ -12,6 +12,8 @@
             <table:column property="number" id="c_com_Operation_number"/>
             <table:column id="c_com_Operation_truckCodeName" property="truckCodeName"/>
             <table:column id="c_com_Address" property="place"/>
+            <table:column id="c_com_Interval_StartDate" property="interval.start"/>
+            <table:column id="c_com_Operation_firefighters_Count" property="firefighters.Count"/>
 
 
         </table:table>

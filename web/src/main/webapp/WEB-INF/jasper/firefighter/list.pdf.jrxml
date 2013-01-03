@@ -15,18 +15,11 @@
   <field name="id" class="java.math.BigInteger"/>
   <field name="secondName" class="java.lang.String"/>
   <field name="surname" class="java.lang.String"/>
+  <field name="birthDate" class="org.joda.time.LocalDate"/>
   <group name="Group1">
     <groupExpression><![CDATA[$F{id}]]></groupExpression>
     <groupHeader>
       <band height="23">
-        <textField>
-          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="2" width="455" height="20"
-                         forecolor="#006699"/>
-          <textElement>
-            <font size="16" isBold="true"/>
-          </textElement>
-          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
-        </textField>
         <staticText>
           <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="2" width="100" height="20"
                          forecolor="#666666"/>
@@ -58,14 +51,6 @@
           <text><![CDATA[Drugie imię]]></text>
         </staticText>
         <textField>
-          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="0" width="455" height="20"
-                         forecolor="#006699"/>
-          <textElement>
-            <font size="16" isBold="true"/>
-          </textElement>
-          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
-        </textField>
-        <textField>
           <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
           <textElement/>
           <textFieldExpression><![CDATA[$F{secondName}]]></textFieldExpression>
@@ -88,17 +73,31 @@
           <text><![CDATA[Nazwisko]]></text>
         </staticText>
         <textField>
-          <reportElement uuid="105e6cf9-78b1-4e4f-a350-91c1cd404830" x="100" y="0" width="455" height="20"
-                         forecolor="#006699"/>
-          <textElement>
-            <font size="16" isBold="true"/>
-          </textElement>
-          <textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
-        </textField>
-        <textField>
           <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
           <textElement/>
           <textFieldExpression><![CDATA[$F{surname}]]></textFieldExpression>
+        </textField>
+      </band>
+    </groupHeader>
+    <groupFooter>
+      <band/>
+    </groupFooter>
+  </group>
+  <group name="Group4">
+    <groupHeader>
+      <band height="20">
+        <staticText>
+          <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="0" width="100" height="20"
+                         forecolor="#666666"/>
+          <textElement>
+            <font size="12"/>
+          </textElement>
+          <text><![CDATA[Data urodzenia]]></text>
+        </staticText>
+        <textField>
+          <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
+          <textElement/>
+          <textFieldExpression><![CDATA[$F{birthDate}]]></textFieldExpression>
         </textField>
       </band>
     </groupHeader>

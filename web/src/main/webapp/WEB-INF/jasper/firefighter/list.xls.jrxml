@@ -26,7 +26,9 @@
   <field name="surname" class="java.lang.String"/>
   <field name="secondName" class="java.lang.String"/>
   <field name="birthDate" class="org.joda.time.LocalDate"/>
-  <field name="address" class="com.miniinf.OSPManager.data.Address"/>
+  <field name="address.street" class="java.lang.String"/>
+  <field name="address.postCode" class="java.lang.String"/>
+  <field name="address.city" class="java.lang.String"/>
   <field name="pesel" class="java.lang.String"/>
   <field name="legitimation" class="java.lang.String"/>
   <field name="rank" class="java.lang.String"/>
@@ -58,28 +60,28 @@
         <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="400" y="0" width="100"
                        height="20"/>
         <textElement/>
-        <text><![CDATA[Adres]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="500" y="0" width="100"
-                       height="20"/>
-        <textElement/>
-        <text><![CDATA[Pesel]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="600" y="0" width="100"
-                       height="20"/>
-        <textElement/>
-        <text><![CDATA[Legitymacja]]></text>
+        <text><![CDATA[Ulica]]></text>
       </staticText>
       <staticText>
         <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="700" y="0" width="100"
                        height="20"/>
         <textElement/>
-        <text><![CDATA[Stopień]]></text>
+        <text><![CDATA[Pesel]]></text>
       </staticText>
       <staticText>
         <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="800" y="0" width="100"
+                       height="20"/>
+        <textElement/>
+        <text><![CDATA[Legitymacja]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="900" y="0" width="100"
+                       height="20"/>
+        <textElement/>
+        <text><![CDATA[Stopień]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="1000" y="0" width="100"
                        height="20"/>
         <textElement/>
         <text><![CDATA[Nagrody]]></text>
@@ -90,63 +92,86 @@
         <textElement/>
         <text><![CDATA[Data urodzenia]]></text>
       </staticText>
+      <staticText>
+        <reportElement uuid="1d0afcca-a291-40eb-ae38-cc0c60aa0e12" style="table_CH" x="500" y="0" width="100"
+                       height="20"/>
+        <textElement/>
+        <text><![CDATA[Kod pocztowy]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="27001099-154f-4508-9710-3cb5cf5e613d" style="table_CH" mode="Opaque" x="600" y="0"
+                       width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Miasto]]></text>
+      </staticText>
     </band>
   </columnHeader>
   <detail>
     <band height="20" splitType="Stretch">
-      <textField>
+      <textField isBlankWhenNull="true">
         <reportElement uuid="dea9ce08-5551-4ad2-9f3a-08ad86e1f38b" style="table_R" x="0" y="0" width="100" height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
       </textField>
-      <textField>
+      <textField isBlankWhenNull="true">
         <reportElement uuid="d36e0246-346f-40da-b8e6-d6caf9da3430" style="table_R" x="200" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{surname}]]></textFieldExpression>
       </textField>
-      <textField>
+      <textField isBlankWhenNull="true">
         <reportElement uuid="80b9fa52-0a11-4fb0-b80d-898a5010b5b9" style="table_R" x="100" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{secondName}]]></textFieldExpression>
       </textField>
-      <textField>
+      <textField isBlankWhenNull="true">
         <reportElement uuid="1957bf63-1e54-4a9f-b17d-23e3f36665a7" style="table_R" x="300" y="0" width="100"
                        height="20"/>
         <textElement/>
-        <textFieldExpression>
-          <![CDATA[$F{birthDate}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$F{birthDate}]]></textFieldExpression>
       </textField>
-      <textField>
+      <textField isBlankWhenNull="true">
         <reportElement uuid="2d2e0e21-c721-43e4-a48e-ede21abf6bd9" style="table_R" x="400" y="0" width="100"
                        height="20"/>
         <textElement/>
-        <textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$F{address.street}]]></textFieldExpression>
       </textField>
-      <textField>
-        <reportElement uuid="71c85a84-503c-421e-b715-dd0be113302b" style="table_R" x="500" y="0" width="100"
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="71c85a84-503c-421e-b715-dd0be113302b" style="table_R" x="700" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{pesel}]]></textFieldExpression>
       </textField>
-      <textField>
-        <reportElement uuid="63b08c6b-d90c-4565-998f-beea8652c639" style="table_R" x="700" y="0" width="100"
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="63b08c6b-d90c-4565-998f-beea8652c639" style="table_R" x="900" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{rank}]]></textFieldExpression>
       </textField>
-      <textField>
-        <reportElement uuid="b91ec7c9-484d-42ac-b818-7eb8a77d3861" style="table_R" x="600" y="0" width="100"
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="b91ec7c9-484d-42ac-b818-7eb8a77d3861" style="table_R" x="800" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{legitimation}]]></textFieldExpression>
       </textField>
-      <textField>
-        <reportElement uuid="fd1cd1db-3ab3-4b1d-ba80-3956b9ba5301" style="table_R" x="800" y="0" width="100"
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="fd1cd1db-3ab3-4b1d-ba80-3956b9ba5301" style="table_R" x="1000" y="0" width="100"
                        height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[StringUtils.join($F{awards}, "; ")]]></textFieldExpression>
+      </textField>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="5d4fa0a8-d41c-45ad-b8a3-9e9b7231dc72" style="table_R" x="500" y="0" width="100"
+                       height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{address.postCode}]]></textFieldExpression>
+      </textField>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="79d1bbe0-aeb4-4e64-a333-ed9fc0e8ccd9" style="table_R" x="600" y="0" width="100"
+                       height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{address.city}]]></textFieldExpression>
       </textField>
     </band>
   </detail>

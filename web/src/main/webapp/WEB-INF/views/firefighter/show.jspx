@@ -12,7 +12,9 @@
         <field:display field="secondName" id="c_com_Firefighter_secondname" object="${entity}"/>
         <field:display field="surname" id="c_com_Firefighter_surname" object="${entity}"/>
         <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${entity}" date="true"/>
-        <field:display field="address" id="c_com_Firefighter_address" object="${entity}"/>
+        <field:display field="address.street" id="c_com_Address_Street" object="${entity}"/>
+        <field:display field="address.postCode" id="c_com_Address_postCode" object="${entity}"/>
+        <field:display field="address.city" id="c_com_Address_City" object="${entity}"/>
         <field:display field="pesel" id="c_com_Firefighter_pesel" object="${entity}"/>
         <field:display field="legitimation" id="c_com_Firefighter_legitimation" object="${entity}"/>
         <field:display field="rank" id="c_com_Firefighter_rank" object="${entity}"/>

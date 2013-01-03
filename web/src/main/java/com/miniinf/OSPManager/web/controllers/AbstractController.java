@@ -75,6 +75,8 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
+            System.out.print(bindingResult);
+            System.out.print(bindingResult.getAllErrors());
             uiModel.addAttribute("entity", entity);
             return basePath + "/create";
         }
