@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition extends="default" name="unit">
+    <put-attribute name="body" value="/WEB-INF/views/unit/list.jspx"/>
+  </definition>
+  <definition extends="default" name="unit/addrank">
+    <put-attribute name="body" value="/WEB-INF/views/unit/addrank.jspx"/>
+  </definition>
+  <definition extends="default" name="unit/addcourse">
+    <put-attribute name="body" value="/WEB-INF/views/unit/addcourse.jspx"/>
+  </definition>
+  <definition extends="default" name="unit/addaward">
+    <put-attribute name="body" value="/WEB-INF/views/unit/addaward.jspx"/>
+  </definition>
+</tiles-definitions>

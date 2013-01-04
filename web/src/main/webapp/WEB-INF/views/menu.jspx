@@ -5,46 +5,52 @@
 
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0"
      xmlns:spring="http://www.springframework.org/tags" xmlns:sec="http://www.springframework.org/security/tags">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <menu:menu id="_menu">
-        <menu:category id="c_firetruck">
-            <menu:item id="i_firetruck_new" messageCode="global_menu_new_wy" url="/firetruck/create"/>
-            <menu:item id="i_firetruck_list" messageCode="global_menu_list_stkie" url="/firetruck"/>
-        </menu:category>
-        <menu:category id="c_firefighter">
-            <menu:item id="i_firefighter_new_a" messageCode="global_menu_new_wego" url="/firefighter/create"/>
-            <menu:item id="i_firefighter_list" messageCode="global_menu_list_scy" url="/firefighter"/>
-        </menu:category>
-        <menu:category id="c_operation">
-            <menu:item id="i_operation_new" messageCode="global_menu_new_we" url="/operation/create"/>
-            <menu:item id="i_operation_list" messageCode="global_menu_list_stkie" url="/operation"/>
-        </menu:category>
-        <sec:authorize access="!isAuthenticated()">
-            <menu:category id="c_logowanie">
-                <spring:url value="j_spring_security_check" var="logon"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <menu:menu id="_menu">
+    <menu:category id="c_firetruck">
+      <menu:item id="i_firetruck_new" messageCode="global_menu_new_wy" url="/firetruck/create"/>
+      <menu:item id="i_firetruck_list" messageCode="global_menu_list_stkie" url="/firetruck"/>
+    </menu:category>
+    <menu:category id="c_firefighter">
+      <menu:item id="i_firefighter_new_a" messageCode="global_menu_new_wego" url="/firefighter/create"/>
+      <menu:item id="i_firefighter_list" messageCode="global_menu_list_scy" url="/firefighter"/>
+    </menu:category>
+    <menu:category id="c_operation">
+      <menu:item id="i_operation_new" messageCode="global_menu_new_we" url="/operation/create"/>
+      <menu:item id="i_operation_list" messageCode="global_menu_list_stkie" url="/operation"/>
+    </menu:category>
+    <menu:category id="c_unit">
+      <menu:item id="i_course_new" messageCode="global_menu_new_we" url="/unit/addcourse"/>
+      <menu:item id="i_award_new" messageCode="global_menu_new_wa" url="/unit/addaward"/>
+      <menu:item id="i_rank_new" messageCode="global_menu_new_wy" url="/unit/addrank"/>
+      <menu:item id="i_unit_new" messageCode="global_menu_list_units" url="/unit"/>
+    </menu:category>
+    <sec:authorize access="!isAuthenticated()">
+      <menu:category id="c_logowanie">
+        <spring:url value="j_spring_security_check" var="logon"/>
 
-                <div><br/>
+        <div><br/>
 
-                    <form name='f' action="${logon}" method='POST'>
-                        <div class="divLogLabels">
-                            Użytkownik: <br/>
-                            <br/>
-                            Hasło:
-                        </div>
-                        <div class="divLogData">
-                            <input type='text' name='j_username' value='' style="width:130px"/> <br/>
-                            <input type='password' name='j_password' style="width:130px"/>
-                        </div>
-                        <div class="submit">
-                            <td><input name="submit" type="submit"/>
-                            </td>
-                            <td><input name="reset" type="reset"/>
-                            </td>
-                        </div>
-                    </form>
-                </div>
-            </menu:category>
-        </sec:authorize>
-    </menu:menu>
+          <form name='f' action="${logon}" method='POST'>
+            <div class="divLogLabels">
+              Użytkownik: <br/>
+              <br/>
+              Hasło:
+            </div>
+            <div class="divLogData">
+              <input type='text' name='j_username' value='' style="width:130px"/> <br/>
+              <input type='password' name='j_password' style="width:130px"/>
+            </div>
+            <div class="submit">
+              <td><input name="submit" type="submit"/>
+              </td>
+              <td><input name="reset" type="reset"/>
+              </td>
+            </div>
+          </form>
+        </div>
+      </menu:category>
+    </sec:authorize>
+  </menu:menu>
 </div>

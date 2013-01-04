@@ -121,7 +121,8 @@ table.navigation {
 }
 
 label {
-    width: 100px;
+    width: 150px;
+    height: 15px;
     float: left;
     margin-left: 5px;
     margin-top: 0px;

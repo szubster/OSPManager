@@ -9,6 +9,7 @@ import com.miniinf.OSPManager.data.services.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,13 +36,15 @@ public class UnitController {
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addcourse")
-    public void addCourseGet() throws IllegalAccessException, InstantiationException {
-
+    public
+    @ModelAttribute("course")
+    String addCourseGet() throws IllegalAccessException, InstantiationException {
+        return "";
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addcourse", method = RequestMethod.POST)
-    public String addCoursePost(@RequestParam("course") String course) {
+    public String addCoursePost(@ModelAttribute("course") String course) {
         unitService.addCourse(course);
         return "redirect:/unit";
     }
@@ -55,13 +58,15 @@ public class UnitController {
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addrank")
-    public void addRankGet() throws IllegalAccessException, InstantiationException {
-
+    public
+    @ModelAttribute("rank")
+    String addRankGet() throws IllegalAccessException, InstantiationException {
+        return "";
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addrank", method = RequestMethod.POST)
-    public String addRankPost(@RequestParam("rank") String rank) {
+    public String addRankPost(@ModelAttribute("rank") String rank) {
         unitService.addRank(rank);
         return "redirect:/unit";
     }
@@ -75,13 +80,15 @@ public class UnitController {
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addaward")
-    public void addAwardGet() throws IllegalAccessException, InstantiationException {
-
+    public
+    @ModelAttribute("award")
+    String addAwardGet() throws IllegalAccessException, InstantiationException {
+        return "";
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/addaward", method = RequestMethod.POST)
-    public String addAwardPost(@RequestParam("award") String award) {
+    public String addAwardPost(@ModelAttribute("award") String award) {
         unitService.addAwards(award);
         return "redirect:/unit";
     }

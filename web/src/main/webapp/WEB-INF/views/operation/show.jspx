@@ -10,6 +10,23 @@
   <page:show id="ps_com_Operation" object="${entity}" path="/firefighter">
 
     <field:display field="truckCodeName" id="c_com_Operation_truckCodeName" object="${entity}"/>
-
+    <field:display field="number" id="c_com_Operation_number" object="${entity}"/>
+    <field:display field="owner" id="c_com_Operation_owner" object="${entity}"/>
+    <field:display field="interventionType" id="c_com_Operation_interventionType" object="${entity}"/>
+    <field:display field="victim" id="c_com_Operation_victim" object="${entity}"/>
+    <field:display field="place.street" id="c_com_Address_Street" object="${entity}"/>
+    <field:display field="place.city" id="c_com_Address_City" object="${entity}"/>
+    <field:display field="place.postCode" id="c_com_Address_postCode" object="${entity}"/>
+    <field:display field="declarant" id="c_com_Operation_declarant" object="${entity}"/>
+    <field:display field="description" id="c_com_Operation_description" object="${entity}"/>
+    <field:display field="nrPSP" id="c_com_Operation_nrPSP" object="${entity}"/>
+    <field:display field="author" id="c_com_Operation_author" object="${entity}"/>
+    <field:display field="mileageStart" id="c_com_Operation_mileageStart" object="${entity}"/>
+    <field:display field="mileageEnd" id="c_com_Operation_mileageEnd" object="${entity}"/>
+    <field:display field="interval" id="c_com_Interval_startDate" object="${entity}"/>
+    <field:display field="interval" id="c_com_Interval_startTime" object="${entity}"/>
+    <field:display field="interval" id="c_com_Interval_endDate" object="${entity}"/>
+    <field:display field="interval" id="c_com_Interval_endTime" object="${entity}"/>
+    <field:display id="c_com_Operation_firefighters" field="participants" object="${entity}"/>
   </page:show>
 </div>
