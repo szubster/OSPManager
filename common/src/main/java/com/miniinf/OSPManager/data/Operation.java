@@ -72,6 +72,7 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private List<FireFighter> participants;
 
+
     public BigInteger getId() {
         return id;
     }

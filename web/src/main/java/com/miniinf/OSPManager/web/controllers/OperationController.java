@@ -7,6 +7,7 @@ package com.miniinf.OSPManager.web.controllers;
 import com.miniinf.OSPManager.data.Address;
 import com.miniinf.OSPManager.data.Operation;
 import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
+import com.miniinf.OSPManager.data.repositories.FireTruckRepository;
 import com.miniinf.OSPManager.data.repositories.OperationRepository;
 import com.miniinf.OSPManager.data.services.UnitService;
 import com.miniinf.OSPManager.jasper.ReportPath;
@@ -41,6 +42,9 @@ public class OperationController extends AbstractController<OperationRepository,
     FireFighterRepository FFRepository;
 
     @Autowired
+    FireTruckRepository FTRepository;
+
+    @Autowired
     UnitService unitService;
 
     public OperationController() {
@@ -60,6 +64,7 @@ public class OperationController extends AbstractController<OperationRepository,
         entity.setNumber(unitService.getCounter());
         uiModel.addAttribute("entity", entity);
         uiModel.addAttribute("firefighters", FFRepository.findAll());
+        uiModel.addAttribute("firetrucks", FTRepository.findAll());
     }
 
     @Override
