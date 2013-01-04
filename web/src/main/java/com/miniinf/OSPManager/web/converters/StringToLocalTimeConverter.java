@@ -15,10 +15,13 @@ import org.springframework.core.convert.converter.Converter;
  */
 public class StringToLocalTimeConverter implements Converter<String, LocalTime> {
 
-    private static final DateTimeFormatter timeFormatter = DateTimeFormat.forPattern("'T'HH:mm:ss");
+    private static final DateTimeFormatter timeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
 
     @Override
     public LocalTime convert(String source) {
+        if (source.startsWith("T")) {
+            source = source.substring(1);
+        }
         return LocalTime.parse(source, timeFormatter);
     }
 }
