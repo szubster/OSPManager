@@ -16,8 +16,7 @@ import javax.validation.constraints.Pattern;
  * Created with IntelliJ IDEA.
  * User: asus
  * Date: 02.01.13
- * Time: 16:35
- * To change this template use File | Settings | File Templates.
+ * Class for equipment that needs inspections from time to time
  */
 @Document
 public class InspectionEquipment extends Equipment {
@@ -31,18 +30,38 @@ public class InspectionEquipment extends Equipment {
     @Pattern(regexp = FireTruck.CODENAME_PATTERN, message = "{com.miniinf.OSPManager.validation.codename}")
     private String truckCodeName;
 
+    /**
+     * Returns when the last inspections occurs
+     *
+     * @return InspectionEquipment's last inspection date
+     */
     public LocalDate getLastInspectionDate() {
         return lastInspectionDate;
     }
 
+    /**
+     * Setter for InspectionEquipment's last inspection date
+     *
+     * @param lastInspectionDate InspectionEquipment's last inspection date
+     */
     public void setLastInspectionDate(LocalDate lastInspectionDate) {
         this.lastInspectionDate = lastInspectionDate;
     }
 
+    /**
+     * Returns codename of the truck to which item is assigned
+     *
+     * @return Assigned truck codename
+     */
     public String getTruckCodeName() {
         return truckCodeName;
     }
 
+    /**
+     * Sets the truck to which item is assigned
+     *
+     * @param truckCodeName InspectionEquipment's assigned truck
+     */
     public void setTruckCodeName(String truckCodeName) {
         this.truckCodeName = truckCodeName;
     }

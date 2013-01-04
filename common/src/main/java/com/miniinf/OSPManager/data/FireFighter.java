@@ -18,6 +18,9 @@ import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.util.List;
 
+/**
+ * Class that describes FireFighter
+ */
 @Document
 public class FireFighter implements BigIntegerEntity {
 
@@ -61,82 +64,182 @@ public class FireFighter implements BigIntegerEntity {
 
     private List<String> awards;
 
+    /**
+     * Returns id of firefighter in database
+     *
+     * @return
+     */
     public BigInteger getId() {
         return id;
     }
 
+    /**
+     * Returns address of the firefighter
+     *
+     * @return Firefighter's address
+     */
     public Address getAddress() {
         return address;
     }
 
+    /**
+     * Sets the address of the firefighter
+     *
+     * @param address Firefighter's address
+     */
     public void setAddress(Address address) {
         this.address = address;
     }
 
+    /**
+     * Return name of the firefighter
+     *
+     * @return Firefighter's name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name of the firefighter
+     *
+     * @param name Firefighter's name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Returns surname of the firefighter
+     *
+     * @return Firefighter's name
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * Sets surname of firefighter
+     *
+     * @param surname Firefighter's surname
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
+    /**
+     * Returns when the firefighter was born
+     *
+     * @return Firefighter's birthdate
+     */
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
+    /**
+     * Sets the birthdate for firefighter
+     *
+     * @param birthDate Firefighter's birthdate
+     */
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
+    /**
+     * Returns second name of firefighter
+     *
+     * @return Firefighter's second name
+     */
     public String getSecondName() {
         return secondName;
     }
 
+    /**
+     * Sets second name of firefighter
+     *
+     * @param secondName Firefighter's second name
+     */
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
 
+    /**
+     * Returns both: name and surname of firefighter
+     *
+     * @return Firefighter's name and surname
+     */
     public String getNameAndSurname() {
         return name + " " + surname;
     }
 
+    /**
+     * Returns pesel of the firefighter
+     *
+     * @return Firefighter's pesel
+     */
     public String getPesel() {
         return pesel;
     }
 
+    /**
+     * Sets the pesel for firefighter
+     *
+     * @param pesel Firefighter's pesel
+     */
     public void setPesel(String pesel) {
         this.pesel = pesel;
     }
 
+    /**
+     * Returns legitimation number of firefighter
+     *
+     * @return Firefighter's legitimation number
+     */
     public String getLegitimation() {
         return legitimation;
     }
 
+    /**
+     * Sets legitimation number for firefighter
+     *
+     * @param legitimation Firefighter's legitimation number
+     */
     public void setLegitimation(String legitimation) {
         this.legitimation = legitimation;
     }
 
+    /**
+     * Returns rank of firefighter
+     *
+     * @return Firefighter's rank
+     */
     public String getRank() {
         return rank;
     }
 
+    /**
+     * Sets rank for firefighter
+     *
+     * @param rank Firefighter's  rank
+     */
     public void setRank(String rank) {
         this.rank = rank;
     }
 
+    /**
+     * Returns list of awards that firefighter has
+     *
+     * @return Firefighter's awards
+     */
     public List<String> getAwards() {
         return awards;
     }
 
+    /**
+     * Sets te list of firefighter awards
+     *
+     * @param awards Firefighter's awards
+     */
     public void setAwards(List<String> awards) {
         this.awards = awards;
     }

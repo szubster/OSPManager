@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Class describes Operation, it's participants, firetrucks etc.
  * Created by Tomasz Szuba
  * Date: 05.11.12
  */
@@ -76,19 +77,36 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private List<FireFighter> participants = new ArrayList<FireFighter>();
 
-
+    /**
+     * Returns ID of Operation in database
+     *
+     * @return Operation's ID
+     */
     public BigInteger getId() {
         return id;
     }
 
+    /**
+     * Returns address (where operation took place)
+     *
+     * @return Operation's address
+     */
     public Address getPlace() {
         return place;
     }
 
+    /**
+     * Sets where Operation's took place
+     *
+     * @param place Operation's address
+     */
     public void setPlace(Address place) {
         this.place = place;
     }
 
+    /**
+     * @return
+     */
     public List<FireFighter> getParticipants() {
         return participants;
     }

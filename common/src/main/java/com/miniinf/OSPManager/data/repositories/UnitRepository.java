@@ -14,8 +14,7 @@ import java.math.BigInteger;
  * Created with IntelliJ IDEA.
  * User: asus
  * Date: 02.01.13
- * Time: 12:24
- * To change this template use File | Settings | File Templates.
+ * Repository for OSP Unit
  */
 @Repository
 public interface UnitRepository extends MongoRepository<Unit, BigInteger> {

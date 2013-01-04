@@ -18,7 +18,6 @@ import java.util.List;
  * User: asus
  * Date: 02.01.13
  * Time: 12:53
- * To change this template use File | Settings | File Templates.
  */
 @Component
 public class UnitService implements InitializingBean {

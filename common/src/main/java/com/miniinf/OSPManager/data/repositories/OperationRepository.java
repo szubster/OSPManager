@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.data.repositories;
@@ -13,6 +13,7 @@ import java.math.BigInteger;
 /**
  * Created by Michał Tkaczyk
  * Date: 05.11.12
+ * Repository for Operations
  */
 @Repository
 public interface OperationRepository extends MongoRepository<Operation, BigInteger> {

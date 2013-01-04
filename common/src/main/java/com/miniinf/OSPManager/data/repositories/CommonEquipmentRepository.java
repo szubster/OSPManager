@@ -14,8 +14,7 @@ import java.math.BigInteger;
  * Created with IntelliJ IDEA.
  * User: asus
  * Date: 02.01.13
- * Time: 17:06
- * To change this template use File | Settings | File Templates.
+ * Repository for common equipment (equipment with no need of inspection)
  */
 @Repository
 public interface CommonEquipmentRepository extends MongoRepository<CommonEquipment, BigInteger> {

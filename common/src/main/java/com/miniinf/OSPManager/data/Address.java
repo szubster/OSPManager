@@ -11,6 +11,7 @@ import java.io.Serializable;
 /**
  * Created by Tomasz Szuba
  * Date: 05.11.12
+ * Class describing whole address - street, city and postcode
  */
 public class Address implements Serializable {
 
@@ -31,26 +32,56 @@ public class Address implements Serializable {
     @Pattern(regexp = POSTCODE_PATTERN, message = "{com.miniinf.OSPManager.validation.postcode}")
     private String postCode;
 
+    /**
+     * Returns City name
+     *
+     * @return City
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     * Setter for field City
+     *
+     * @param city name of the City
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     * Returns postcode
+     *
+     * @return postcode
+     */
     public String getPostCode() {
         return postCode;
     }
 
+    /**
+     * Setter for the postcode
+     *
+     * @param postCode postcode number
+     */
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
 
+    /**
+     * Returns street name
+     *
+     * @return street name
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     * Setter for street name
+     *
+     * @param street street name
+     */
     public void setStreet(String street) {
         this.street = street;
     }

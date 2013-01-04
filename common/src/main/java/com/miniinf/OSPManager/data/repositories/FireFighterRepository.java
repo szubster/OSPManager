@@ -13,6 +13,7 @@ import java.math.BigInteger;
 /**
  * Created by Tomasz Szuba
  * Date: 15.10.12
+ * Repository for all FireFighters
  */
 @Repository
 public interface FireFighterRepository extends MongoRepository<FireFighter, BigInteger> {

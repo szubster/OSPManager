@@ -14,8 +14,7 @@ import java.math.BigInteger;
  * Created with IntelliJ IDEA.
  * User: asus
  * Date: 02.01.13
- * Time: 16:27
- * To change this template use File | Settings | File Templates.
+ * Abstract class for equipment, contains some of fields that are in common with common and inspection equipment
  */
 public abstract class Equipment implements BigIntegerEntity, Serializable {
 
@@ -28,30 +27,65 @@ public abstract class Equipment implements BigIntegerEntity, Serializable {
 
     private String type;
 
+    /**
+     * Returns id
+     *
+     * @return
+     */
     public BigInteger getId() {
         return id;
     }
 
+    /**
+     * Returns what kind of equipment it is
+     *
+     * @return
+     */
     public String getKind() {
         return kind;
     }
 
+    /**
+     * Setter for the kind field
+     *
+     * @param kind
+     */
     public void setKind(String kind) {
         this.kind = kind;
     }
 
+    /**
+     * Returns the brand (mark) of the item
+     *
+     * @return
+     */
     public String getBrand() {
         return brand;
     }
 
+    /**
+     * Sets the brand for the item
+     *
+     * @param brand
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    /**
+     * Returns what type of item it is
+     *
+     * @return
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Setter for type field
+     *
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
