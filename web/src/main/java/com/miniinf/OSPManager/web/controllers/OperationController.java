@@ -85,6 +85,7 @@ public class OperationController extends AbstractController<OperationRepository,
                 entity.setPlace(ad);
             }
             uiModel.addAttribute("firefighters", FFRepository.findAll());
+            uiModel.addAttribute("firefighters", FFRepository.findAll());
         }
         unitService.setCounter(entity.getNumber() + 1);
         return super.create(entity, bindingResult, uiModel);
