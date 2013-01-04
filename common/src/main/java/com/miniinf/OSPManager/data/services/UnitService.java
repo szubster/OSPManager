@@ -43,6 +43,7 @@ public class UnitService implements InitializingBean {
     public void setCounter(int cnt) {
         Unit entity = repository.findAll().get(0);
         entity.setDepartureCounter(cnt);
+        repository.save(entity);
     }
 
     public int getCounter() {
@@ -55,14 +56,14 @@ public class UnitService implements InitializingBean {
     public void addCourse(String course) {
         Unit entity = repository.findAll().get(0);
         entity.getCourses().add(course);
-
+        repository.save(entity);
     }
 
     @PreAuthorize("hasRole('admin')")
     public void deleteCourse(String course) {
         Unit entity = repository.findAll().get(0);
-        int index = entity.getCourses().indexOf(course);
-        entity.getCourses().remove(index);
+        entity.getCourses().remove(course);
+        repository.save(entity);
     }
 
     public List<String> showCourses() {
@@ -74,14 +75,14 @@ public class UnitService implements InitializingBean {
     public void addRank(String rank) {
         Unit entity = repository.findAll().get(0);
         entity.getRanks().add(rank);
-
+        repository.save(entity);
     }
 
     @PreAuthorize("hasRole('admin')")
     public void deleteRank(String rank) {
         Unit entity = repository.findAll().get(0);
-        int index = entity.getRanks().indexOf(rank);
-        entity.getRanks().remove(index);
+        entity.getRanks().remove(rank);
+        repository.save(entity);
     }
 
     public List<String> showRanks() {
@@ -93,14 +94,14 @@ public class UnitService implements InitializingBean {
     public void addAwards(String award) {
         Unit entity = repository.findAll().get(0);
         entity.getAwards().add(award);
+        repository.save(entity);
 
     }
 
     @PreAuthorize("hasRole('admin')")
     public void deleteAward(String award) {
         Unit entity = repository.findAll().get(0);
-        int index = entity.getAwards().indexOf(award);
-        entity.getAwards().remove(index);
+        entity.getAwards().remove(award);
     }
 
     public List<String> showAwards() {

@@ -9,6 +9,6 @@
   <jsp:output omit-xml-declaration="yes"/>
   <form:create id="fc_com_Unit" modelAttribute="course" path="/unit/addcourse" title="global_menu_new_we"
                label="menu_item_course_new_label">
-    <field:input field="" id="c_com_Unit_course" required="false"/>
+    <field:input field="course" id="c_com_Unit_course" required="false" disableFormBinding="true"/>
   </form:create>
 </div>
