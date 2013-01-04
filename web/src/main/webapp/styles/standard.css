@@ -478,3 +478,21 @@ fieldset th {
     color: red;
 }
 
+.dijitTimePickerItemInner {
+    color: #4c1501;
+    font-size: 13px;
+}
+
+.dijitTimePickerItem {
+    color: red;
+    font-size: 15px;
+}
+
+select {
+    width: 180px;
+    height: 100px;
+}
+
+.dijitInputInner {
+    width: 180px;
+}
