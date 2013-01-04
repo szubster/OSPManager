@@ -21,7 +21,7 @@ import java.util.List;
 @Document
 public class FireFighter implements BigIntegerEntity {
 
-    private static final String NAME_PATTERN = "([A-Z][a-z]{2,})?";
+    private static final String NAME_PATTERN = "\\p{Lu}\\p{Ll}*";
 
     private static final String LEGITIMATION_PATTERN = "\\d+/\\d{4}";
 
