@@ -95,8 +95,9 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable ID id) {
+    public String delete(@PathVariable ID id) {
         getRepository().delete(id);
+        return "redirect:/" + basePath;
     }
 
     @PreAuthorize("hasRole('admin')")

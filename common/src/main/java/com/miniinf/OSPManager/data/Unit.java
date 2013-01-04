@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +30,12 @@ public class Unit implements BigIntegerEntity, Serializable {
     private int departureCounter;
 
     private String KSRGEntity;
+
+    private List<String> courses = new ArrayList<>();
+
+    private List<String> ranks = new ArrayList<>();
+
+    private List<String> awards = new ArrayList<>();
 
     public BigInteger getId() {
         return id;
@@ -50,4 +58,27 @@ public class Unit implements BigIntegerEntity, Serializable {
         this.departureCounter = departureCounter;
     }
 
+    public List<String> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<String> courses) {
+        this.courses = courses;
+    }
+
+    public List<String> getRanks() {
+        return ranks;
+    }
+
+    public void setRanks(List<String> ranks) {
+        this.ranks = ranks;
+    }
+
+    public List<String> getAwards() {
+        return awards;
+    }
+
+    public void setAwards(List<String> awards) {
+        this.awards = awards;
+    }
 }

@@ -66,7 +66,7 @@ public class OperationController extends AbstractController<OperationRepository,
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid Operation entity, BindingResult bindingResult, Model uiModel) {
-        if (bindingResult.getFieldErrorCount("address") > 0) {
+        if (bindingResult.hasErrors()) {
             if (bindingResult.getFieldErrorCount("address.street") > 0) {
                 uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
                 Address ad = entity.getPlace();

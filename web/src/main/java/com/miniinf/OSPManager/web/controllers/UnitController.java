@@ -5,13 +5,14 @@
 package com.miniinf.OSPManager.web.controllers;
 
 import com.miniinf.OSPManager.data.Unit;
-import com.miniinf.OSPManager.data.repositories.UnitRepository;
-import com.miniinf.OSPManager.jasper.ReportPath;
+import com.miniinf.OSPManager.data.services.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.math.BigInteger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,18 +23,73 @@ import java.math.BigInteger;
  */
 @Controller
 @RequestMapping("unit")
-@ReportPath("/unit/")
-public class UnitController extends AbstractController<UnitRepository, Unit, BigInteger> {
+public class UnitController {
 
     @Autowired
-    UnitRepository repository;
+    UnitService unitService;
 
-    public UnitController() {
-        super(Unit.class);
+    @RequestMapping()
+    public Unit showAll() {
+        return unitService.getUnit();
     }
 
-    @Override
-    protected UnitRepository getRepository() {
-        return repository;
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addcourse")
+    public void addCourseGet() throws IllegalAccessException, InstantiationException {
+
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addcourse", method = RequestMethod.POST)
+    public String addCoursePost(@RequestParam("course") String course) {
+        unitService.addCourse(course);
+        return "redirect:/unit";
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/deletecourse", method = RequestMethod.DELETE)
+    public String deleteCourse(@RequestParam("course") String course) {
+        unitService.deleteCourse(course);
+        return "redirect:/unit";
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addrank")
+    public void addRankGet() throws IllegalAccessException, InstantiationException {
+
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addrank", method = RequestMethod.POST)
+    public String addRankPost(@RequestParam("rank") String rank) {
+        unitService.addRank(rank);
+        return "redirect:/unit";
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/deleterank", method = RequestMethod.DELETE)
+    public String deleteRank(@RequestParam("rank") String rank) {
+        unitService.deleteRank(rank);
+        return "redirect:/unit";
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addaward")
+    public void addAwardGet() throws IllegalAccessException, InstantiationException {
+
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/addaward", method = RequestMethod.POST)
+    public String addAwardPost(@RequestParam("award") String award) {
+        unitService.addAwards(award);
+        return "redirect:/unit";
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/deleteaward", method = RequestMethod.DELETE)
+    public String deleteAward(@RequestParam("course") String course) {
+        unitService.deleteAward(course);
+        return "redirect:/unit";
     }
 }
