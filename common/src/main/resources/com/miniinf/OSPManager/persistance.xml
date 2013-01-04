@@ -24,6 +24,15 @@
       <mongo:converter>
         <bean class="com.miniinf.OSPManager.data.converters.DateToLocalDateConverter"/>
       </mongo:converter>
+      <!--mongo:converter>
+        <bean class="com.miniinf.OSPManager.data.converters.LocalDateToStringConverter"/>
+      </mongo:converter-->
+      <mongo:converter>
+        <bean class="com.miniinf.OSPManager.data.converters.LocalTimeToStringConverter"/>
+      </mongo:converter>
+      <mongo:converter>
+        <bean class="com.miniinf.OSPManager.data.converters.StringToLocalTimeConverter"/>
+      </mongo:converter>
     </mongo:custom-converters>
   </mongo:mapping-converter>
   <mongo:db-factory dbname="manager" id="mongoDbFactory"/>

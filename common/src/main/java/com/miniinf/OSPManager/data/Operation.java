@@ -5,7 +5,8 @@
 package com.miniinf.OSPManager.data;
 
 import org.joda.time.Duration;
-import org.joda.time.Interval;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -61,7 +62,13 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private int mileageEnd;
 
-    private Interval interval;
+    private LocalTime startTime;
+
+    private LocalDate startDate;
+
+    private LocalTime endTime;
+
+    private LocalDate endDate;
 
     private List<FireFighter> participants;
 
@@ -181,12 +188,36 @@ public class Operation implements BigIntegerEntity, Serializable {
         this.mileageEnd = mileageEnd;
     }
 
-    public Interval getInterval() {
-        return interval;
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
-    public void setInterval(Interval interval) {
-        this.interval = interval;
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public Map<String, Integer> getMeans() {

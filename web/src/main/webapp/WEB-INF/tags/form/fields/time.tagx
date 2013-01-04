@@ -4,6 +4,7 @@
 
 
 
+
 <jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
           xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
           xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
@@ -35,6 +36,8 @@
                            description="Set to true to disable Spring form binding"/>
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true"
                            description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
+  <jsp:directive.attribute name="idSuffix" type="java.lang.String" required="false" rtexprvalue="true"
+                           description="Value added to end of input html tag id"/>
 
 
   <c:if test="${empty render or render}">
@@ -55,16 +58,16 @@
 
     <script type="text/javascript">dojo.require('dijit.form.TimeTextBox')</script>
     <div id="_${sec_id}_id">
-      <label for="_${sec_field}_id">
+      <label for="_${sec_field}_id${idSuffix}">
         <c:out value="${label}"/>
         :
       </label>
       <c:choose>
         <c:when test="${disableFormBinding}">
-          <input id="_${sec_field}_id" name="${sec_field}"/>
+          <input id="_${sec_field}_id${idSuffix}" name="${sec_field}"/>
         </c:when>
         <c:otherwise>
-          <form:input id="_${sec_field}_id" path="${sec_field}" disabled="${disabled}"/>
+          <form:input id="_${sec_field}_id${idSuffix}" path="${sec_field}" disabled="${disabled}"/>
           <br/>
           <form:errors cssClass="errors" id="_${sec_field}_error_id" path="${sec_field}"/>
         </c:otherwise>
@@ -92,16 +95,18 @@
       </c:set>
       <script type="text/javascript">
         Spring.addDecoration(new Spring.ElementDecoration({
-          elementId: '_${sec_field}_id',
+          elementId: '_${sec_field}_id${idSuffix}',
           widgetType: 'dijit.form.TimeTextBox',
           widgetAttrs: {
             promptMessage: '${sec_field_validation}',
             invalidMessage: '${sec_field_invalid}',
             required: ${required},
             constraints: {
-              datePattern: '${sec_dateTimePattern}',
+              timePattern: '${sec_dateTimePattern}',
               required: ${required}},
-            datePattern: '${sec_dateTimePattern}'
+            clickableIncrement: 'T00:15:00',
+            visibleIncrement: 'T00:15:00',
+            visibleRange: 'T02:00:00'
           }
         }));
       </script>
