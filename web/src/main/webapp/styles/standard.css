@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 /* main elements */
@@ -468,5 +468,12 @@ fieldset th {
     padding: 2px 7px;
     float: right;
 
+}
+
+.redBox {
+    border: 3px red solid;
+    padding: 2px 7px;
+    text-align: center;
+    color: red;
 }
 

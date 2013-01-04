@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
-  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
      xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-  <jsp:output omit-xml-declaration="yes"/>
-  <page:list id="pl_com_Firetruck" items="${entities}">
-    <table:table data="${entities}" id="l_com_Firetruck" path="/firetruck">
-      <table:column id="c_com_Firetruck_number" property="number"/>
-      <table:column id="c_com_Firetruck_licensePlate" property="licensePlate"/>
-    </table:table>
-  </page:list>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_Firetruck" items="${entities}">
+        <table:table data="${entities}" id="l_com_Firetruck" path="/firetruck">
+            <table:column property="licensePlate" id="c_com_Firetruck_licensePlate"/>
+            <table:column property="codeName" id="c_com_Firetruck_codeName"/>
+            <table:column property="milage" id="c_com_Firetruck_milage"/>
+        </table:table>
+    </page:list>
 </div>
