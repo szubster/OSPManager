@@ -15,7 +15,7 @@ import org.springframework.core.convert.converter.Converter;
  */
 public class StringToLocalTimeConverter implements Converter<String, LocalTime> {
 
-    private static final DateTimeFormatter timeFormatter = DateTimeFormat.forPattern("HH:mm");
+    private static final DateTimeFormatter timeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
 
     @Override
     public LocalTime convert(String source) {

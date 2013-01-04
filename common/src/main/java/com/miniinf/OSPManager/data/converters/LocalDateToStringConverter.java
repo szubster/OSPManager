@@ -10,12 +10,14 @@ import org.joda.time.format.DateTimeFormatter;
 import org.springframework.core.convert.converter.Converter;
 
 /**
+ * Converter used to Convert between joda's localdate and string
  * Created by Tomasz Szuba
  * Date: 04.01.13
  */
 public class LocalDateToStringConverter implements Converter<LocalDate, String> {
 
     private static final DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd");
+
 
     @Override
     public String convert(LocalDate source) {
