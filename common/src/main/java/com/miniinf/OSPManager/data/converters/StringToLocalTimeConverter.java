@@ -10,6 +10,8 @@ import org.joda.time.format.DateTimeFormatter;
 import org.springframework.core.convert.converter.Converter;
 
 /**
+ * Converter used to convert between String and joda's LocalTime
+ * <p/>
  * Created by Tomasz Szuba
  * Date: 04.01.13
  */

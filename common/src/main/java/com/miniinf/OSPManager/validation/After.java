@@ -15,6 +15,9 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
+ * Annotation used for JSR-303 to express Constraint that date in one field has to be after
+ * date in another field.
+ * <p/>
  * Created by Tomasz Szuba
  * Date: 02.01.13
  */
@@ -30,7 +33,17 @@ public @interface After {
 
     Class<? extends Payload>[] payload() default {};
 
+    /**
+     * Field name that is prior to field returned by to
+     *
+     * @return field name
+     */
     String from();
 
+    /**
+     * Field name that is after field returned by from
+     *
+     * @return field name
+     */
     String to();
 }

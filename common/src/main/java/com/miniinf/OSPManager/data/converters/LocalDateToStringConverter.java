@@ -18,7 +18,9 @@ public class LocalDateToStringConverter implements Converter<LocalDate, String> 
 
     private static final DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd");
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String convert(LocalDate source) {
         return source.toString(dateFormat);
