@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class Address implements Serializable {
 
-    private static final String STREET_PATTERN = "(\\p{Lu}\\p{Ll}*|\\d+)  ((\\p{Lu}\\p{Ll}*|\\d+) )* \\d+";
+    private static final String STREET_PATTERN = "(\\p{Lu}\\p{Ll}*|\\d+) ((\\p{Lu}\\p{Ll}*|\\d+) )*\\d+";
 
     private static final String CITY_PATTERN = "\\p{Lu}\\p{Ll}*( (\\p{Lu}\\p{Ll}*|\\d+))*";
 
