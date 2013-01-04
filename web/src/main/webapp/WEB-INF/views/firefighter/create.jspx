@@ -5,21 +5,21 @@
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create" title="global_menu_new_wego"
-                 label="menu_item_firefighter_new_a_label">
-        <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
-        <field:input field="secondName" id="c_com_Firefighter_secondname" required="false"/>
-        <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
-        <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
-                        dateTimePattern="yyyy-MM-dd"/>
-        <field:input field="address.street" id="c_com_Address_Street" required="false"/>
-        <field:input field="address.postCode" id="c_com_Address_postCode" required="false"/>
-        <field:input field="address.city" id="c_com_Address_City" required="false"/>
-        <field:input field="pesel" id="c_com_Firefighter_pesel" required="false"/>
-        <field:input field="legitimation" id="c_com_Firefighter_legitimation" required="false"/>
-        <field:input field="rank" id="c_com_Firefighter_rank" required="false"/>
-        <field:input field="awards" id="c_com_Firefighter_awards" required="false"/>
-    </form:create>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <form:create id="fc_com_Firefighter" modelAttribute="entity" path="/firefighter/create" title="global_menu_new_wego"
+               label="menu_item_firefighter_new_a_label">
+    <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
+    <field:input field="secondName" id="c_com_Firefighter_secondname" required="false"/>
+    <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
+    <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
+                    dateTimePattern="yyyy-MM-dd"/>
+    <field:input field="address.street" id="c_com_Address_Street" required="true"/>
+    <field:input field="address.postCode" id="c_com_Address_postCode" required="true"/>
+    <field:input field="address.city" id="c_com_Address_City" required="true"/>
+    <field:input field="pesel" id="c_com_Firefighter_pesel" required="false"/>
+    <field:input field="legitimation" id="c_com_Firefighter_legitimation" required="true"/>
+    <field:input field="rank" id="c_com_Firefighter_rank" required="false"/>
+    <field:input field="awards" id="c_com_Firefighter_awards" required="false"/>
+  </form:create>
 </div>

@@ -23,6 +23,8 @@ public class FireFighter implements BigIntegerEntity {
 
     private static final String NAME_PATTERN = "\\p{Lu}\\p{Ll}*";
 
+    private static final String SECOND_NAME_PATTERN = "(\\p{Lu}\\p{Ll}*)|";
+
     private static final String LEGITIMATION_PATTERN = "\\d+/\\d{4}";
 
     @Id
@@ -33,7 +35,7 @@ public class FireFighter implements BigIntegerEntity {
     @Pattern(regexp = NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
     private String name;
 
-    @Pattern(regexp = NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
+    @Pattern(regexp = SECOND_NAME_PATTERN, message = "{com.miniinf.OSPManager.validation.name}")
     private String secondName;
 
     @NotNull

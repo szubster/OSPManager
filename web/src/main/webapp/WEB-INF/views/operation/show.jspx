@@ -4,7 +4,8 @@
   -->
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
-     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     version="2.0">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
   <page:show id="ps_com_Operation" object="${entity}" path="/firefighter">
@@ -23,10 +24,15 @@
     <field:display field="author" id="c_com_Operation_author" object="${entity}"/>
     <field:display field="mileageStart" id="c_com_Operation_mileageStart" object="${entity}"/>
     <field:display field="mileageEnd" id="c_com_Operation_mileageEnd" object="${entity}"/>
-    <field:display field="interval" id="c_com_Interval_startDate" object="${entity}"/>
-    <field:display field="interval" id="c_com_Interval_startTime" object="${entity}"/>
-    <field:display field="interval" id="c_com_Interval_endDate" object="${entity}"/>
-    <field:display field="interval" id="c_com_Interval_endTime" object="${entity}"/>
-    <field:display id="c_com_Operation_firefighters" field="participants" object="${entity}"/>
+    <field:display field="startDate" id="c_com_Interval_startDate" object="${entity}"/>
+    <field:display field="startTime" id="c_com_Interval_startTime" object="${entity}"/>
+    <field:display field="endDate" id="c_com_Interval_endDate" object="${entity}"/>
+    <field:display field="endTime" id="c_com_Interval_endTime" object="${entity}"/>
+
+    <table:table array="${participants}" id="l_com_Firefighter" path="/firefighter" create="false" update="false"
+                 useArray="true" noId="true">
+      <table:column id="c_com_Firefighter_name" property=""/>
+      <!--table:column id="c_com_Firefighter_surname" property="surname"/-->
+    </table:table>
   </page:show>
 </div>

@@ -22,10 +22,10 @@
     <field:input field="author" id="c_com_Operation_author" min="2" required="false"/>
     <field:input field="mileageStart" id="c_com_Operation_mileageStart" min="2" required="false"/>
     <field:input field="mileageEnd" id="c_com_Operation_mileageEnd" min="2" required="false"/>
-    <field:datetime field="interval" id="c_com_Interval_startDate" required="false" dateTimePattern="YYYY-MM-DD"/>
-    <field:input field="interval" id="c_com_Interval_startTime" min="2" required="false"/>
-    <field:datetime field="interval" id="c_com_Interval_endDate" required="false" dateTimePattern="YYYY-MM-DD"/>
-    <field:input field="interval" id="c_com_Interval_endTime" min="2" required="false"/>
+    <field:datetime field="startDate" id="c_com_Interval_startDate" required="false" dateTimePattern="YYYY-MM-DD"/>
+    <field:input field="startTime" id="c_com_Interval_startTime" min="2" required="false"/>
+    <field:datetime field="endDate" id="c_com_Interval_endDate" required="false" dateTimePattern="YYYY-MM-DD"/>
+    <field:input field="endTime" id="c_com_Interval_endTime" min="2" required="false"/>
 
     <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"
                   multiple="true" itemValue="id" itemLabel="nameAndSurname"/>
