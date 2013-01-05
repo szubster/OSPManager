@@ -36,7 +36,8 @@
                          description="Indicate if the array is not null"/>
 <jsp:directive.attribute name="simpleTable" type="java.lang.Boolean" required="false" rtexprvalue="true"
                          description="indicated whether table is really simple one, used just to show data"/>
-
+<jsp:directive.attribute name="noExcel" type="java.lang.Boolean" required="false" rtexprvalue="true"
+                         description="Indicate if excel raport is required"/>
 <c:if test="${simpleTable}">
   <c:set var="delete" value="false"/>
   <c:set var="update" value="false"/>
@@ -213,7 +214,7 @@
           </sec:authorize>
           <c:if test="${not empty data.totalPages}">
             <util:pagination maxPages="${data.totalPages == 1 ? data.totalPages : data.totalPages + 1}"
-                             page="${param.page}" size="${param.size}" path="${path}"/>
+                             page="${param.page}" size="${param.size}" path="${path}" noExcel="${noExcel}"/>
           </c:if>
         </td>
       </tr>

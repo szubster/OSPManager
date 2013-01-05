@@ -120,6 +120,10 @@ public class Operation implements BigIntegerEntity, Serializable {
         this.participants = participants;
     }
 
+    public int getParticipantsCount() {
+        return participants.size();
+    }
+
     public int getNumber() {
         return number;
     }
@@ -315,5 +319,7 @@ public class Operation implements BigIntegerEntity, Serializable {
         public void setPaidTime(Duration paidTime) {
             this.paidTime = paidTime;
         }
+
+
     }
 }
