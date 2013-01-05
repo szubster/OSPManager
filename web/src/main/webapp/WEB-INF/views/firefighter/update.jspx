@@ -18,7 +18,9 @@
     <field:input field="address.postCode" id="c_com_Address_postCode"/>
     <field:input field="pesel" id="c_com_Firefighter_pesel"/>
     <field:input field="legitimation" id="c_com_Firefighter_legitimation"/>
-    <field:input field="rank" id="c_com_Firefighter_rank"/>
-    <field:input field="awards" id="c_com_Firefighter_awards"/>
+    <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
+                  multiple="false"/>
+    <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}"
+                  multiple="true"/>
   </form:update>
 </div>

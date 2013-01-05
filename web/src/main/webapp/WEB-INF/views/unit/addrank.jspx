@@ -9,6 +9,6 @@
   <jsp:output omit-xml-declaration="yes"/>
   <form:create id="fc_com_Unit" modelAttribute="rank" path="/unit/addrank" title="global_menu_new_wy"
                label="menu_item_rank_new_label">
-    <field:input field="rank" id="c_com_Unit_rank" required="false" disableFormBinding="true"/>
+    <field:input field="rank" id="c_com_Unit_rank" required="true" disableFormBinding="true"/>
   </form:create>
 </div>
