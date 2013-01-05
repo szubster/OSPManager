@@ -18,7 +18,7 @@
       <table:column id="c_com_Unit_rank" property=""/>
     </table:table>
     <table:table array="${unit.courses}" id="l_com_Unit" path="/unit" noId="true" create="false"
-                 simpleTable="true" useArray="true">
+                 simpleTable="true" useArray="true" delete="true">
       <table:column id="c_com_Unit_course" property=""/>
     </table:table>
   </util:panel>

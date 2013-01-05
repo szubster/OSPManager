@@ -490,8 +490,13 @@ fieldset th {
 }
 
 select {
+    height: 20px;
     width: 180px;
-    height: 100px;
+}
+
+select[multiple] {
+    width: 180px;
+    height: auto;
 }
 
 .dijitInputInner {
