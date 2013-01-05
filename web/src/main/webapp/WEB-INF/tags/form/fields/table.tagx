@@ -33,7 +33,15 @@
 <jsp:directive.attribute name="noId" type="java.lang.Boolean" required="false" rtexprvalue="true"
                          description="Indicate if the id is null"/>
 <jsp:directive.attribute name="useArray" type="java.lang.Boolean" required="false" rtexprvalue="true"
-                         description="Indicate if the array is null"/>
+                         description="Indicate if the array is not null"/>
+<jsp:directive.attribute name="simpleTable" type="java.lang.Boolean" required="false" rtexprvalue="true"
+                         description="indicated whether table is really simple one, used just to show data"/>
+
+<c:if test="${simpleTable}">
+  <c:set var="delete" value="false"/>
+  <c:set var="update" value="false"/>
+  <c:set var="create" value="false"/>
+</c:if>
 
 <c:if test="${empty noId}">
   <c:set var="noId" value="false"/>
@@ -100,7 +108,8 @@
         <spring:eval var="iterator" expression="data.iterator()"/>
       </c:when>
       <c:otherwise>
-        <c:set var="iterator" value="array"/>
+        <spring:eval var="iterator" expression="array"/>
+        <!--c:set var="iterator" value="array"/-->
       </c:otherwise>
     </c:choose>
     <c:forEach items="${iterator}" var="item">
@@ -185,27 +194,29 @@
         </c:if>
       </tr>
     </c:forEach>
-    <tr class="footer">
-      <td colspan="${colCounter}">
-        <sec:authorize access="hasRole('admin')">
-          <c:if test="${empty create or create}">
-            <span class="new">
-              <spring:url value="${path}/create" var="create_url"/>
-              <a href="${create_url}">
-                <spring:url value="/resources/images/add.png" var="create_img_url"/>
-                <spring:message arguments="${typeName}" code="global_menu_new" var="add_message" htmlEscape="false"/>
-                <img alt="${fn:escapeXml(add_message)}" src="${create_img_url}" title="${fn:escapeXml(add_message)}"/>
-              </a>
-            </span>
-            <c:out value=" "/>
+    <c:if test="${not simpleTable}">
+      <tr class="footer">
+        <td colspan="${colCounter}">
+          <sec:authorize access="hasRole('admin')">
+            <c:if test="${empty create or create}">
+              <span class="new">
+                <spring:url value="${path}/create" var="create_url"/>
+                <a href="${create_url}">
+                  <spring:url value="/resources/images/add.png" var="create_img_url"/>
+                  <spring:message arguments="${typeName}" code="global_menu_new" var="add_message" htmlEscape="false"/>
+                  <img alt="${fn:escapeXml(add_message)}" src="${create_img_url}" title="${fn:escapeXml(add_message)}"/>
+                </a>
+              </span>
+              <c:out value=" "/>
+            </c:if>
+          </sec:authorize>
+          <c:if test="${not empty data.totalPages}">
+            <util:pagination maxPages="${data.totalPages == 1 ? data.totalPages : data.totalPages + 1}"
+                             page="${param.page}" size="${param.size}" path="${path}"/>
           </c:if>
-        </sec:authorize>
-        <c:if test="${not empty data.totalPages}">
-          <util:pagination maxPages="${data.totalPages == 1 ? data.totalPages : data.totalPages + 1}"
-                           page="${param.page}" size="${param.size}" path="${path}"/>
-        </c:if>
-      </td>
-    </tr>
+        </td>
+      </tr>
+    </c:if>
   </table>
 
 </c:if>

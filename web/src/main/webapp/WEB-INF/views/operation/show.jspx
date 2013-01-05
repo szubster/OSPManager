@@ -29,10 +29,10 @@
     <field:display field="endDate" id="c_com_Interval_endDate" object="${entity}"/>
     <field:display field="endTime" id="c_com_Interval_endTime" object="${entity}"/>
 
-    <table:table array="${participants}" id="l_com_Firefighter" path="/firefighter" create="false" update="false"
-                 useArray="true" noId="true">
-      <table:column id="c_com_Firefighter_name" property=""/>
-      <!--table:column id="c_com_Firefighter_surname" property="surname"/-->
+    <table:table array="${entity.participants}" id="l_com_Firefighter" path="/firefighter" simpleTable="true"
+                 useArray="true">
+      <table:column id="c_com_Firefighter_name" property="name"/>
+      <table:column id="c_com_Firefighter_surname" property="surname"/>
     </table:table>
   </page:show>
 </div>
