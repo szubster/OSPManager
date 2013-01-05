@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
@@ -13,6 +13,7 @@
   <http use-expressions="true">
     <intercept-url pattern="/*/create" access="hasRole('admin')"/>
     <intercept-url pattern="/*/update/*" access="hasRole('admin')"/>
+    <intercept-url pattern="/*/add*" access="hasRole('admin')"/>
     <intercept-url pattern="/**" access="permitAll"/>
     <form-login/>
     <logout logout-url="/logout"/>
