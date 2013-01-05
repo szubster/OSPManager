@@ -33,9 +33,6 @@
   <field name="legitimation" class="java.lang.String"/>
   <field name="rank" class="java.lang.String"/>
   <field name="awards" class="java.util.List"/>
-  <background>
-    <band splitType="Stretch"/>
-  </background>
   <columnHeader>
     <band height="20" splitType="Stretch">
       <staticText>

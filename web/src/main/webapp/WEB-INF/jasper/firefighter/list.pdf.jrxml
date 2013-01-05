@@ -94,18 +94,21 @@
           </textElement>
           <text><![CDATA[Data urodzenia]]></text>
         </staticText>
+
         <textField>
           <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
           <textElement/>
           <textFieldExpression><![CDATA[$F{birthDate}]]></textFieldExpression>
         </textField>
+        <break>
+          <reportElement uuid="b31cbbad-e456-43d2-bfb3-d0dbdcb669a3" x="0" y="19" width="100" height="1"/>
+        </break>
       </band>
     </groupHeader>
     <groupFooter>
       <band/>
     </groupFooter>
   </group>
-
   <background>
     <band/>
   </background>
@@ -148,13 +151,6 @@
       </line>
     </band>
   </columnHeader>
-  <detail>
-    <band height="20" splitType="Prevent">
-      <break>
-        <reportElement uuid="b31cbbad-e456-43d2-bfb3-d0dbdcb669a3" x="0" y="1" width="100" height="1"/>
-      </break>
-    </band>
-  </detail>
   <columnFooter>
     <band/>
   </columnFooter>
@@ -173,13 +169,15 @@
         <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
       </textField>
       <textField pattern="EEEEE dd MMMMM yyyy">
-        <reportElement uuid="7de98615-6971-423c-8ccf-52b588a61a9d" x="0" y="4" width="100" height="13"/>
+        <reportElement uuid="7de98615-6971-423c-8ccf-52b588a61a9d" x="0" y="4" width="236" height="13"/>
         <textElement/>
         <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
       </textField>
     </band>
   </pageFooter>
   <summary>
-    <band/>
+    <band height="50" splitType="Stretch">
+      <printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+    </band>
   </summary>
 </jasperReport>
