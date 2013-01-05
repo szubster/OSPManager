@@ -15,76 +15,6 @@
   <field name="codeName" class="java.lang.String"/>
   <field name="licensePlate" class="java.lang.String"/>
   <field name="milage" class="java.lang.Integer"/>
-  <group name="Group1">
-    <groupExpression><![CDATA[$F{id}]]></groupExpression>
-    <groupHeader>
-      <band height="23">
-        <staticText>
-          <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="2" width="100" height="20"
-                         forecolor="#666666"/>
-          <textElement>
-            <font size="12"/>
-          </textElement>
-          <text><![CDATA[Kryptonim pojazdu]]></text>
-        </staticText>
-        <textField>
-          <reportElement uuid="b35491de-019d-45d6-9c61-07d995e36ca4" x="165" y="3" width="100" height="20"/>
-          <textElement/>
-          <textFieldExpression><![CDATA[$F{codeName}]]></textFieldExpression>
-        </textField>
-      </band>
-    </groupHeader>
-    <groupFooter>
-      <band/>
-    </groupFooter>
-  </group>
-  <group name="Group2">
-    <groupHeader>
-      <band height="20">
-        <staticText>
-          <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="0" width="100" height="20"
-                         forecolor="#666666"/>
-          <textElement>
-            <font size="12"/>
-          </textElement>
-          <text><![CDATA[Numer rejestracyjny]]></text>
-        </staticText>
-        <textField>
-          <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
-          <textElement/>
-          <textFieldExpression><![CDATA[$F{licensePlate}]]></textFieldExpression>
-        </textField>
-      </band>
-    </groupHeader>
-    <groupFooter>
-      <band/>
-    </groupFooter>
-  </group>
-  <group name="Group3">
-    <groupHeader>
-      <band height="20">
-        <staticText>
-          <reportElement uuid="437aa9fc-2cba-48ba-ac7d-5e0d234effc7" x="0" y="0" width="100" height="20"
-                         forecolor="#666666"/>
-          <textElement>
-            <font size="12"/>
-          </textElement>
-          <text><![CDATA[Przebieg]]></text>
-        </staticText>
-        <textField>
-          <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="0" width="100" height="20"/>
-          <textElement/>
-          <textFieldExpression><![CDATA[$F{milage}]]></textFieldExpression>
-        </textField>
-        <break>
-          <reportElement uuid="b31cbbad-e456-43d2-bfb3-d0dbdcb669a3" x="0" y="19" width="100" height="1"/>
-        </break>
-      </band>
-    </groupHeader>
-    <groupFooter>
-      <band/>
-    </groupFooter>
-  </group>
   <background>
     <band/>
   </background>
@@ -127,6 +57,53 @@
       </line>
     </band>
   </columnHeader>
+  <detail>
+    <band height="67">
+      <staticText>
+        <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="0" width="100" height="20"
+                       forecolor="#666666"/>
+        <textElement>
+          <font size="12"/>
+        </textElement>
+        <text><![CDATA[Kryptonim pojazdu]]></text>
+      </staticText>
+      <textField>
+        <reportElement uuid="b35491de-019d-45d6-9c61-07d995e36ca4" x="165" y="0" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{codeName}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="f14d3a1d-88e8-4a78-96b6-2f2146020022" x="0" y="20" width="100" height="20"
+                       forecolor="#666666"/>
+        <textElement>
+          <font size="12"/>
+        </textElement>
+        <text><![CDATA[Numer rejestracyjny]]></text>
+      </staticText>
+      <textField>
+        <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="20" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{licensePlate}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="3f308173-ec26-4672-966e-ea7389fd86ef" x="165" y="40" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{milage}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="437aa9fc-2cba-48ba-ac7d-5e0d234effc7" x="0" y="40" width="100" height="20"
+                       forecolor="#666666"/>
+        <textElement>
+          <font size="12"/>
+        </textElement>
+        <text><![CDATA[Przebieg]]></text>
+      </staticText>
+      <line>
+        <reportElement uuid="e48c84e7-c8ba-47ff-a971-cfd9bbff4679" x="0" y="66" width="555" height="1"
+                       forecolor="#666666"/>
+      </line>
+    </band>
+  </detail>
   <columnFooter>
     <band/>
   </columnFooter>

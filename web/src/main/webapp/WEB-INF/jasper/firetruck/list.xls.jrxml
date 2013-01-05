@@ -33,19 +33,19 @@
       <staticText>
         <reportElement uuid="ca8479cb-c115-436c-96db-1e4177170a89" style="table_CH" x="0" y="0" width="100"
                        height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <text><![CDATA[Kryptonim pojazdu]]></text>
       </staticText>
       <staticText>
-        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="100" y="0" width="100"
+        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="100" y="0" width="143"
                        height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <text><![CDATA[Numer rejestracyjny]]></text>
       </staticText>
       <staticText>
-        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="200" y="0" width="100"
+        <reportElement uuid="fa77a0e5-4331-47f0-8c2e-38bfb04f419b" style="table_CH" x="243" y="0" width="100"
                        height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <text><![CDATA[Przebieg]]></text>
       </staticText>
     </band>
@@ -54,19 +54,19 @@
     <band height="20" splitType="Stretch">
       <textField isBlankWhenNull="true">
         <reportElement uuid="dea9ce08-5551-4ad2-9f3a-08ad86e1f38b" style="table_R" x="0" y="0" width="100" height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <textFieldExpression><![CDATA[$F{codeName}]]></textFieldExpression>
       </textField>
       <textField isBlankWhenNull="true">
-        <reportElement uuid="d36e0246-346f-40da-b8e6-d6caf9da3430" style="table_R" x="200" y="0" width="100"
+        <reportElement uuid="d36e0246-346f-40da-b8e6-d6caf9da3430" style="table_R" x="243" y="0" width="100"
                        height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <textFieldExpression><![CDATA[$F{licensePlate}]]></textFieldExpression>
       </textField>
       <textField isBlankWhenNull="true">
-        <reportElement uuid="80b9fa52-0a11-4fb0-b80d-898a5010b5b9" style="table_R" x="100" y="0" width="100"
+        <reportElement uuid="80b9fa52-0a11-4fb0-b80d-898a5010b5b9" style="table_R" x="100" y="0" width="143"
                        height="20"/>
-        <textElement/>
+        <textElement textAlignment="Center" verticalAlignment="Middle"/>
         <textFieldExpression><![CDATA[$F{milage}]]></textFieldExpression>
       </textField>
     </band>

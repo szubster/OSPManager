@@ -33,6 +33,7 @@
     <field name="operatingTime" class="org.joda.time.Duration"/>
     <field name="paidTime" class="org.joda.time.Duration"/>
   </subDataset>
+  <field name="id" class="java.math.BigInteger"/>
   <field name="participants" class="java.util.Collection"/>
   <field name="mileageStart" class="java.lang.Integer"/>
   <field name="mileageEnd" class="java.lang.Integer"/>
@@ -57,210 +58,10 @@
   <background>
     <band splitType="Stretch"/>
   </background>
-  <title>
-    <band height="79" splitType="Stretch">
-      <staticText>
-        <reportElement uuid="0890bfe5-a4bd-4408-ba15-206f56b40d0a" x="133" y="57" width="307" height="22"/>
-        <textElement>
-          <font size="15" isBold="true" isUnderline="true"/>
-        </textElement>
-        <text><![CDATA[KARTA ZDARZENIA / POTWIERDZENIE]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="1ade8bc8-2113-48cc-bb81-be63d03e64bf" x="0" y="7" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[...............................]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="c4c503b0-4997-4bd0-b520-986f06a1783b" x="0" y="20" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[(podmiot ksrg)]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="5d89aed3-d23f-4d1f-8987-d590afddbaa8" x="390" y="0" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Numer wyjazdu]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="cd710c48-2bab-4904-a793-3c31f5ec220e" x="390" y="20" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Stan licznika wyjazd]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="3fe7c891-2ced-4b0f-9ffb-bb67b0f1d0c3" x="390" y="40" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Stan licznika powrót]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="d50c2b53-e1d7-45c4-ad30-913087ec5896" x="490" y="0" width="65" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
-      </textField>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="a0c7736f-7df9-4290-a35a-3b1688d91f2a" x="490" y="20" width="65" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{mileageStart}]]></textFieldExpression>
-      </textField>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="e4851a73-883d-4db9-bc93-c8ed6ee70f49" x="490" y="40" width="65" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{mileageEnd}]]></textFieldExpression>
-      </textField>
-    </band>
-  </title>
-  <pageHeader>
-    <band height="194" splitType="Stretch">
-      <staticText>
-        <reportElement uuid="3303ef30-80a1-44cc-b09c-18d2a5d99d9d" x="0" y="15" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Kryptonim pojazdu]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="8614cc8e-7298-4213-b23a-0a86da8408d5" x="100" y="15" width="215" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{truckCodeName}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="413dbc93-721f-4736-965b-d0e8d00fb3f9" x="315" y="15" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Data]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="7f5f0b4c-c165-4ab0-8823-9b5616c9bac0" x="415" y="15" width="140" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
-      </textField>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="f9eb3248-e4b4-4c51-9601-0b14937d5aea" x="100" y="35" width="215" height="20"/>
-        <textElement/>
-        <textFieldExpression>
-          <![CDATA[$F{place.street} + " " + $F{place.postCode} + " " + $F{place.city}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="20d582cb-b1d7-4bfc-9e96-0c735258294f" x="0" y="35" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Adres zdarzenia]]></text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="33e3351a-34f1-4207-b417-ecef0213f10a" x="315" y="35" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Właściciel]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="5afa4f7f-8cd9-4d6e-b5f7-1870538fa930" x="415" y="35" width="140" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="0b1bf33d-e222-47c5-914f-2ef0f93e8515" x="0" y="53" width="181" height="20"/>
-        <textElement/>
-        <text><![CDATA[Rodzaj przeprowadzonej interwencji]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="49c80478-cfa0-48c6-b5ea-da193c63fdf7" x="181" y="53" width="374" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{interventionType}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="bf0ca4a5-6c64-42a6-8427-176c5f4ae01e" x="0" y="73" width="118" height="20"/>
-        <textElement/>
-        <text><![CDATA[Użyte środki gaśnicze]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="2c785a80-e0b7-4d6e-a470-3d5f52b6e557" x="118" y="73" width="100" height="20"/>
-        <textElement/>
-        <textFieldExpression>
-          <![CDATA[org.apache.commons.lang.StringUtils.join($F{means}.keySet().toArray(), "; ")]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="e6bf89c1-b453-4a66-8447-ecd411311b0a" x="218" y="73" width="39" height="20"/>
-        <textElement/>
-        <text><![CDATA[Ilość]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="8057e83c-2fa4-44eb-9b17-f1ae391c6a6c" x="257" y="73" width="75" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA["bla"]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="aee03676-f7ce-4a58-abb6-dc4211f11cea" x="332" y="73" width="100" height="20"/>
-        <textElement/>
-        <text><![CDATA[Osoby poszkodowane]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="3ce2699f-e49e-425c-8a15-c1a456536950" x="432" y="73" width="123" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{victim}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="1aee4c35-ee15-428d-9136-df495b815e25" x="0" y="93" width="133" height="20"/>
-        <textElement/>
-        <text><![CDATA[Jednostki współpracujące]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="91800030-0840-4379-96f9-c77747ee0b4d" x="133" y="93" width="422" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{cooperatingUnits}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="187e571b-9354-458f-9d12-1d444bb01982" x="0" y="113" width="66" height="20"/>
-        <textElement/>
-        <text><![CDATA[Zgłaszający]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="6be41d79-0b80-4209-bdac-49bf664d7042" x="66" y="113" width="133" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{declarant}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="f50eee93-0dc5-4d58-8e56-46ac722b72fc" x="199" y="113" width="74" height="20"/>
-        <textElement/>
-        <text><![CDATA[Godz. wyjazdu]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="e209d586-6956-43cf-855a-2c0f85516478" x="273" y="113" width="100" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{startTime}.toString("HH:mm")]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="d5c29ddf-bd48-4c12-9998-ad45b5056837" x="373" y="113" width="82" height="20"/>
-        <textElement/>
-        <text><![CDATA[Godz. powrotu]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="79cf8c3c-ed3c-44cf-9051-df7cb038348d" x="455" y="113" width="100" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{endTime}.toString("HH:mm")]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="38bcdd04-23f7-457d-ad83-5627610da807" x="0" y="133" width="133" height="20"/>
-        <textElement/>
-        <text><![CDATA[Dane opisowe zdarzenia]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="e44eb689-9269-4e56-85b2-1dc658938fa8" x="133" y="133" width="422" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="476aa034-de20-4535-a756-716acca1e67b" x="0" y="174" width="181" height="20"/>
-        <textElement/>
-        <text><![CDATA[Numer ewidencyjny zdarzenia PSP]]></text>
-      </staticText>
-      <textField isBlankWhenNull="true">
-        <reportElement uuid="69643018-10d2-47ed-96fa-96ea69553b2d" x="301" y="174" width="100" height="20"/>
-        <textElement/>
-        <textFieldExpression><![CDATA[$F{nrPSP}]]></textFieldExpression>
-      </textField>
-    </band>
-  </pageHeader>
-  <columnHeader>
-    <band height="22" splitType="Stretch"/>
-  </columnHeader>
   <detail>
-    <band height="23" splitType="Stretch">
+    <band height="357" splitType="Stretch">
       <componentElement>
-        <reportElement uuid="139c95b0-f82e-4666-9c2f-be44cb41b9b5" key="table 1" x="0" y="0" width="555" height="22"/>
+        <reportElement uuid="139c95b0-f82e-4666-9c2f-be44cb41b9b5" key="table 1" x="0" y="330" width="555" height="22"/>
         <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
                   xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
           <datasetRun subDataset="participants" uuid="5355fdaa-8003-4ff8-9993-66ba1e70400a">
@@ -387,22 +188,212 @@
           </jr:column>
         </jr:table>
       </componentElement>
-    </band>
-  </detail>
-  <pageFooter>
-    <band height="134" splitType="Stretch">
+      <staticText>
+        <reportElement uuid="3303ef30-80a1-44cc-b09c-18d2a5d99d9d" x="0" y="132" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Kryptonim pojazdu]]></text>
+      </staticText>
       <textField isBlankWhenNull="true">
-        <reportElement uuid="a6fc79ad-9e15-4893-ada4-dc702399171e" x="415" y="0" width="140" height="20"/>
+        <reportElement uuid="8614cc8e-7298-4213-b23a-0a86da8408d5" x="100" y="132" width="215" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{truckCodeName}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="413dbc93-721f-4736-965b-d0e8d00fb3f9" x="315" y="132" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Data]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="7f5f0b4c-c165-4ab0-8823-9b5616c9bac0" x="415" y="132" width="140" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
+      </textField>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="f9eb3248-e4b4-4c51-9601-0b14937d5aea" x="100" y="152" width="215" height="20"/>
+        <textElement/>
+        <textFieldExpression>
+          <![CDATA[$F{place.street} + " " + $F{place.postCode} + " " + $F{place.city}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="20d582cb-b1d7-4bfc-9e96-0c735258294f" x="0" y="152" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Adres zdarzenia]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="33e3351a-34f1-4207-b417-ecef0213f10a" x="315" y="152" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Właściciel]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="5afa4f7f-8cd9-4d6e-b5f7-1870538fa930" x="415" y="152" width="140" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="0b1bf33d-e222-47c5-914f-2ef0f93e8515" x="0" y="170" width="181" height="20"/>
+        <textElement/>
+        <text><![CDATA[Rodzaj przeprowadzonej interwencji]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="49c80478-cfa0-48c6-b5ea-da193c63fdf7" x="181" y="170" width="374" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{interventionType}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="bf0ca4a5-6c64-42a6-8427-176c5f4ae01e" x="0" y="190" width="118" height="20"/>
+        <textElement/>
+        <text><![CDATA[Użyte środki gaśnicze]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="2c785a80-e0b7-4d6e-a470-3d5f52b6e557" x="118" y="190" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression>
+          <![CDATA[org.apache.commons.lang.StringUtils.join($F{means}.keySet().toArray(), "; ")]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="e6bf89c1-b453-4a66-8447-ecd411311b0a" x="218" y="190" width="39" height="20"/>
+        <textElement/>
+        <text><![CDATA[Ilość]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="8057e83c-2fa4-44eb-9b17-f1ae391c6a6c" x="257" y="190" width="75" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA["bla"]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="aee03676-f7ce-4a58-abb6-dc4211f11cea" x="332" y="190" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Osoby poszkodowane]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="3ce2699f-e49e-425c-8a15-c1a456536950" x="432" y="190" width="123" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{victim}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="1aee4c35-ee15-428d-9136-df495b815e25" x="0" y="210" width="133" height="20"/>
+        <textElement/>
+        <text><![CDATA[Jednostki współpracujące]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="91800030-0840-4379-96f9-c77747ee0b4d" x="133" y="210" width="422" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{cooperatingUnits}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="187e571b-9354-458f-9d12-1d444bb01982" x="0" y="230" width="66" height="20"/>
+        <textElement/>
+        <text><![CDATA[Zgłaszający]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="6be41d79-0b80-4209-bdac-49bf664d7042" x="66" y="230" width="133" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{declarant}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="f50eee93-0dc5-4d58-8e56-46ac722b72fc" x="199" y="230" width="74" height="20"/>
+        <textElement/>
+        <text><![CDATA[Godz. wyjazdu]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="e209d586-6956-43cf-855a-2c0f85516478" x="273" y="230" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{startTime}.toString("HH:mm")]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="d5c29ddf-bd48-4c12-9998-ad45b5056837" x="373" y="230" width="82" height="20"/>
+        <textElement/>
+        <text><![CDATA[Godz. powrotu]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="79cf8c3c-ed3c-44cf-9051-df7cb038348d" x="455" y="230" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{endTime}.toString("HH:mm")]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="38bcdd04-23f7-457d-ad83-5627610da807" x="0" y="250" width="133" height="20"/>
+        <textElement/>
+        <text><![CDATA[Dane opisowe zdarzenia]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="e44eb689-9269-4e56-85b2-1dc658938fa8" x="133" y="250" width="422" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="476aa034-de20-4535-a756-716acca1e67b" x="0" y="291" width="181" height="20"/>
+        <textElement/>
+        <text><![CDATA[Numer ewidencyjny zdarzenia PSP]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="69643018-10d2-47ed-96fa-96ea69553b2d" x="301" y="291" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{nrPSP}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="0890bfe5-a4bd-4408-ba15-206f56b40d0a" x="133" y="57" width="307" height="22"/>
+        <textElement>
+          <font size="15" isBold="true" isUnderline="true"/>
+        </textElement>
+        <text><![CDATA[KARTA ZDARZENIA / POTWIERDZENIE]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="1ade8bc8-2113-48cc-bb81-be63d03e64bf" x="0" y="7" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[...............................]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="c4c503b0-4997-4bd0-b520-986f06a1783b" x="0" y="20" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[(podmiot ksrg)]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="5d89aed3-d23f-4d1f-8987-d590afddbaa8" x="390" y="0" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Numer wyjazdu]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="cd710c48-2bab-4904-a793-3c31f5ec220e" x="390" y="20" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Stan licznika wyjazd]]></text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="3fe7c891-2ced-4b0f-9ffb-bb67b0f1d0c3" x="390" y="40" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[Stan licznika powrót]]></text>
+      </staticText>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="d50c2b53-e1d7-45c4-ad30-913087ec5896" x="490" y="0" width="65" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
+      </textField>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="a0c7736f-7df9-4290-a35a-3b1688d91f2a" x="490" y="20" width="65" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{mileageStart}]]></textFieldExpression>
+      </textField>
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="e4851a73-883d-4db9-bc93-c8ed6ee70f49" x="490" y="40" width="65" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{mileageEnd}]]></textFieldExpression>
+      </textField>
+    </band>
+    <band height="118">
+      <textField isBlankWhenNull="true">
+        <reportElement uuid="a6fc79ad-9e15-4893-ada4-dc702399171e" positionType="FixRelativeToBottom" x="401" y="0"
+                       width="140" height="20"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{author}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="c4b2b915-3c5f-4786-bf4c-dc3331824f45" x="315" y="0" width="100" height="20"/>
+        <reportElement uuid="c4b2b915-3c5f-4786-bf4c-dc3331824f45" positionType="FixRelativeToBottom" x="273" y="0"
+                       width="100" height="20"/>
         <textElement/>
         <text><![CDATA[Sporządzający:]]></text>
       </staticText>
       <staticText>
-        <reportElement uuid="4ae01678-ddc8-4a16-b5dc-2e826d81a15f" x="0" y="48" width="257" height="86"/>
+        <reportElement uuid="4ae01678-ddc8-4a16-b5dc-2e826d81a15f" positionType="FixRelativeToBottom" x="0" y="32"
+                       width="257" height="86"/>
         <textElement textAlignment="Center"/>
         <text><![CDATA[Potwierdzam zgodność danych z kolumny nr 2 oraz 4.
 
@@ -412,7 +403,8 @@
 (Naczelnik / Prezes OSP)]]></text>
       </staticText>
       <staticText>
-        <reportElement uuid="8eaa431f-91da-4747-9036-6f218e3d8942" x="257" y="48" width="298" height="86"/>
+        <reportElement uuid="8eaa431f-91da-4747-9036-6f218e3d8942" positionType="FixRelativeToBottom" x="257" y="32"
+                       width="298" height="86"/>
         <textElement textAlignment="Center"/>
         <text><![CDATA[Potwierdza się udział jednostki w działaniach rat. - gaś.
 z wyłączeniem kolumny nr oraz 4.
@@ -421,6 +413,17 @@ z wyłączeniem kolumny nr oraz 4.
        ................................................
 (KP PSP Mińsk Maz.)]]></text>
       </staticText>
+      <break>
+        <reportElement uuid="961452fb-87c4-40dd-bf71-94db4f9e668c" x="0" y="117" width="100" height="1"/>
+      </break>
     </band>
+  </detail>
+  <pageFooter>
+    <band height="8" splitType="Stretch"/>
   </pageFooter>
+  <summary>
+    <band height="50" splitType="Stretch">
+      <printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+    </band>
+  </summary>
 </jasperReport>
