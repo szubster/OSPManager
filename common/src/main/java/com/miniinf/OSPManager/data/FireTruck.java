@@ -31,7 +31,7 @@ public class FireTruck implements BigIntegerEntity {
     private int milage;
 
     @NotNull
-    @Pattern(regexp = CODENAME_PATTERN, message = "{com.miniinf.OSPManager.validation.codename}")
+    @Pattern(regexp = CODENAME_PATTERN, message = "com.miniinf.OSPManager.validation.codename")
     private String codeName;
 
     /**

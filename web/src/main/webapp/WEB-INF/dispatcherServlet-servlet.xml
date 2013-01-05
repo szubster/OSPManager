@@ -12,7 +12,7 @@
                            http://www.springframework.org/schema/mvc
                            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
   <import resource="classpath:com/miniinf/OSPManager/persistance.xml"/>
-  <mvc:annotation-driven conversion-service="conversionService"/>
+  <mvc:annotation-driven conversion-service="conversionService" validator="validator"/>
   <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
     <property name="formatterRegistrars">
       <set>
@@ -70,7 +70,7 @@
   <mvc:view-controller path="/dataAccessFailure"/>
   <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
         id="messageSource" p:fileEncodings="UTF-8" p:defaultEncoding="UTF-8"
-        p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
+        p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application,WEB-INF/i18n/validation"
         p:fallbackToSystemLocale="false" p:cacheSeconds="0"/>
   <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
         id="localeResolver" p:cookieName="locale"/>
@@ -94,4 +94,6 @@
         id="multipartResolver"/>
   <bean id="methodValidationPostProcessor"
         class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+  <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"
+        p:validationMessageSource-ref="messageSource"/>
 </beans>

@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,8 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
 
     private final String basePath;
 
+    private final String className;
+
     public AbstractController(Class<E> entityClass) {
         Controller annotation = AnnotationUtils.findAnnotation(this.getClass(), Controller.class);
         if (annotation == null) {
@@ -49,7 +52,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
                     break;
                 default:
                     throw new IllegalStateException("Classes extending from AbstractController " +
-                            "cannot have more than one mapping");
+                                                            "cannot have more than one mapping");
             }
         } else {
             basePath = "";
@@ -60,6 +63,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
             throw new IllegalStateException("Entity needs to have parameterless constructor", e);
         }
         this.entityClass = entityClass;
+        this.className = StringUtils.uncapitalize(entityClass.getSimpleName());
     }
 
     protected abstract R getRepository();
@@ -77,7 +81,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         if (bindingResult.hasErrors()) {
             System.out.print(bindingResult);
             System.out.print(bindingResult.getAllErrors());
-            uiModel.addAttribute("entity", entity);
+            uiModel.addAttribute(className, entity);
             return basePath + "/create";
         }
         return saveAndRedirect(entity, uiModel);
@@ -86,7 +90,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create")
     public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
-        uiModel.addAttribute("entity", entityClass.newInstance());
+        uiModel.addAttribute(className, entityClass.newInstance());
     }
 
     @RequestMapping("/{entity}")
@@ -102,14 +106,15 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping("/update/{entity}")
-    public void edit(@ModelAttribute("entity") E entity) {
+    public void edit(E entity, Model uiModel) {
+        uiModel.addAttribute(className, entity);
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/update/{entity}", method = RequestMethod.PUT)
     public String update(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("entity", entity);
+            uiModel.addAttribute(className, entity);
             return basePath + "/update/" + entity.getId();
         }
         return saveAndRedirect(entity, uiModel);
