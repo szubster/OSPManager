@@ -90,7 +90,9 @@
           <spring:eval var="colCounter" expression="colCounter  + 1"/>
         </th>
       </c:forTokens>
-      <th></th>
+      <c:if test="${not simpleTable}">
+        <th></th>
+      </c:if>
       <sec:authorize access="hasRole('admin')">
         <c:if test="${update}">
           <th></th>
@@ -109,13 +111,12 @@
       </c:when>
       <c:otherwise>
         <spring:eval var="iterator" expression="array"/>
-        <!--c:set var="iterator" value="array"/-->
       </c:otherwise>
     </c:choose>
     <c:forEach items="${iterator}" var="item">
       <tr>
         <c:choose>
-          <c:when test="${columnProperties!='&#9999;'}">
+          <c:when test="${not simpleTable}">
             <c:forTokens items="${columnProperties}" delims="${'&#9999;'}" var="column" varStatus="num">
               <c:set var="columnMaxLength" value="${lengths[num.count-1]}"/>
               <c:set var="columnType" value="${types[num.count-1]}"/>

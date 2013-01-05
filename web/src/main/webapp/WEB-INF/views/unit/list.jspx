@@ -4,19 +4,22 @@
   -->
 
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
-     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
-  <table:table array="${unit.awards}" id="l_com_Unit" path="/unit" noId="true" create="false"
-               simpleTable="true" useArray="true">
-    <table:column id="c_com_Unit_award" property=""/>
-  </table:table>
-  <table:table array="${unit.ranks}" id="l_com_Unit" path="/unit" noId="true" create="false"
-               simpleTable="true" useArray="true">
-    <table:column id="c_com_Unit_rank" property=""/>
-  </table:table>
-  <table:table array="${unit.courses}" id="l_com_Unit" path="/unit" noId="true" create="false"
-               simpleTable="true" useArray="true">
-    <table:column id="c_com_Unit_course" property=""/>
-  </table:table>
+  <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
+    <table:table array="${unit.awards}" id="l_com_Unit" path="/unit" noId="true" create="false"
+                 simpleTable="true" useArray="true">
+      <table:column id="c_com_Unit_award" property=""/>
+    </table:table>
+    <table:table array="${unit.ranks}" id="l_com_Unit" path="/unit" noId="true" create="false"
+                 simpleTable="true" useArray="true">
+      <table:column id="c_com_Unit_rank" property=""/>
+    </table:table>
+    <table:table array="${unit.courses}" id="l_com_Unit" path="/unit" noId="true" create="false"
+                 simpleTable="true" useArray="true">
+      <table:column id="c_com_Unit_course" property=""/>
+    </table:table>
+  </util:panel>
 </div>
