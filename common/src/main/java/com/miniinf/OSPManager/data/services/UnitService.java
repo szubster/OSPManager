@@ -9,7 +9,7 @@ import com.miniinf.OSPManager.data.repositories.UnitRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * Date: 02.01.13
  * Time: 12:53
  */
-@Component
+@Service
 public class UnitService implements InitializingBean {
     @Autowired
     UnitRepository repository;
@@ -41,8 +41,10 @@ public class UnitService implements InitializingBean {
     @PreAuthorize("hasRole('admin')")
     public void setCounter(int cnt) {
         Unit entity = repository.findAll().get(0);
-        entity.setDepartureCounter(cnt);
-        repository.save(entity);
+        if (entity.getDepartureCounter() < cnt) {
+            entity.setDepartureCounter(cnt);
+            repository.save(entity);
+        }
     }
 
     public int getCounter() {
