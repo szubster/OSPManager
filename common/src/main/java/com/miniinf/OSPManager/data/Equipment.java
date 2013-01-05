@@ -20,6 +20,7 @@ public abstract class Equipment implements BigIntegerEntity, Serializable {
 
     @Id
     private BigInteger id;
+
     @NotNull
     private String kind;
 
@@ -34,6 +35,10 @@ public abstract class Equipment implements BigIntegerEntity, Serializable {
      */
     public BigInteger getId() {
         return id;
+    }
+
+    public void setId(BigInteger id) {
+        this.id = id;
     }
 
     /**

@@ -86,6 +86,10 @@ public class Operation implements BigIntegerEntity, Serializable {
         return id;
     }
 
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     /**
      * Returns address (where operation took place)
      *

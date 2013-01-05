@@ -73,6 +73,10 @@ public class FireFighter implements BigIntegerEntity {
         return id;
     }
 
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     /**
      * Returns address of the firefighter
      *

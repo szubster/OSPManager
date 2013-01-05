@@ -105,9 +105,9 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     }
 
     @PreAuthorize("hasRole('admin')")
-    @RequestMapping("/update/{entity}")
-    public void edit(E entity, Model uiModel) {
-        uiModel.addAttribute(className, entity);
+    @RequestMapping("/update/{id}")
+    public void edit(@PathVariable() ID id, Model uiModel) {
+        uiModel.addAttribute(className, getRepository().findOne(id));
     }
 
     @PreAuthorize("hasRole('admin')")
