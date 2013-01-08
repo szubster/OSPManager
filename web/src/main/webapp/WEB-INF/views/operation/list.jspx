@@ -8,12 +8,12 @@
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
   <page:list id="pl_com_Operation" items="${entities}">
-    <table:table data="${entities}" id="l_com_Operation" path="/operation">
+    <table:table data="${entities}" id="l_com_Operation" path="/operation" noExcel="true">
       <table:column property="number" id="c_com_Operation_number"/>
       <table:column id="c_com_Operation_truckCodeName" property="truckCodeName"/>
       <table:column id="c_com_Address_street" property="place.street"/>
       <table:column id="c_com_Interval_StartDate" property="startDate"/>
-      <!--table:column id="c_com_Operation_firefighters_Count" property="participants.Length()"/-->
+      <table:column id="c_com_Operation_firefighters_Count" property="participantsCount"/>
 
 
     </table:table>

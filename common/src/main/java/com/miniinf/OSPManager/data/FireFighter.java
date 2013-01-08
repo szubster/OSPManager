@@ -5,6 +5,7 @@
 package com.miniinf.OSPManager.data;
 
 import com.miniinf.OSPManager.validation.PESEL;
+import org.apache.commons.lang.StringUtils;
 import org.joda.time.LocalDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -237,6 +238,10 @@ public class FireFighter implements BigIntegerEntity {
      */
     public List<String> getAwards() {
         return awards;
+    }
+
+    public String getStringAwards() {
+        return StringUtils.join(awards, ", ");
     }
 
     /**

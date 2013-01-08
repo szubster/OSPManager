@@ -19,7 +19,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Class describes Operation, it's participants, firetrucks etc.
@@ -46,7 +45,9 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     private String[] cooperatingUnits;
 
-    private Map<String, Integer> means;
+    private String means;
+
+    private String quantity;
 
     private String declarant;
 
@@ -117,6 +118,10 @@ public class Operation implements BigIntegerEntity, Serializable {
 
     public void setParticipants(List<FireFighter> participants) {
         this.participants = participants;
+    }
+
+    public int getParticipantsCount() {
+        return participants.size();
     }
 
     public int getNumber() {
@@ -247,12 +252,20 @@ public class Operation implements BigIntegerEntity, Serializable {
         this.endDate = endDate;
     }
 
-    public Map<String, Integer> getMeans() {
+    public String getMeans() {
         return means;
     }
 
-    public void setMeans(Map<String, Integer> means) {
+    public void setMeans(String means) {
         this.means = means;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public static class FireFighter implements Serializable {
@@ -306,5 +319,7 @@ public class Operation implements BigIntegerEntity, Serializable {
         public void setPaidTime(Duration paidTime) {
             this.paidTime = paidTime;
         }
+
+
     }
 }

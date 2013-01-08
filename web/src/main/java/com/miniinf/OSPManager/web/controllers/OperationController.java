@@ -4,23 +4,17 @@
 
 package com.miniinf.OSPManager.web.controllers;
 
-import com.miniinf.OSPManager.data.Address;
 import com.miniinf.OSPManager.data.Operation;
 import com.miniinf.OSPManager.data.repositories.FireFighterRepository;
-import com.miniinf.OSPManager.data.repositories.FireTruckRepository;
 import com.miniinf.OSPManager.data.repositories.OperationRepository;
+import com.miniinf.OSPManager.data.services.FireTruckService;
 import com.miniinf.OSPManager.data.services.UnitService;
 import com.miniinf.OSPManager.jasper.ReportPath;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.validation.Valid;
 import java.math.BigInteger;
 
 /**
@@ -42,10 +36,10 @@ public class OperationController extends AbstractController<OperationRepository,
     FireFighterRepository FFRepository;
 
     @Autowired
-    FireTruckRepository FTRepository;
+    UnitService unitService;
 
     @Autowired
-    UnitService unitService;
+    FireTruckService fireTruckService;
 
     public OperationController() {
         super(Operation.class);
@@ -57,37 +51,20 @@ public class OperationController extends AbstractController<OperationRepository,
     }
 
     @Override
-    @PreAuthorize("hasRole('admin')")
-    @RequestMapping(value = "/create")
-    public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
-        Operation entity = Operation.class.newInstance();
-        entity.setNumber(unitService.getCounter());
-        uiModel.addAttribute("entity", entity);
+    protected void addAdditionalData(Model uiModel) {
         uiModel.addAttribute("firefighters", FFRepository.findAll());
-        uiModel.addAttribute("firetrucks", FTRepository.findAll());
+        uiModel.addAttribute("firetrucks", fireTruckService.findAll());
     }
 
     @Override
-    @PreAuthorize("hasRole('admin')")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@Valid Operation entity, BindingResult bindingResult, Model uiModel) {
-        if (bindingResult.hasErrors()) {
-            if (bindingResult.getFieldErrorCount("address.street") > 0) {
-                uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
-                Address ad = entity.getPlace();
-                ad.setStreet(StringUtils.capitalize(ad.getStreet()));
-                entity.setPlace(ad);
-            }
-            if (bindingResult.getFieldErrorCount("address.city") > 0) {
-                uiModel.addAttribute("information", "com.miniinf.OSPManager.simplepropertyfix");
-                Address ad = entity.getPlace();
-                ad.setCity(StringUtils.capitalize(ad.getCity()));
-                entity.setPlace(ad);
-            }
-            uiModel.addAttribute("firefighters", FFRepository.findAll());
-            uiModel.addAttribute("firetrucks", FTRepository.findAll());
-        }
+    protected Operation preProcessData(Operation entity) {
+        entity.setNumber(unitService.getCounter());
+        return entity;
+    }
+
+    @Override
+    protected Operation postProcessData(Operation entity) {
         unitService.setCounter(entity.getNumber() + 1);
-        return super.create(entity, bindingResult, uiModel);
+        return entity;
     }
 }

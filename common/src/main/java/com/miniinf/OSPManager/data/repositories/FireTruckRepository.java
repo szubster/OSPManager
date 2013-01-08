@@ -17,4 +17,5 @@ import java.math.BigInteger;
  */
 @Repository
 public interface FireTruckRepository extends MongoRepository<FireTruck, BigInteger> {
+    FireTruck findOneByCodeName(String codeName);
 }

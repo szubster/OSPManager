@@ -5,20 +5,22 @@
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_Firefighter" modelAttribute="entity" path="/firefighter" versionField="none">
-        <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
-        <field:input field="secondName" id="c_com_Firefighter_secondname"/>
-        <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
-        <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
-                        dateTimePattern="yyyy-MM-dd"/>
-        <field:input field="address.street" id="c_com_Address_street"/>
-        <field:input field="address.city" id="c_com_Address_city"/>
-        <field:input field="address.postCode" id="c_com_Address_postCode"/>
-        <field:input field="pesel" id="c_com_Firefighter_pesel"/>
-        <field:input field="legitimation" id="c_com_Firefighter_legitimation"/>
-        <field:input field="rank" id="c_com_Firefighter_rank"/>
-        <field:input field="awards" id="c_com_Firefighter_awards"/>
-    </form:update>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <form:update id="fu_com_Firefighter" modelAttribute="fireFighter" path="/firefighter" versionField="none">
+    <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
+    <field:input field="secondName" id="c_com_Firefighter_secondname"/>
+    <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
+    <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
+                    dateTimePattern="yyyy-MM-dd"/>
+    <field:input field="address.street" id="c_com_Address_street"/>
+    <field:input field="address.city" id="c_com_Address_city"/>
+    <field:input field="address.postCode" id="c_com_Address_postCode"/>
+    <field:input field="pesel" id="c_com_Firefighter_pesel"/>
+    <field:input field="legitimation" id="c_com_Firefighter_legitimation"/>
+    <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
+                  multiple="false"/>
+    <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}"
+                  multiple="true"/>
+  </form:update>
 </div>

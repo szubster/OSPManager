@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
 <jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
@@ -31,9 +31,7 @@
       <label for="_${fn:escapeXml(field)}_id">
         <c:out value="${fn:escapeXml(label)}"/>:
       </label>
-      <spring:url value="${path}" var="create_url">
-        <spring:param name="form"/>
-      </spring:url>
+      <spring:url value="${path}/create" var="create_url"/>
       <a href="${create_url}">
         <spring:url value="/resources/images/add.png" var="create_img_url"/>
         <spring:message arguments="${field}" code="global_menu_new" var="add_message" htmlEscape="false"/>

@@ -7,7 +7,8 @@
      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
-  <form:create id="fc_com_Firefighter" modelAttribute="fireFighter" path="/firefighter/create" title="global_menu_new_wego"
+  <form:create id="fc_com_Firefighter" modelAttribute="fireFighter" path="/firefighter/create"
+               title="global_menu_new_wego"
                label="menu_item_firefighter_new_a_label">
     <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
     <field:input field="secondName" id="c_com_Firefighter_secondname" required="false"/>
@@ -19,7 +20,10 @@
     <field:input field="address.city" id="c_com_Address_City" required="true"/>
     <field:input field="pesel" id="c_com_Firefighter_pesel" required="false"/>
     <field:input field="legitimation" id="c_com_Firefighter_legitimation" required="true"/>
-    <field:input field="rank" id="c_com_Firefighter_rank" required="false"/>
-    <field:input field="awards" id="c_com_Firefighter_awards" required="false"/>
+    <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
+                  multiple="false"/>
+    <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}"
+                  multiple="true"/>
+
   </form:create>
 </div>

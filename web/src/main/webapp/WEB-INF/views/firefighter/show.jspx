@@ -5,19 +5,19 @@
 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
      xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_Firefighter" object="${entity}" path="/firefighter">
-        <field:display field="name" id="c_com_Firefighter_name" object="${entity}"/>
-        <field:display field="secondName" id="c_com_Firefighter_secondname" object="${entity}"/>
-        <field:display field="surname" id="c_com_Firefighter_surname" object="${entity}"/>
-        <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${entity}" date="true"/>
-        <field:display field="address.street" id="c_com_Address_Street" object="${entity}"/>
-        <field:display field="address.postCode" id="c_com_Address_postCode" object="${entity}"/>
-        <field:display field="address.city" id="c_com_Address_City" object="${entity}"/>
-        <field:display field="pesel" id="c_com_Firefighter_pesel" object="${entity}"/>
-        <field:display field="legitimation" id="c_com_Firefighter_legitimation" object="${entity}"/>
-        <field:display field="rank" id="c_com_Firefighter_rank" object="${entity}"/>
-        <field:display field="awards" id="c_com_Firefighter_awards" object="${entity}"/>
-    </page:show>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <page:show id="ps_com_Firefighter" object="${entity}" path="/firefighter">
+    <field:display field="name" id="c_com_Firefighter_name" object="${entity}"/>
+    <field:display field="secondName" id="c_com_Firefighter_secondname" object="${entity}"/>
+    <field:display field="surname" id="c_com_Firefighter_surname" object="${entity}"/>
+    <field:display field="birthDate" id="c_com_Firefighter_birthdate" object="${entity}" date="true"/>
+    <field:display field="address.street" id="c_com_Address_Street" object="${entity}"/>
+    <field:display field="address.postCode" id="c_com_Address_postCode" object="${entity}"/>
+    <field:display field="address.city" id="c_com_Address_City" object="${entity}"/>
+    <field:display field="pesel" id="c_com_Firefighter_pesel" object="${entity}"/>
+    <field:display field="legitimation" id="c_com_Firefighter_legitimation" object="${entity}"/>
+    <field:display field="rank" id="c_com_Firefighter_rank" object="${entity}"/>
+    <field:display field="stringAwards" id="c_com_Firefighter_awards" object="${entity}"/>
+  </page:show>
 </div>

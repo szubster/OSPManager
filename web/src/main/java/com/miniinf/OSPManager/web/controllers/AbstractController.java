@@ -34,7 +34,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
 
     private final String basePath;
 
-    private final String className;
+    protected final String className;
 
     public AbstractController(Class<E> entityClass) {
         Controller annotation = AnnotationUtils.findAnnotation(this.getClass(), Controller.class);
@@ -79,6 +79,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
+            addAdditionalData(uiModel);
             System.out.print(bindingResult);
             System.out.print(bindingResult.getAllErrors());
             uiModel.addAttribute(className, entity);
@@ -90,7 +91,10 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create")
     public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
-        uiModel.addAttribute(className, entityClass.newInstance());
+        addAdditionalData(uiModel);
+        E entity = entityClass.newInstance();
+        entity = preProcessData(entity);
+        uiModel.addAttribute(className, entity);
     }
 
     @RequestMapping("/{entity}")
@@ -107,6 +111,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @PreAuthorize("hasRole('admin')")
     @RequestMapping("/update/{id}")
     public void edit(@PathVariable() ID id, Model uiModel) {
+        addAdditionalData(uiModel);
         uiModel.addAttribute(className, getRepository().findOne(id));
     }
 
@@ -114,6 +119,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     @RequestMapping(value = "/update/{entity}", method = RequestMethod.PUT)
     public String update(@Valid E entity, BindingResult bindingResult, Model uiModel) {
         if (bindingResult.hasErrors()) {
+            addAdditionalData(uiModel);
             uiModel.addAttribute(className, entity);
             return basePath + "/update/" + entity.getId();
         }
@@ -122,6 +128,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
 
     private String saveAndRedirect(E entity, Model uiModel) {
         uiModel.asMap().clear();
+        entity = postProcessData(entity);
         entity = getRepository().save(entity);
         return "redirect:/" + basePath + "/" + entity.getId();
     }
@@ -138,5 +145,13 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         return getRepository().findAll(new PageRequest(page - 1, size));
     }
 
+    protected void addAdditionalData(Model uiModel) {}
 
+    protected E preProcessData(E entity) {
+        return entity;
+    }
+
+    protected E postProcessData(E entity) {
+        return entity;
+    }
 }
