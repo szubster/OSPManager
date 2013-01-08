@@ -60,7 +60,7 @@ public class OperationController extends AbstractController<OperationRepository,
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/create")
     public void form(Model uiModel) throws IllegalAccessException, InstantiationException {
-        Operation entity = new Operation();
+        Operation entity = Operation.class.newInstance();
         entity.setNumber(unitService.getCounter());
         uiModel.addAttribute("entity", entity);
         uiModel.addAttribute("firefighters", FFRepository.findAll());
