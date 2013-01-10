@@ -29,8 +29,8 @@
     <field:display field="endDate" id="c_com_Interval_endDate" object="${entity}"/>
     <field:display field="endTime" id="c_com_Interval_endTime" object="${entity}"/>
 
-    <table:table array="${entity.participants}" id="l_com_Firefighter" path="/firefighter" simpleTable="true"
-                 useArray="true">
+    <table:table array="${entity.participants}" id="l_com_Firefighter" path="/firefighter"
+                 useArray="true" create="false" update="false" delete="false">
       <table:column id="c_com_Firefighter_name" property="name"/>
       <table:column id="c_com_Firefighter_surname" property="surname"/>
     </table:table>
