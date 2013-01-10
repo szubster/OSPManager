@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.web.controllers;
@@ -37,7 +37,7 @@ public class FireFighterControllerTest {
         argument = ArgumentCaptor.forClass(BigInteger.class);
     }
 
-    @Test
+
     public void createTest() {
         FireFighterController controller = new FireFighterController();
         FireFighterRepository repository = mock(FireFighterRepository.class);
@@ -53,7 +53,7 @@ public class FireFighterControllerTest {
         assertEquals("firefighter/create", result);
     }
 
-    @Test
+
     public void updateTest() {
         FireFighterController controller = new FireFighterController();
         FireFighterRepository repository = mock(FireFighterRepository.class);

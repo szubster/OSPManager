@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ */
+
 /**
  * Created with IntelliJ IDEA.
  * User: asus
@@ -5,6 +9,7 @@
  * Time: 17:27
  * To change this template use File | Settings | File Templates.
  */
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,76 +18,81 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
+
 public class FireTruckControllerTest {
 
     private WebDriver driver;
-    private static String baseUrl="http://localhost:8080";
+    private static String baseUrl = "http://localhost:8080";
+
     @Before
     public void setup() {
         driver = new FirefoxDriver();
     }
 
     @Test
-    public void createTruckTest() {
+    public void createTruckTest() throws InterruptedException {
         driver.get(baseUrl + "/");
-        driver.findElement(By.linkText("Dodaj nowy wĂłz straĹĽacki")).click();
-        driver.findElement(By.id("_number_id")).click();
-        driver.findElement(By.id("_number_id")).clear();
-        driver.findElement(By.id("_number_id")).sendKeys("1234");
+        driver.findElement(By.name("j_username")).sendKeys("admin");
+        driver.findElement(By.name("j_password")).sendKeys("password");
+        driver.findElement(By.name("submit")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.linkText("Dodaj nowy wóz strażacki")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("_codeName_id")).click();
+        driver.findElement(By.id("_codeName_id")).clear();
+        driver.findElement(By.id("_codeName_id")).sendKeys("123-54");
         driver.findElement(By.id("_licensePlate_id")).clear();
-        driver.findElement(By.id("_licensePlate_id")).sendKeys("LPA10");
+        driver.findElement(By.id("_licensePlate_id")).sendKeys("LPA000");
+        driver.findElement(By.id("_milage_id")).clear();
+        driver.findElement(By.id("_milage_id")).sendKeys("1000");
         driver.findElement(By.id("proceed")).click();
-        assertEquals("1234",driver.findElement(By.id("_s_com_Firetruck_Number_number_id")).getText());
-        assertEquals("LPA10",driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText());
+        Thread.sleep(1000);
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_codeName_codeName_id")).getText().isEmpty());
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText().isEmpty());
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_milage_milage_id")).getText().isEmpty());
     }
 
     @Test
-    public void showTest(){
+    public void showTest() throws InterruptedException {
         driver.get(baseUrl + "/");
-        driver.findElement(By.linkText("Wszystkie wozy straĹĽackie")).click();
-        driver.findElement(By.xpath("(//img[@alt='Pokaďż˝ wĂłz straĹĽacki'])[2]")).click();
-        assertEquals("1234",driver.findElement(By.id("_s_com_Firetruck_Number_number_id")).getText());
-        assertEquals("LPA10",driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText());
+        driver.findElement(By.name("j_username")).sendKeys("admin");
+        driver.findElement(By.name("j_password")).sendKeys("password");
+        driver.findElement(By.name("submit")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.linkText("Wszystkie wozy strażackie")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("(//img[@alt='Pokaż wóz strażacki'])[2]")).click();
+        Thread.sleep(1000);
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_codeName_codeName_id")).getText().isEmpty());
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText().isEmpty());
+
     }
 
     @Test
-    public void editAndUpdateTest(){
+    public void editAndUpdateTest() throws InterruptedException {
         driver.get(baseUrl + "/");
-        driver.findElement(By.linkText("Wszystkie wozy straĹĽackie")).click();
-        driver.findElement(By.xpath("(//img[@alt='Modyfikuj wĂłz straĹĽacki'])[3]")).click();
-        driver.findElement(By.id("_number_id")).click();
-        driver.findElement(By.id("_number_id")).clear();
-        driver.findElement(By.id("_number_id")).sendKeys("12345");
+        driver.findElement(By.name("j_username")).sendKeys("admin");
+        driver.findElement(By.name("j_password")).sendKeys("password");
+        driver.findElement(By.name("submit")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.linkText("Wszystkie wozy strażackie")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("(//img[@alt='Modyfikuj wóz strażacki'])[2]")).click();
+        Thread.sleep(1000);
         driver.findElement(By.id("_licensePlate_id")).click();
         driver.findElement(By.id("_licensePlate_id")).clear();
-        driver.findElement(By.id("_licensePlate_id")).sendKeys("LPA101");
+        driver.findElement(By.id("_licensePlate_id")).sendKeys("LPA0001");
+        driver.findElement(By.id("_milage_id")).click();
+        driver.findElement(By.id("_milage_id")).clear();
+        driver.findElement(By.id("_milage_id")).sendKeys("10001");
         driver.findElement(By.id("proceed")).click();
-        assertEquals("12345",driver.findElement(By.id("_s_com_Firetruck_Number_number_id")).getText());
-        assertEquals("LPA101",driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText());
-    }
-
-    /* @Test
- public void deleteTest(){
-     driver.get(baseUrl + "/");
-     driver.findElement(By.linkText("Wszystkie wozy straĹĽackie")).click();
-     driver.findElement(By.xpath("(//input[@value='Usuďż˝ wĂłz straĹĽacki'])[3]")).click();
-// ERROR: Caught exception [ERROR: Unsupported command [getConfirmation]]
-
- }   */
-
-    @Test
-    public void listTest(){
-        driver.get(baseUrl + "/");
-        driver.findElement(By.linkText("Wszystkie wozy straĹĽackie")).click();
-        driver.findElement(By.linkText("15")).click();
-        driver.findElement(By.cssSelector("img[alt=\"NastÄ™pna strona\"]")).click();
-        assertEquals(true,driver.getCurrentUrl().contains("page=2&size=15"));
-        assertEquals(true,driver.findElement(By.id("_title_pl_com_Firetruck_id")).getAttribute("open"));
-        assertEquals("Wszystkie wozy straĹĽackie",driver.findElement(By.id("_title_pl_com_Firetruck_id")).getAttribute("title"));
+        Thread.sleep(1000);
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_codeName_codeName_id")).getText().isEmpty());
+        assertEquals(false, driver.findElement(By.id("_c_com_Firetruck_licensePlate_licensePlate_id")).getText().isEmpty());
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 

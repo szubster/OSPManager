@@ -110,112 +110,244 @@ public class Operation implements BigIntegerEntity, Serializable {
     }
 
     /**
-     * @return
+     * Returns list of the FireFighters who participated in Operation
+     *
+     * @return list of Operation's FireFighters
      */
     public List<FireFighter> getParticipants() {
         return participants;
     }
 
+    /**
+     * Sets the list of the FireFighters who participated in Operation
+     *
+     * @param participants list of Operation's FireFighters
+     */
     public void setParticipants(List<FireFighter> participants) {
         this.participants = participants;
     }
 
+    /**
+     * Returns number of Operation's FireFighters
+     *
+     * @return
+     */
     public int getParticipantsCount() {
         return participants.size();
     }
 
+    /**
+     * Returns the Operation's number
+     *
+     * @return
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * Sets the Operation's number
+     *
+     * @param number
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     * Returns Operation's owner name
+     *
+     * @return Operation's owner name
+     */
     public String getOwner() {
         return owner;
     }
 
+    /**
+     * Sets Operation's owner name
+     *
+     * @param owner Operation's owner name
+     */
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
+    /**
+     * Returns Operation's intervention type
+     *
+     * @return Operation's intervention type
+     */
     public String getInterventionType() {
         return interventionType;
     }
 
+    /**
+     * Sets Operation's intervention type
+     *
+     * @param interventionType Operation's intervention type
+     */
     public void setInterventionType(String interventionType) {
         this.interventionType = interventionType;
     }
 
+    /**
+     * Returns victims names in one string
+     *
+     * @return Operation's victims names
+     */
     public String getVictim() {
         return victim;
     }
 
+    /**
+     * Sets victims names as one string
+     *
+     * @param victim victims names in one string
+     */
     public void setVictim(String victim) {
         this.victim = victim;
     }
 
+    /**
+     * Returns table of strings of units who helped in Operation
+     *
+     * @return table of names of units who helped in Operation
+     */
     public String[] getCooperatingUnits() {
         return cooperatingUnits;
     }
 
+    /**
+     * Sets table of strings of units who helped in Operation
+     *
+     * @param cooperatingUnits table of name of units who helped in Operation
+     */
     public void setCooperatingUnits(String[] cooperatingUnits) {
         this.cooperatingUnits = cooperatingUnits;
     }
 
+    /**
+     * Returns name of the author who made the raport about this operation
+     *
+     * @return author name
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Sets name of the Operation's author
+     *
+     * @param author author name
+     */
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    /**
+     * Returns declarant name
+     *
+     * @return declarant name
+     */
     public String getDeclarant() {
         return declarant;
     }
 
+    /**
+     * Sets declarant name
+     *
+     * @param declarant declarant name
+     */
     public void setDeclarant(String declarant) {
         this.declarant = declarant;
     }
 
+    /**
+     * Returns description about Operation
+     *
+     * @return description about Operation
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Sets description about Operation
+     *
+     * @param description description about Operation
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Returns PSP number
+     *
+     * @return
+     */
     public int getNrPSP() {
         return nrPSP;
     }
 
+    /**
+     * Sets PSP number
+     *
+     * @param nrPSP
+     */
     public void setNrPSP(int nrPSP) {
         this.nrPSP = nrPSP;
     }
 
+    /**
+     * Returns codename of the truck assigned to this Operation
+     *
+     * @return truck codename
+     */
     public String getTruckCodeName() {
         return truckCodeName;
     }
 
+    /**
+     * Sets codename of the truck assigned to this Operation
+     *
+     * @param truckCodeName truck codename
+     */
     public void setTruckCodeName(String truckCodeName) {
         this.truckCodeName = truckCodeName;
     }
 
+    /**
+     * Returns the state of the mileage at the start of the operation
+     *
+     * @return
+     */
     public int getMileageStart() {
         return mileageStart;
     }
 
+    /**
+     * Sets the state of the mileage at the start of the operation
+     *
+     * @param mileageStart
+     */
     public void setMileageStart(int mileageStart) {
         this.mileageStart = mileageStart;
     }
 
+    /**
+     * Returns the state of the mileage at the end of the operation
+     *
+     * @return
+     */
     public int getMileageEnd() {
         return mileageEnd;
     }
 
+    /**
+     * Sets state of the mileage at the end of the operation
+     *
+     * @param mileageEnd
+     */
     public void setMileageEnd(int mileageEnd) {
         this.mileageEnd = mileageEnd;
     }
