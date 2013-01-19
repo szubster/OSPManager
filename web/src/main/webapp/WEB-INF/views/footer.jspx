@@ -24,6 +24,10 @@
       </a>
     </span>
   </sec:authorize>
-  <!--<util:theme/>-->
-
+  <br/><br/>
+  <span>
+    <i>
+      <spring:message code="copyright"/>
+    </i>
+  </span>
 </div>
