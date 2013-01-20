@@ -16,6 +16,7 @@ package com.miniinf.OSPManager.web.controllers;
 import com.miniinf.OSPManager.data.Unit;
 import com.miniinf.OSPManager.data.repositories.UnitRepository;
 import com.miniinf.OSPManager.data.services.UnitService;
+import com.miniinf.OSPManager.data.services.UnitServiceImpl;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -31,7 +32,7 @@ public class UnitServiceTest {
 
     @Test
     public void resetCounterTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -46,7 +47,7 @@ public class UnitServiceTest {
 
     @Test
     public void incrementCounterTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -61,7 +62,7 @@ public class UnitServiceTest {
 
     @Test
     public void setCounterTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -76,7 +77,7 @@ public class UnitServiceTest {
 
     @Test
     public void addCourseTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -89,7 +90,7 @@ public class UnitServiceTest {
 
     @Test
     public void deleteCourseTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -104,7 +105,7 @@ public class UnitServiceTest {
 
     @Test
     public void addAwardTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -117,7 +118,7 @@ public class UnitServiceTest {
 
     @Test
     public void deleteAwardTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -132,7 +133,7 @@ public class UnitServiceTest {
 
     @Test
     public void addRankTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();
@@ -145,7 +146,7 @@ public class UnitServiceTest {
 
     @Test
     public void deleteRankTest() {
-        UnitService service = new UnitService();
+        UnitService service = new UnitServiceImpl();
         UnitRepository repository = mock(UnitRepository.class);
         setField(service, "repository", repository);
         Unit entity = new Unit();

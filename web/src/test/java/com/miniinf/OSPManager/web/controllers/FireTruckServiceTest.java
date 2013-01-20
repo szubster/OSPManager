@@ -7,6 +7,7 @@ package com.miniinf.OSPManager.web.controllers;
 import com.miniinf.OSPManager.data.FireTruck;
 import com.miniinf.OSPManager.data.repositories.FireTruckRepository;
 import com.miniinf.OSPManager.data.services.FireTruckService;
+import com.miniinf.OSPManager.data.services.FireTruckServiceImpl;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -26,7 +27,7 @@ import static org.springframework.test.util.ReflectionTestUtils.setField;
 public class FireTruckServiceTest {
     @Test
     public void findAllTest() {
-        FireTruckService service = new FireTruckService();
+        FireTruckService service = new FireTruckServiceImpl();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         setField(service, "repository", repository);
         FireTruck entity = new FireTruck();
@@ -39,7 +40,7 @@ public class FireTruckServiceTest {
 
     @Test
     public void updateMilageTest() {
-        FireTruckService service = new FireTruckService();
+        FireTruckService service = new FireTruckServiceImpl();
         FireTruckRepository repository = mock(FireTruckRepository.class);
         setField(service, "repository", repository);
         FireTruck entity = new FireTruck();

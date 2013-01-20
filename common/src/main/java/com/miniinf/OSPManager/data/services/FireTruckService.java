@@ -5,30 +5,18 @@
 package com.miniinf.OSPManager.data.services;
 
 import com.miniinf.OSPManager.data.FireTruck;
-import com.miniinf.OSPManager.data.repositories.FireTruckRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * Created by Tomasz Szuba
- * Date: 05.01.13
+ * Created with IntelliJ IDEA.
+ * User: Paula
+ * Date: 20.01.13
+ * Time: 10:59
+ * To change this template use File | Settings | File Templates.
  */
-@Service
-public class FireTruckService {
-    @Autowired
-    FireTruckRepository repository;
+public interface FireTruckService {
+    void updateMileage(String codeName, int mileage);
 
-    public void updateMileage(String codeName, int mileage) {
-        FireTruck fireTruck = repository.findOneByCodeName(codeName);
-        if (fireTruck.getMilage() < mileage) {
-            fireTruck.setMilage(mileage);
-            repository.save(fireTruck);
-        }
-    }
-
-    public List<FireTruck> findAll() {
-        return repository.findAll();
-    }
+    List<FireTruck> findAll();
 }

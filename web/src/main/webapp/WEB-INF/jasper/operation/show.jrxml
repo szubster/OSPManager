@@ -43,7 +43,8 @@
   <field name="place.city" class="java.lang.String"/>
   <field name="owner" class="java.lang.String"/>
   <field name="interventionType" class="java.lang.String"/>
-  <field name="means" class="java.util.Map"/>
+  <field name="means" class="java.lang.String"/>
+  <field name="quantity" class="java.lang.String"/>
   <field name="victim" class="java.lang.String"/>
   <field name="cooperatingUnits" class="java.lang.String"/>
   <field name="declarant" class="java.lang.String"/>
@@ -78,17 +79,23 @@
       </staticText>
       <staticText>
         <reportElement uuid="5d89aed3-d23f-4d1f-8987-d590afddbaa8" x="390" y="0" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Numer wyjazdu]]></text>
       </staticText>
       <staticText>
         <reportElement uuid="cd710c48-2bab-4904-a793-3c31f5ec220e" x="390" y="20" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Stan licznika wyjazd]]></text>
       </staticText>
       <staticText>
         <reportElement uuid="3fe7c891-2ced-4b0f-9ffb-bb67b0f1d0c3" x="390" y="40" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Stan licznika powrót]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -112,7 +119,9 @@
     <band height="194" splitType="Stretch">
       <staticText>
         <reportElement uuid="3303ef30-80a1-44cc-b09c-18d2a5d99d9d" x="0" y="15" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Kryptonim pojazdu]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -122,7 +131,9 @@
       </textField>
       <staticText>
         <reportElement uuid="413dbc93-721f-4736-965b-d0e8d00fb3f9" x="315" y="15" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Data]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -138,12 +149,16 @@
       </textField>
       <staticText>
         <reportElement uuid="20d582cb-b1d7-4bfc-9e96-0c735258294f" x="0" y="35" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Adres zdarzenia]]></text>
       </staticText>
       <staticText>
         <reportElement uuid="33e3351a-34f1-4207-b417-ecef0213f10a" x="315" y="35" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Właściciel]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -153,7 +168,9 @@
       </textField>
       <staticText>
         <reportElement uuid="0b1bf33d-e222-47c5-914f-2ef0f93e8515" x="0" y="53" width="181" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Rodzaj przeprowadzonej interwencji]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -163,48 +180,58 @@
       </textField>
       <staticText>
         <reportElement uuid="bf0ca4a5-6c64-42a6-8427-176c5f4ae01e" x="0" y="73" width="118" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Użyte środki gaśnicze]]></text>
       </staticText>
-      <textField isBlankWhenNull="true">
+      <textField isBlankWhenNull="false">
         <reportElement uuid="2c785a80-e0b7-4d6e-a470-3d5f52b6e557" x="118" y="73" width="100" height="20"/>
         <textElement/>
-        <textFieldExpression>
-          <![CDATA[org.apache.commons.lang.StringUtils.join($F{means}.keySet().toArray(), "; ")]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$F{means} !=null ? $F{means} : "---"]]></textFieldExpression>
       </textField>
       <staticText>
         <reportElement uuid="e6bf89c1-b453-4a66-8447-ecd411311b0a" x="218" y="73" width="39" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Ilość]]></text>
       </staticText>
-      <textField isBlankWhenNull="true">
+      <textField isBlankWhenNull="false">
         <reportElement uuid="8057e83c-2fa4-44eb-9b17-f1ae391c6a6c" x="257" y="73" width="75" height="20"/>
         <textElement/>
-        <textFieldExpression><![CDATA["bla"]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$F{quantity}!=null ? $F{quantity} : "---"]]></textFieldExpression>
       </textField>
       <staticText>
         <reportElement uuid="aee03676-f7ce-4a58-abb6-dc4211f11cea" x="332" y="73" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Osoby poszkodowane]]></text>
       </staticText>
-      <textField isBlankWhenNull="true">
+      <textField isBlankWhenNull="false">
         <reportElement uuid="3ce2699f-e49e-425c-8a15-c1a456536950" x="432" y="73" width="123" height="20"/>
         <textElement/>
-        <textFieldExpression><![CDATA[$F{victim}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$F{victim}!=null ? $F{victim} : "---"]]></textFieldExpression>
       </textField>
       <staticText>
         <reportElement uuid="1aee4c35-ee15-428d-9136-df495b815e25" x="0" y="93" width="133" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Jednostki współpracujące]]></text>
       </staticText>
-      <textField isBlankWhenNull="true">
+      <textField isBlankWhenNull="false">
         <reportElement uuid="91800030-0840-4379-96f9-c77747ee0b4d" x="133" y="93" width="422" height="20"/>
         <textElement/>
-        <textFieldExpression><![CDATA[$F{cooperatingUnits}]]></textFieldExpression>
+        <textFieldExpression>
+          <![CDATA[$F{cooperatingUnits} != null ? $F{cooperatingUnits} : "---"]]></textFieldExpression>
       </textField>
       <staticText>
         <reportElement uuid="187e571b-9354-458f-9d12-1d444bb01982" x="0" y="113" width="66" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Zgłaszający]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -214,7 +241,9 @@
       </textField>
       <staticText>
         <reportElement uuid="f50eee93-0dc5-4d58-8e56-46ac722b72fc" x="199" y="113" width="74" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Godz. wyjazdu]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -224,7 +253,9 @@
       </textField>
       <staticText>
         <reportElement uuid="d5c29ddf-bd48-4c12-9998-ad45b5056837" x="373" y="113" width="82" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Godz. powrotu]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -234,17 +265,21 @@
       </textField>
       <staticText>
         <reportElement uuid="38bcdd04-23f7-457d-ad83-5627610da807" x="0" y="133" width="133" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Dane opisowe zdarzenia]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
-        <reportElement uuid="e44eb689-9269-4e56-85b2-1dc658938fa8" x="133" y="133" width="422" height="20"/>
+        <reportElement uuid="e44eb689-9269-4e56-85b2-1dc658938fa8" x="133" y="133" width="422" height="41"/>
         <textElement/>
         <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
       </textField>
       <staticText>
         <reportElement uuid="476aa034-de20-4535-a756-716acca1e67b" x="0" y="174" width="181" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Numer ewidencyjny zdarzenia PSP]]></text>
       </staticText>
       <textField isBlankWhenNull="true">
@@ -398,7 +433,9 @@
       </textField>
       <staticText>
         <reportElement uuid="c4b2b915-3c5f-4786-bf4c-dc3331824f45" x="315" y="0" width="100" height="20"/>
-        <textElement/>
+        <textElement>
+          <font isBold="true"/>
+        </textElement>
         <text><![CDATA[Sporządzający:]]></text>
       </staticText>
       <staticText>

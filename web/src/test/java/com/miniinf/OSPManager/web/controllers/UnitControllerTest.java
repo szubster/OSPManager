@@ -5,6 +5,7 @@
 package com.miniinf.OSPManager.web.controllers;
 
 import com.miniinf.OSPManager.data.services.UnitService;
+import com.miniinf.OSPManager.data.services.UnitServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -34,7 +35,7 @@ public class UnitControllerTest {
     @Test
     public void addCoursePostTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addCoursePost("kurs");
         verify(service).addCourse((String) argument.capture());
@@ -44,7 +45,7 @@ public class UnitControllerTest {
     @Test
     public void deleteCourseTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addCoursePost("kurs");
         controller.deleteCourse("kurs");
@@ -55,7 +56,7 @@ public class UnitControllerTest {
     @Test
     public void addRankPostTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addRankPost("rank");
         verify(service).addRank((String) argument.capture());
@@ -65,7 +66,7 @@ public class UnitControllerTest {
     @Test
     public void deleteRankTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addRankPost("Rank");
         controller.deleteRank("Rank");
@@ -76,7 +77,7 @@ public class UnitControllerTest {
     @Test
     public void addAwardPostTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addAwardPost("award");
         verify(service).addAwards((String) argument.capture());
@@ -86,7 +87,7 @@ public class UnitControllerTest {
     @Test
     public void deleteAwardTest() {
         UnitController controller = new UnitController();
-        UnitService service = mock(UnitService.class);
+        UnitService service = mock(UnitServiceImpl.class);
         setField(controller, "unitService", service);
         controller.addAwardPost("Award");
         controller.deleteAward("Award");
