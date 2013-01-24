@@ -19,7 +19,7 @@
                   timePattern="HH:mm" idSuffix="b"/>
       <field:time field="fireFighters[${i.index}].paidTime" id="c_com_Firefighter_paidTime" required="false"
                   timePattern="HH:mm" idSuffix="b"/>
-
+      <br/>
     </c:forEach>
   </form:update>
 </div>
