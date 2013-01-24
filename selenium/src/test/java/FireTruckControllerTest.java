@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class FireTruckControllerTest {
 
     private WebDriver driver;
+
     private static String baseUrl = "http://localhost:8080";
 
     @Before

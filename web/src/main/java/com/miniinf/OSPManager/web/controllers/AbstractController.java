@@ -130,6 +130,10 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
         uiModel.asMap().clear();
         entity = postProcessData(entity);
         entity = getRepository().save(entity);
+        return getRedirectPath(entity);
+    }
+
+    protected String getRedirectPath(E entity) {
         return "redirect:/" + basePath + "/" + entity.getId();
     }
 

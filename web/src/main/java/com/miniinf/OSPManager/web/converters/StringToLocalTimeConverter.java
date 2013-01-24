@@ -17,11 +17,19 @@ public class StringToLocalTimeConverter implements Converter<String, LocalTime> 
 
     private static final DateTimeFormatter timeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
 
+    private static final DateTimeFormatter shortTimeFormatter = DateTimeFormat.forPattern("HH:mm");
+
     @Override
     public LocalTime convert(String source) {
         if (source.startsWith("T")) {
             source = source.substring(1);
         }
-        return LocalTime.parse(source, timeFormatter);
+        LocalTime ret;
+        try {
+            ret = LocalTime.parse(source, timeFormatter);
+        } catch (IllegalArgumentException e) {
+            ret = LocalTime.parse(source, shortTimeFormatter);
+        }
+        return ret;
     }
 }

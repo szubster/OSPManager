@@ -16,27 +16,42 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
+ * Implementation of ViewResolver resolving view based on url and internal data mapping
+ * ant-style pattern to JasperReport path
+ * <p/>
  * Created by Tomasz Szuba
  * Date: 23.12.12
  */
 public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
 
-    private Map<String, String> urlToReportPathMap = new HashMap<String, String>();
+    private Map<String, String> urlToReportPathMap = new HashMap<>();
 
     private Map<String, Class<? extends AbstractJasperReportsSingleFormatView>> formatMappings;
 
     private AntPathMatcher matcher = new AntPathMatcher();
 
+    /**
+     * Add new ant-pattern to path match
+     *
+     * @param pattern    pattern being match to url
+     * @param reportPath path to JasperReport report template
+     */
     public void addReportPath(String pattern, String reportPath) {
         urlToReportPathMap.put(pattern, reportPath);
     }
 
+    /**
+     * Default constructor. Creates ViewResolver instance
+     */
     public JasperAnnotationViewResolver() {
         this.formatMappings = new HashMap<>();
         this.formatMappings.put(".pdf", JRPdfWithPageSupport.class);
         this.formatMappings.put(".xls", JRXlsWithPageSupport.class);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected View loadView(String viewName, Locale locale) throws Exception {
         AbstractUrlBasedView view = buildView(viewName);
@@ -57,6 +72,13 @@ public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
         return (View) getApplicationContext().getAutowireCapableBeanFactory().initializeBean(view, viewName);
     }
 
+    /**
+     * Build view based on url and internal map
+     *
+     * @param viewName name of view to build
+     * @return built view
+     * @throws Exception problems during loading view
+     */
     @Override
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
         String ext = viewName.substring(viewName.length() - 4);
