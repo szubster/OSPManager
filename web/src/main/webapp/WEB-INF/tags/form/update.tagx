@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+  ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
 <jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
@@ -25,6 +25,10 @@
                            description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
   <jsp:directive.attribute name="openPane" type="java.lang.Boolean" required="false" rtexprvalue="true"
                            description="Control if the title pane is opened or closed by default (default: true)"/>
+  <jsp:directive.attribute name="noId" type="java.lang.Boolean" required="false" rtexprvalue="true"
+                           description="Indicates if there is an id"/>
+  <jsp:directive.attribute name="form_url" type="java.lang.String" required="false" rtexprvalue="true"
+                           description="An url for form submit"/>
 
 
   <c:if test="${empty render or render}">
@@ -43,8 +47,10 @@
     </c:if>
     <spring:message arguments="${label}" code="entity_update" var="title_msg" htmlEscape="false"/>
     <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
-      <spring:eval var="itemId" expression="${modelAttribute}[idField]"/>
-      <spring:url value="${path}/update/${itemId}" var="form_url"/>
+      <c:if test="${empty form_url}">
+        <spring:eval var="itemId" expression="${modelAttribute}[idField]"/>
+        <spring:url value="${path}/update/${itemId}" var="form_url"/>
+      </c:if>
       <form:form action="${form_url}" method="PUT" modelAttribute="${modelAttribute}" enctype="${enctype}">
         <form:errors cssClass="errors" delimiter="&lt;p/&gt;"/>
         <jsp:doBody/>
@@ -52,13 +58,15 @@
           <spring:message code="button_save" var="save_button" htmlEscape="false"/>
           <script type="text/javascript">
             Spring.addDecoration(new Spring.ValidateAllDecoration({
-              elementId: 'proceed',
-              event: 'onclick'
+              elementId:'proceed',
+              event:'onclick'
             }))
             ;</script>
           <input id="proceed" type="submit" value="${fn:escapeXml(save_button)}"/>
         </div>
-        <form:hidden id="_${fn:escapeXml(idField)}_id" path="${fn:escapeXml(idField)}"/>
+        <c:if test="${empty noId or not noId}">
+          <form:hidden id="_${fn:escapeXml(idField)}_id" path="${fn:escapeXml(idField)}"/>
+        </c:if>
         <c:if test="${versionField ne 'none'}">
           <form:hidden id="_${fn:escapeXml(versionField)}_id" path="${fn:escapeXml(versionField)}"/>
         </c:if>
