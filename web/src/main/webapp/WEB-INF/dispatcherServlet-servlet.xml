@@ -32,6 +32,7 @@
         <bean class="com.miniinf.OSPManager.web.converters.StringToLocalDateConverter"/>
         <bean class="com.miniinf.OSPManager.web.converters.StringToLocalTimeConverter"/>
         <bean class="com.miniinf.OSPManager.web.converters.DurationToStringConverter"/>
+        <bean class="com.miniinf.OSPManager.web.converters.StringToDurationConverter"/>
       </set>
     </property>
   </bean>
