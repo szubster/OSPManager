@@ -31,6 +31,7 @@
         <bean class="com.miniinf.OSPManager.web.converters.FireFighterToFireFighterConverter"/>
         <bean class="com.miniinf.OSPManager.web.converters.StringToLocalDateConverter"/>
         <bean class="com.miniinf.OSPManager.web.converters.StringToLocalTimeConverter"/>
+        <bean class="com.miniinf.OSPManager.web.converters.DurationToStringConverter"/>
       </set>
     </property>
   </bean>
