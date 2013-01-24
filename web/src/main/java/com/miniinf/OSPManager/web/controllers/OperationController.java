@@ -16,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -81,7 +83,6 @@ public class OperationController extends AbstractController<OperationRepository,
     @PreAuthorize("hasRole('admin')")
     @RequestMapping("/{id}/settime")
     public void setTime(@PathVariable() BigInteger id, Model uiModel) {
-
         Operation operation = repository.findOne(id);
         List<Operation.FireFighter> participants = operation.getParticipants();
         DateTime start = operation.getStartDate().toDateTime(operation.getStartTime());
@@ -99,8 +100,18 @@ public class OperationController extends AbstractController<OperationRepository,
         uiModel.addAttribute("firefighters", new FireFightersFormBackingObject(participants));
     }
 
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/{id}/settime", method = RequestMethod.PUT)
+    public String saveTimes(@PathVariable() BigInteger id,
+                            @ModelAttribute("firefighters") FireFightersFormBackingObject fireFightersForm) {
+        Operation operation = repository.findOne(id);
+        operation.setParticipants(fireFightersForm.getFireFighters());
+        repository.save(operation);
+        return "redirect:/operation/" + operation.getId();
+    }
+
     public static class FireFightersFormBackingObject {
-        List<Operation.FireFighter> fireFighters;
+        private List<Operation.FireFighter> fireFighters;
 
         public FireFightersFormBackingObject(List<Operation.FireFighter> fireFighters) {
             this.fireFighters = fireFighters;
