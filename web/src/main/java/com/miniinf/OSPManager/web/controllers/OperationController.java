@@ -96,6 +96,22 @@ public class OperationController extends AbstractController<OperationRepository,
             }
         }
         uiModel.addAttribute("operationId", operation.getId());
-        uiModel.addAttribute("firefighters", participants);
+        uiModel.addAttribute("firefighters", new FireFightersFormBackingObject(participants));
+    }
+
+    public static class FireFightersFormBackingObject {
+        List<Operation.FireFighter> fireFighters;
+
+        public FireFightersFormBackingObject(List<Operation.FireFighter> fireFighters) {
+            this.fireFighters = fireFighters;
+        }
+
+        public List<Operation.FireFighter> getFireFighters() {
+            return fireFighters;
+        }
+
+        public void setFireFighters(List<Operation.FireFighter> fireFighters) {
+            this.fireFighters = fireFighters;
+        }
     }
 }
