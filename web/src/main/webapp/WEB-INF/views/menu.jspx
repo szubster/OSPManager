@@ -19,6 +19,7 @@
     <menu:category id="c_operation">
       <menu:item id="i_operation_new" messageCode="global_menu_new_we" url="/operation/create"/>
       <menu:item id="i_operation_list" messageCode="global_menu_list_stkie" url="/operation"/>
+      <menu:item id="i_overallreport" messageCode="global_menu_report" url="/operation/overallreport"/>
     </menu:category>
     <menu:category id="c_unit">
       <menu:item id="i_course_new" messageCode="global_menu_new_we" url="/unit/addcourse"/>
