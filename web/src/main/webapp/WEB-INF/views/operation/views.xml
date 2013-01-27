@@ -18,4 +18,10 @@
   <definition extends="default" name="operation/*">
     <put-attribute name="body" value="/WEB-INF/views/operation/show.jspx"/>
   </definition>
+  <definition extends="default" name="operation/*/settime">
+    <put-attribute name="body" value="/WEB-INF/views/operation/settime.jspx"/>
+  </definition>
+  <definition extends="default" name="operation/overallreport">
+    <put-attribute name="body" value="/WEB-INF/views/operation/overallreport.jspx"/>
+  </definition>
 </tiles-definitions>

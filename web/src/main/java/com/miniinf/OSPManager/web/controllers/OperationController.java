@@ -155,6 +155,11 @@ public class OperationController extends AbstractController<OperationRepository,
             this.fireFighters = fireFighters;
         }
 
+        public FireFightersFormBackingObject() {
+
+
+        }
+
         public List<Operation.FireFighter> getFireFighters() {
             return fireFighters;
         }
