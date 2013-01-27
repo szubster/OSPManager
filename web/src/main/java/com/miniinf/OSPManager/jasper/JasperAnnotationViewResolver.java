@@ -4,6 +4,7 @@
 
 package com.miniinf.OSPManager.jasper;
 
+import com.miniinf.OSPManager.util.ReverseComparator;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResol
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Implementation of ViewResolver resolving view based on url and internal data mapping
@@ -24,7 +26,7 @@ import java.util.Map;
  */
 public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
 
-    private Map<String, String> urlToReportPathMap = new HashMap<>();
+    private Map<String, String> urlToReportPathMap = new TreeMap<>(new ReverseComparator<String>());
 
     private Map<String, Class<? extends AbstractJasperReportsSingleFormatView>> formatMappings;
 

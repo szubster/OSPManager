@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
+ * Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
  */
 
 package com.miniinf.OSPManager.jasper;
@@ -78,7 +78,7 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
     private void addReportMapping(String[] classMappings, String[] methodMappings, String reportPath) {
         for (String classMapping : classMappings) {
             for (String methodMapping : methodMappings) {
-                resolver.addReportPath(classMapping + methodMapping, reportPath);
+                resolver.addReportPath(classMapping + methodMapping + "*", reportPath);
             }
         }
     }

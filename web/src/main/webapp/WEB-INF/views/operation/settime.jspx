@@ -14,7 +14,11 @@
       <field:input field="fireFighters[${i.index}].id" id="c_com_Firefighter_id" min="2" required="false"
                    type="hidden"/>
       <field:display field="name" id="c_com_Firefighter_Name" object="${firefighter}"/>
+      <field:input field="fireFighters[${i.index}].name" id="c_com_Firefighter_name" min="2" required="false"
+                   type="hidden"/>
       <field:display field="surname" id="c_com_Firefighter_Surname" object="${firefighter}"/>
+      <field:input field="fireFighters[${i.index}].surname" id="c_com_Firefighter_surname" min="2" required="false"
+                   type="hidden"/>
       <field:time field="fireFighters[${i.index}].operatingTime" id="c_com_Firefighter_operatingTime" required="false"
                   timePattern="HH:mm" idSuffix="b"/>
       <field:time field="fireFighters[${i.index}].paidTime" id="c_com_Firefighter_paidTime" required="false"

@@ -23,9 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigInteger;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -121,9 +120,24 @@ public class OperationController extends AbstractController<OperationRepository,
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/overallreport", method = RequestMethod.POST, produces = "application/vnd.ms-excel")
-    public void prepareReport(@ModelAttribute() OverallReportTime reportTime) {
-        Set<Operation.FireFighter> result = new HashSet<>();
+    @ReportPath("overallreport")
+    public List<Operation.FireFighter> prepareReport(@ModelAttribute() OverallReportTime reportTime) {
+        List<Operation.FireFighter> res = new ArrayList<>();
+        Iterable<Operation> it = repository.findAll();
+        for (Operation op : it) {
+            for (Operation.FireFighter ff : op.getParticipants()) {
+                int index = res.indexOf(ff);
+                if (index == -1) {
+                    res.add(ff);
+                } else {
+                    Operation.FireFighter fireFighter = res.get(index);
+                    Duration nDuration = fireFighter.getPaidTime().withDurationAdded(ff.getPaidTime(), 1);
+                    fireFighter.setPaidTime(nDuration);
+                }
 
+            }
+        }
+        return res;
     }
 
     public static class OverallReportTime {

@@ -4,6 +4,7 @@
 
 package com.miniinf.OSPManager.data;
 
+import com.mysema.query.annotations.QueryEntity;
 import org.joda.time.Duration;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
@@ -25,6 +26,7 @@ import java.util.List;
  * Created by Tomasz Szuba
  * Date: 05.11.12
  */
+@QueryEntity
 @Document
 public class Operation implements BigIntegerEntity, Serializable {
 
@@ -400,7 +402,7 @@ public class Operation implements BigIntegerEntity, Serializable {
         this.quantity = quantity;
     }
 
-    public static class FireFighter implements Serializable {
+    public static class FireFighter implements Serializable, Comparable<FireFighter> {
 
         private BigInteger id;
 
@@ -453,5 +455,9 @@ public class Operation implements BigIntegerEntity, Serializable {
         }
 
 
+        @Override
+        public int compareTo(FireFighter o) {
+            return id.compareTo(o.id);
+        }
     }
 }
