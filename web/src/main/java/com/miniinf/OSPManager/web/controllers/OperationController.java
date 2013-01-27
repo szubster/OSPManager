@@ -12,6 +12,7 @@ import com.miniinf.OSPManager.data.services.UnitService;
 import com.miniinf.OSPManager.jasper.ReportPath;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigInteger;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -108,6 +111,41 @@ public class OperationController extends AbstractController<OperationRepository,
         operation.setParticipants(fireFightersForm.getFireFighters());
         repository.save(operation);
         return "redirect:/operation/" + operation.getId();
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping("/overallreport")
+    public void prepareReport(Model uiModel) {
+        uiModel.addAttribute("reportConfig", new OverallReportTime());
+    }
+
+    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(value = "/overallreport", method = RequestMethod.POST, produces = "application/vnd.ms-excel")
+    public void prepareReport(@ModelAttribute() OverallReportTime reportTime) {
+        Set<Operation.FireFighter> result = new HashSet<>();
+
+    }
+
+    public static class OverallReportTime {
+        LocalDate startDate;
+
+        LocalDate endDate;
+
+        public LocalDate getStartDate() {
+            return startDate;
+        }
+
+        public void setStartDate(LocalDate startDate) {
+            this.startDate = startDate;
+        }
+
+        public LocalDate getEndDate() {
+            return endDate;
+        }
+
+        public void setEndDate(LocalDate endDate) {
+            this.endDate = endDate;
+        }
     }
 
     public static class FireFightersFormBackingObject {

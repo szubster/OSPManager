@@ -6,6 +6,7 @@ package com.miniinf.OSPManager.data.repositories;
 
 import com.miniinf.OSPManager.data.Operation;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
@@ -16,5 +17,5 @@ import java.math.BigInteger;
  * Repository for Operations
  */
 @Repository
-public interface OperationRepository extends MongoRepository<Operation, BigInteger> {
+public interface OperationRepository extends MongoRepository<Operation, BigInteger>, QueryDslPredicateExecutor<Operation> {
 }
