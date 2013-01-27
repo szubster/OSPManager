@@ -12,25 +12,26 @@
     <field:select id="c_com_Operation_truckCodeName" field="truckCodeName" path="/firetruck" items="${firetrucks}"
                   multiple="false" itemValue="codeName" itemLabel="codeName"/>
     <field:input field="number" id="c_com_Operation_number" min="2" required="false"/>
-    <field:input field="owner" id="c_com_Operation_owner" min="2" required="false"/>
+    <field:input field="owner" id="c_com_Operation_owner" hint="c_com_Operation_owner_a" min="2" required="false"/>
     <field:input field="interventionType" id="c_com_Operation_interventionType" min="2" required="false"/>
     <field:input field="means" id="c_com_Operation_means" min="2" required="false"/>
     <field:input field="quantity" id="c_com_Operation_quantity" min="2" required="false"/>
     <field:input field="victim" id="c_com_Operation_victim" min="2" required="false"/>
-    <field:input field="place.street" id="c_com_Address_Street" min="2" required="false"/>
+    <field:input field="place.street" id="c_com_Address_Street" hint="c_com_Address_Street_e" min="2" required="false"/>
     <field:input field="place.city" id="c_com_Address_City" min="2" required="false"/>
     <field:input field="place.postCode" id="c_com_Address_postCode" min="2" required="false"/>
-    <field:input field="declarant" id="c_com_Operation_declarant" min="2" required="false"/>
+    <field:input field="declarant" id="c_com_Operation_declarant" hint="c_com_Operation_declarant_ego" min="2"
+                 required="false"/>
     <field:input field="description" id="c_com_Operation_description" min="2" required="false"/>
     <field:input field="nrPSP" id="c_com_Operation_nrPSP" min="2" required="false"/>
-    <field:input field="author" id="c_com_Operation_author" min="2" required="false"/>
+    <field:input field="author" id="c_com_Operation_author" hint="c_com_Operation_author_ego" min="2" required="false"/>
     <field:input field="mileageStart" id="c_com_Operation_mileageStart" min="2" required="false"/>
     <field:input field="mileageEnd" id="c_com_Operation_mileageEnd" min="2" required="false"/>
     <field:datetime field="startDate" id="c_com_Interval_startDate" required="false" dateTimePattern="yyyy-MM-dd"
-                    idSuffix="a"/>
+                    idSuffix="a" hint="label_com_interval_startdate_a"/>
     <field:time field="startTime" id="c_com_Interval_startTime" required="false" timePattern="HH:mm" idSuffix="b"/>
     <field:datetime field="endDate" id="c_com_Interval_endDate" required="false" dateTimePattern="yyyy-MM-dd"
-                    idSuffix="c"/>
+                    idSuffix="c" hint="c_com_Interval_endDate_a"/>
     <field:time field="endTime" id="c_com_Interval_endTime" required="false" timePattern="HH:mm" idSuffix="d"/>
 
     <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"

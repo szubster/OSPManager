@@ -2,6 +2,8 @@
   ~ Copyright (c) 2013. Tomasz Szuba, Paulina Schab, Michał Tkaczyk. All rights reserved.
   -->
 
+
+
 <jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
           xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
           xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
@@ -35,6 +37,8 @@
                            description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
   <jsp:directive.attribute name="idSuffix" type="java.lang.String" required="false" rtexprvalue="true"
                            description="Value added to end of input html tag id"/>
+  <jsp:directive.attribute name="hint" type="java.lang.String" required="false" rtexprvalue="true"
+                           description="The label used for a hint for a input"/>
 
 
   <c:if test="${empty render or render}">
@@ -70,14 +74,18 @@
         </c:otherwise>
       </c:choose>
       <spring:message arguments="${fn:escapeXml(label)}" code="field_invalid" var="field_invalid" htmlEscape="false"/>
+      <c:if test="${empty hint}">
+        <c:set value="${label}" var="hint"/>
+      </c:if>
       <c:choose>
         <c:when test="${required}">
           <spring:message code="field_required" var="field_required" htmlEscape="false"/>
-          <spring:message argumentSeparator="," arguments="${label},(${field_required})" code="field_simple_validation"
+          <spring:message argumentSeparator="," arguments="${hint},(${field_required})" code="field_simple_validation"
                           var="field_validation" htmlEscape="false"/>
         </c:when>
         <c:otherwise>
-          <spring:message argumentSeparator="," arguments="${label}, " code="field_simple_validation" var="field_validation"
+          <spring:message argumentSeparator="," arguments="${hint}, " code="field_simple_validation"
+                          var="field_validation"
                           htmlEscape="false"/>
         </c:otherwise>
       </c:choose>
@@ -92,14 +100,14 @@
       </c:set>
       <script type="text/javascript">
         Spring.addDecoration(new Spring.ElementDecoration({
-          elementId: '_${sec_field}_id${idSuffix}',
-          widgetType: 'dijit.form.DateTextBox',
-          widgetAttrs: {
-            promptMessage: '${sec_field_validation}',
-            invalidMessage: '${sec_field_invalid}',
+          elementId:'_${sec_field}_id${idSuffix}',
+          widgetType:'dijit.form.DateTextBox',
+          widgetAttrs:{
+            promptMessage:'${sec_field_validation}',
+            invalidMessage:'${sec_field_invalid}',
             required: ${required},
-            constraints: {
-              datePattern: '${sec_dateTimePattern}',
+            constraints:{
+              datePattern:'${sec_dateTimePattern}',
               required: ${required}}
           }
         }));
