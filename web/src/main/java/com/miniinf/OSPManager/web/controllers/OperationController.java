@@ -26,8 +26,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.miniinf.OSPManager.data.QOperation.operation;
-
 /**
  * Created with IntelliJ IDEA.
  * User: asus
@@ -125,9 +123,11 @@ public class OperationController extends AbstractController<OperationRepository,
     @ReportPath("overallreport")
     public List<Operation.FireFighter> prepareReport(@ModelAttribute() OverallReportTime reportTime) {
         List<Operation.FireFighter> res = new ArrayList<>();
-        Iterable<Operation> it = repository.findAll(operation.endDate.after(reportTime.getStartDate())
-                                                            .and(operation.endDate.before(reportTime.getEndDate())));
+        Iterable<Operation> it = repository.findAll();
         for (Operation op : it) {
+            if (op.getEndDate().isBefore(reportTime.getStartDate()) || op.getEndDate().isAfter(reportTime.getEndDate())) {
+                continue;
+            }
             for (Operation.FireFighter ff : op.getParticipants()) {
                 int index = res.indexOf(ff);
                 if (index == -1) {
