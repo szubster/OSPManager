@@ -455,5 +455,26 @@ public class Operation implements BigIntegerEntity, Serializable {
         public int compareTo(FireFighter o) {
             return id.compareTo(o.id);
         }
+
+        @Override
+        public int hashCode() {
+            return id.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            FireFighter second = (FireFighter) obj;
+            return id.compareTo(second.getId()) == 0;    //To change body of overridden methods use File | Settings | File
+            // Templates.
+        }
     }
 }
