@@ -12,9 +12,9 @@
                label="menu_item_operation_new_label">
 
     <field:datetime field="startDate" id="c_com_OverallReport_startDate" required="false" dateTimePattern="yyyy-MM-dd"
-                    idSuffix="a"/>
+                    hint="label_com_overallreport_startdate_e" idSuffix="a"/>
 
     <field:datetime field="endDate" id="c_com_OverallReport_endDate" required="false" dateTimePattern="yyyy-MM-dd"
-                    idSuffix="b"/>
+                    hint="label_com_overallreport_enddate_e" idSuffix="b"/>
   </form:create>
 </div>

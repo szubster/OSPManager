@@ -14,12 +14,13 @@
     <field:input field="secondName" id="c_com_Firefighter_secondname" required="false"/>
     <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
     <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
-                    dateTimePattern="yyyy-MM-dd"/>
-    <field:input field="address.street" id="c_com_Address_Street" required="true"/>
+                    hint="label_com_firefighter_birthdate_e" dateTimePattern="yyyy-MM-dd"/>
+    <field:input field="address.street" id="c_com_Address_Street" hint="label_com_address_street_e" required="true"/>
     <field:input field="address.postCode" id="c_com_Address_postCode" required="true"/>
     <field:input field="address.city" id="c_com_Address_City" required="true"/>
     <field:input field="pesel" id="c_com_Firefighter_pesel" required="false"/>
-    <field:input field="legitimation" id="c_com_Firefighter_legitimation" required="true"/>
+    <field:input field="legitimation" id="c_com_Firefighter_legitimation" hint="label_com_firefighter_legitimation_e"
+                 required="true"/>
     <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
                   multiple="false"/>
     <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}"
