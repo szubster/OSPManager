@@ -37,4 +37,29 @@
     <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"
                   multiple="true" itemValue="id" itemLabel="nameAndSurname"/>
   </form:create>
+  <script type="text/javascript">
+    var inputEvents = [];
+    var input;
+    function updateMileage() {
+      var mileages = new Array();
+    <
+      c:forEach
+      items = "${firetrucks}"
+      var =
+      "firetruck"
+      varStatus = "status" >
+          mileages[${status.index}] =
+      ${firetruck.milage}
+    <
+      /c:forEach>
+      var mileageStart = dijit.byId("_mileageStart_id");
+      var sel = input.item.index;
+      mileageStart.setValue(mileages[sel]);
+    }
+    dojo.addOnLoad(function () {
+      input = dijit.byId('_truckCodeName_id');
+      updateMileage();
+      inputEvents.push(dojo.connect(input, "onChange", updateMileage))
+    });
+  </script>
 </div>
