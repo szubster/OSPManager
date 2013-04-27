@@ -131,6 +131,9 @@ public class OperationController extends AbstractController<OperationRepository,
             for (Operation.FireFighter ff : op.getParticipants()) {
                 int index = res.indexOf(ff);
                 if (index == -1) {
+                    if (ff.getPaidTime() == null) {
+                        ff.setPaidTime(new Duration(0));
+                    }
                     res.add(ff);
                 } else {
                     Operation.FireFighter fireFighter = res.get(index);
