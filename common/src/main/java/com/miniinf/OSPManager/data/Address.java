@@ -15,18 +15,12 @@ import java.io.Serializable;
  */
 public class Address implements Serializable {
 
-    private static final String STREET_PATTERN = "(\\p{Lu}\\p{Ll}*|\\d+) ((\\p{Lu}\\p{Ll}*|\\d+) )*\\d+";
-
-    private static final String CITY_PATTERN = "\\p{Lu}\\p{Ll}*( (\\p{Lu}\\p{Ll}*|\\d+))*";
-
     private static final String POSTCODE_PATTERN = "\\d\\d-\\d\\d\\d";
 
     @NotNull
-    @Pattern(regexp = STREET_PATTERN, message = "{com.miniinf.OSPManager.validation.street}")
     private String street;
 
     @NotNull
-    @Pattern(regexp = CITY_PATTERN, message = "{com.miniinf.OSPManager.validation.city}")
     private String city;
 
     @Pattern(regexp = POSTCODE_PATTERN, message = "{com.miniinf.OSPManager.validation.postcode}")
