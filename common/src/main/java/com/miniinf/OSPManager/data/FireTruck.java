@@ -23,7 +23,7 @@ public class FireTruck implements BigIntegerEntity {
     public static final String CODENAME_PATTERN = "\\d\\d\\d-\\d\\d";
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     private String licensePlate;
 
@@ -41,10 +41,6 @@ public class FireTruck implements BigIntegerEntity {
      */
     public BigInteger getId() {
         return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     /**
