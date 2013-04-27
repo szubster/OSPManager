@@ -19,7 +19,7 @@ import java.math.BigInteger;
 public abstract class Equipment implements BigIntegerEntity, Serializable {
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     @NotNull
     private String kind;

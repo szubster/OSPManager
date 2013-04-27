@@ -39,7 +39,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     public AbstractController(Class<E> entityClass) {
         Controller annotation = AnnotationUtils.findAnnotation(this.getClass(), Controller.class);
         if (annotation == null) {
-            throw new IllegalStateException("Classes extending AbstraController must have @Controller annotation");
+            throw new IllegalStateException("Classes extending AbstractController must have @Controller annotation");
         }
         RequestMapping mapping = AnnotationUtils.findAnnotation(this.getClass(), RequestMapping.class);
         if (mapping != null) {
@@ -102,6 +102,7 @@ public abstract class AbstractController<R extends MongoRepository<E, ID>, E ext
     public void show(@ModelAttribute("entity") E entity) {
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable ID id) {
         getRepository().delete(id);

@@ -32,7 +32,7 @@ public class FireFighter implements BigIntegerEntity {
     private static final String LEGITIMATION_PATTERN = "\\d+/\\d{4}";
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     @NotNull
     @Size(min = 3)

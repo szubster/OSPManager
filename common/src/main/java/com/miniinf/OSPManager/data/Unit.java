@@ -24,7 +24,7 @@ import java.util.List;
 public class Unit implements BigIntegerEntity, Serializable {
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     @Min(0)
     private int departureCounter;

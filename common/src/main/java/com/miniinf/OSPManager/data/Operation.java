@@ -31,7 +31,7 @@ import java.util.List;
 public class Operation implements BigIntegerEntity, Serializable {
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     @Valid
     private Address place = new Address();
