@@ -44,16 +44,14 @@
     var input;
     function updateMileage() {
       var mileages = new Array();
-    <
-      c:forEach
+    <c:forEach
       items = "${firetrucks}"
       var =
       "firetruck"
       varStatus = "status" >
           mileages[${status.index}] =
       ${firetruck.milage}
-    <
-      /c:forEach>
+    </c:forEach>
       var mileageStart = dijit.byId("_mileageStart_id");
       var sel = input.item.index;
       mileageStart.setValue(mileages[sel]);
