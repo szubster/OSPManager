@@ -26,7 +26,7 @@ import java.util.TreeMap;
  */
 public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
 
-    private Map<String, String> urlToReportPathMap = new TreeMap<>(new ReverseComparator<String>());
+    private Map<String, String> urlToReportPathMap = new TreeMap<>();
 
     private Map<String, Class<? extends AbstractJasperReportsSingleFormatView>> formatMappings;
 
