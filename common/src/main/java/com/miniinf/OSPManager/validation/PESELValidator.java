@@ -11,9 +11,9 @@ import javax.validation.ConstraintValidatorContext;
  * Created by Tomasz Szuba
  * Date: 02.01.13
  */
-public class PESELValidator implements ConstraintValidator<PESEL, String> {
+public class PESELValidator implements ConstraintValidator<Pesel, String> {
     @Override
-    public void initialize(PESEL constraintAnnotation) {
+    public void initialize(Pesel constraintAnnotation) {
     }
 
     @Override

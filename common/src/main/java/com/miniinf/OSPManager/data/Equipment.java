@@ -37,6 +37,10 @@ public abstract class Equipment implements BigIntegerEntity, Serializable {
         return id;
     }
 
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     /**
      * Returns what kind of equipment it is
      *

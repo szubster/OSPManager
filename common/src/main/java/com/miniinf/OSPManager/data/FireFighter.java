@@ -4,7 +4,7 @@
 
 package com.miniinf.OSPManager.data;
 
-import com.miniinf.OSPManager.validation.PESEL;
+import com.miniinf.OSPManager.validation.Pesel;
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.LocalDate;
 import org.springframework.data.annotation.Id;
@@ -55,7 +55,7 @@ public class FireFighter implements BigIntegerEntity {
     @Valid
     private Address address = new Address();
 
-    @PESEL
+    @Pesel
     private String pesel;
 
     @Pattern(regexp = LEGITIMATION_PATTERN, message = "{com.miniinf.OSPManager.validation.legitimation}")
@@ -72,6 +72,11 @@ public class FireFighter implements BigIntegerEntity {
      */
     public BigInteger getId() {
         return id;
+    }
+
+
+    public void setId(BigInteger id) {
+        this.id = id;
     }
 
     /**

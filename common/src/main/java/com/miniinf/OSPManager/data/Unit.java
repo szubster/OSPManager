@@ -46,6 +46,10 @@ public class Unit implements BigIntegerEntity, Serializable {
         return id;
     }
 
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     /**
      * Returns name of the KSRG
      *

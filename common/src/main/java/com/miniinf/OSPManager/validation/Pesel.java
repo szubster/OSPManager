@@ -21,7 +21,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Constraint(validatedBy = PESELValidator.class)
 @Documented
-public @interface PESEL {
+public @interface Pesel {
 
     String message() default "{com.miniinf.OSPManager.validation.PESEL}";
 

@@ -18,4 +18,6 @@ public interface Entity<ID extends Serializable> extends Serializable {
      * @return
      */
     public ID getId();
+
+    public void setId(ID id);
 }

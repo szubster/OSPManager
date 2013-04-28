@@ -43,6 +43,11 @@ public class FireTruck implements BigIntegerEntity {
         return id;
     }
 
+
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     /**
      * Returns FireTruck's codename (cryptonim of the truck)
      *
