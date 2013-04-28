@@ -126,7 +126,7 @@
             </span>
             <span>
                 <spring:message code="pdf_message" var="pdf_message"/>
-                <a title="${pdf_message}" alt="${pdf_message}" href="${path}/${object.id}.pdf"><img
+                <a title="${pdf_message}" alt="${pdf_message}" href="${path}/${object.id}.pdf" target="_blank"><img
                     title="${pdf_message}" src="/resources/images/pdf-icon.png" class="image" alt="${pdf_message}"/></a>
             </span>
           </div>

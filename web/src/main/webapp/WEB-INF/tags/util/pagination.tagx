@@ -26,9 +26,9 @@
   <span>
 
         <spring:message code="pdf_message" var="pdf_message"/>
-        <a title="${pdf_message}" alt="${pdf_message}" href="${path}.pdf"><img title="${pdf_message}"
-                                                                               src="/resources/images/pdf-icon.png"
-                                                                               class="image" alt="${pdf_message}"/></a>
+        <a title="${pdf_message}" alt="${pdf_message}" href="${path}.pdf"  target="_blank">
+            <img title="${pdf_message}" src="/resources/images/pdf-icon.png" class="image" alt="${pdf_message}"/>
+        </a>
     </span>
   <c:if test="${!noExcel}">
     <span>
