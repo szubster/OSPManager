@@ -19,10 +19,11 @@
                            description="The label used for this field, will default to a message bundle if not supplied"/>
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true"
                            description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
+  <jsp:directive.attribute name="hint" type="java.lang.String" required="false" rtexprvalue="true"
+                             description="The label used for information when data not provided"/>
 
 
   <c:if test="${empty render or render}">
-
     <c:if test="${empty label}">
       <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" var="label" htmlEscape="false"/>
     </c:if>
@@ -38,9 +39,12 @@
         <img alt="${fn:escapeXml(add_message)}" src="${create_img_url}" title="${fn:escapeXml(add_message)}"/>
       </a>
       <c:out value=" "/>
-      <spring:message arguments="${label}" code="entity_not_found"/>
+      <c:if test="${empty hint}">
+                <c:set value="entity_not_found" var="hint"/>
+      </c:if>
+      <spring:message arguments="${label}" code="${hint}"/>
       <c:if test="${not empty required and required eq 'true'}">
-        (<spring:message code="field_required"/>)
+        <spring:message code="field_required"/>
       </c:if>
     </div>
     <br/>

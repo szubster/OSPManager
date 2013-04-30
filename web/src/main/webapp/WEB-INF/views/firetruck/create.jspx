@@ -10,7 +10,7 @@
   <jsp:output omit-xml-declaration="yes"/>
   <form:create id="fc_com_Firetruck" modelAttribute="fireTruck" path="/firetruck/create" title="global_menu_new_wy"
                label="label_com_firetruck">
-    <field:input field="codeName" id="c_com_Firetruck_codeName" min="2" required="true"/>
+    <field:input field="codeName" id="c_com_Firetruck_codeName" hint="label_com_operation_truckcodename_validation" min="2" required="true"/>
     <field:input field="licensePlate" id="c_com_Firetruck_licensePlate" min="2" required="false"/>
     <field:input field="milage" id="c_com_Firetruck_milage" min="2" required="false"/>
   </form:create>

@@ -10,20 +10,20 @@
   <form:create id="fc_com_Firefighter" modelAttribute="fireFighter" path="/firefighter/create"
                title="global_menu_new_wego"
                label="menu_item_firefighter_new_a_label">
-    <field:input field="name" id="c_com_Firefighter_name" min="2" required="true"/>
-    <field:input field="secondName" id="c_com_Firefighter_secondname" required="false"/>
+    <field:input field="name" id="c_com_Firefighter_name" hint="label_com_firefighter_name_validation" min="2" required="true"/>
+    <field:input field="secondName" id="c_com_Firefighter_secondname" hint="label_com_firefighter_secondname_validation" required="false"/>
     <field:input field="surname" id="c_com_Firefighter_surname" min="2" required="true"/>
     <field:datetime field="birthDate" id="c_com_Firefighter_birthdate" required="true"
                     hint="label_com_firefighter_birthdate_e" dateTimePattern="yyyy-MM-dd"/>
     <field:input field="address.street" id="c_com_Address_Street" hint="label_com_address_street_e" required="true"/>
-    <field:input field="address.postCode" id="c_com_Address_postCode" required="true"/>
+    <field:input field="address.postCode" id="c_com_Address_postCode" required="true" hint="label_com_address_postcode_validation"/>
     <field:input field="address.city" id="c_com_Address_City" required="true"/>
     <field:input field="pesel" id="c_com_Firefighter_pesel" required="false"/>
-    <field:input field="legitimation" id="c_com_Firefighter_legitimation" hint="label_com_firefighter_legitimation_e"
+    <field:input field="legitimation" id="c_com_Firefighter_legitimation" hint="label_com_firefighter_legitimation_validation"
                  required="true"/>
     <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
                   multiple="false"/>
-    <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}"
+    <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}" hint="entity_not_found_a"
                   multiple="true"/>
 
   </form:create>

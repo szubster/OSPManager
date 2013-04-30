@@ -14,6 +14,8 @@
                              description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
     <jsp:directive.attribute name="openPane" type="java.lang.String" required="false" rtexprvalue="true"
                              description="Control if the title pane is opened or closed by default (default: true)"/>
+  <jsp:directive.attribute name="title_resolve" type="java.lang.Boolean" required="false" rtexprvalue="false"
+                           description="Indicate if the contents of this tag should be resolved (default 'false')"/>
 
 
     <c:if test="${empty render or render}">
@@ -28,10 +30,22 @@
         <c:set var="sec_openPane">
             <spring:escapeBody javaScriptEscape="true">${openPane}</spring:escapeBody>
         </c:set>
+      <c:choose>
+        <c:when test="${title_resolve eq 'true'}">
+          <c:if test="${not empty title}">
+                             <spring:message var="title_resolved" code="${title}" htmlEscape="true"/>
+                           </c:if>
+          <c:set var="sec_title">
+                             <spring:escapeBody javaScriptEscape="true">${title_resolved}</spring:escapeBody>
+                         </c:set>
+        </c:when>
+        <c:otherwise>
+          <c:set var="sec_title">
+                             <spring:escapeBody javaScriptEscape="true">${title}</spring:escapeBody>
+                         </c:set>
+        </c:otherwise>
 
-        <c:set var="sec_title">
-            <spring:escapeBody javaScriptEscape="true">${title}</spring:escapeBody>
-        </c:set>
+      </c:choose>
 
         <script type="text/javascript">dojo.require('dijit.TitlePane');</script>
         <div id="_title_${sec_id}_id">

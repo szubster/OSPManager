@@ -8,7 +8,7 @@
      xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
-  <util:panel id="${id}" title="Pokaż wszystkie" openPane="${openPane}">
+  <util:panel id="${id}" title="entity_list_all" openPane="${openPane}" title_resolve="true">
     <table:table array="${unit.awards}" id="l_com_Unit" path="/unit" noId="true" create="false"
                  simpleTable="true" useArray="true">
       <table:column id="c_com_Unit_award" property=""/>

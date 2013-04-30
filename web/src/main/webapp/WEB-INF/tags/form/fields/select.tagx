@@ -31,6 +31,8 @@
                          description="Set to true to disable Spring form binding"/>
 <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true"
                          description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
+<jsp:directive.attribute name="hint" type="java.lang.String" required="false" rtexprvalue="true"
+                         description="The label used for information if data not provided"/>
 
 <c:if test="${empty render or render}">
 
@@ -215,7 +217,7 @@
         </c:choose>
       </c:when>
       <c:otherwise>
-        <field:reference field="${label}" id="${id}" path="${path}" required="${required}"/>
+        <field:reference field="${label}" id="${id}" path="${path}" required="${required}" hint="${hint}"/>
       </c:otherwise>
     </c:choose>
   </div>

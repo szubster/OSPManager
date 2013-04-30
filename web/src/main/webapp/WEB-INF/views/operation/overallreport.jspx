@@ -8,7 +8,7 @@
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
   <form:create id="fc_com_Operation" modelAttribute="reportConfig" path="/operation/overallreport.xls"
-               title="global_menu_new_we"
+               title="global_menu_report"
                label="menu_item_operation_new_label">
 
     <field:datetime field="startDate" id="c_com_OverallReport_startDate" required="false" dateTimePattern="yyyy-MM-dd"
