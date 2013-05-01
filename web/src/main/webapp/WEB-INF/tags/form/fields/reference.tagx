@@ -21,12 +21,26 @@
                            description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')"/>
   <jsp:directive.attribute name="hint" type="java.lang.String" required="false" rtexprvalue="true"
                              description="The label used for information when data not provided"/>
+  <jsp:directive.attribute name="add_hint" type="java.lang.String" required="false" rtexprvalue="true"
+                             description="The label used for information when data should be added"/>
+  <jsp:directive.attribute name="add_hint_item" type="java.lang.String" required="false" rtexprvalue="true"
+                              description="The label used for item when data should be added"/>
+
 
 
   <c:if test="${empty render or render}">
     <c:if test="${empty label}">
       <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" var="label" htmlEscape="false"/>
     </c:if>
+    <c:choose>
+      <c:when test="${empty add_hint}">
+        <c:set value="global_menu_new" var="add_hint"/>
+                           <c:set value="${field}" var="add_hint_item_resolved"/>
+      </c:when>
+      <c:otherwise>
+        <spring:message var="add_hint_item_resolved" code="${add_hint_item}" htmlEscape="true"/>
+      </c:otherwise>
+    </c:choose>
 
     <div id="_${fn:escapeXml(id)}_id">
       <label for="_${fn:escapeXml(field)}_id">
@@ -35,7 +49,7 @@
       <spring:url value="${path}/create" var="create_url"/>
       <a href="${create_url}">
         <spring:url value="/resources/images/add.png" var="create_img_url"/>
-        <spring:message arguments="${field}" code="global_menu_new" var="add_message" htmlEscape="false"/>
+        <spring:message arguments="${add_hint_item_resolved}" code="${add_hint}" var="add_message" htmlEscape="false"/>
         <img alt="${fn:escapeXml(add_message)}" src="${create_img_url}" title="${fn:escapeXml(add_message)}"/>
       </a>
       <c:out value=" "/>

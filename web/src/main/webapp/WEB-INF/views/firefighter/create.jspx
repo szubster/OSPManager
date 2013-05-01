@@ -24,7 +24,7 @@
     <field:select id="c_com_Unit_rank" field="rank" path="ranks" items="${ranks}"
                   multiple="false"/>
     <field:select id="c_com_Unit_award" field="awards" path="awards" items="${awards}" hint="entity_not_found_a"
-                  multiple="true"/>
+                  multiple="true" add_hint="global_menu_new_wa" add_hint_item="menu_item_award_new_label"/>
 
   </form:create>
 </div>

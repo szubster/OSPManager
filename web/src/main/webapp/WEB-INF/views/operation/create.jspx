@@ -37,7 +37,7 @@
     <field:time field="endTime" id="c_com_Interval_endTime" required="false" timePattern="HH:mm" idSuffix="d"/>
 
     <field:select id="c_com_Operation_firefighters" field="participants" path="participants" items="${firefighters}"
-                  multiple="true" itemValue="id" itemLabel="nameAndSurname" hint="entity_not_found_i"/>
+                  multiple="true" itemValue="id" itemLabel="nameAndSurname" hint="entity_not_found_i" add_hint="global_menu_new_wego" add_hint_item="menu_item_firefighter_new_a_label"/>
   </form:create>
   <script type="text/javascript">
     var inputEvents = [];
