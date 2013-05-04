@@ -12,10 +12,7 @@ import org.springframework.web.servlet.view.AbstractView;
 import org.springframework.web.servlet.view.jasperreports.AbstractJasperReportsSingleFormatView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Implementation of ViewResolver resolving view based on url and internal data mapping
@@ -26,7 +23,7 @@ import java.util.TreeMap;
  */
 public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
 
-    private Map<String, String> urlToReportPathMap = new TreeMap<>();
+    private Map<String, String> urlToReportPathMap = new HashMap<>();
 
     private Map<String, Class<? extends AbstractJasperReportsSingleFormatView>> formatMappings;
 
@@ -92,9 +89,11 @@ public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
         if (reportClass != null) {
             setViewClass(reportClass);
         }
-        for (Map.Entry<String, String> entry : urlToReportPathMap.entrySet()) {
-            if (matcher.match(entry.getKey(), viewName)) {
-                AbstractUrlBasedView ret = super.buildView(entry.getValue() + ext);
+        String[] sorted = urlToReportPathMap.keySet().toArray(new String[]{});
+        Arrays.sort(sorted, matcher.getPatternComparator(viewName));
+        for (String ant : sorted) {
+            if (matcher.match(ant, viewName)) {
+                AbstractUrlBasedView ret = super.buildView(urlToReportPathMap.get(ant) + ext);
                 setViewClass(oldClass);
                 return ret;
             }
