@@ -14,10 +14,16 @@
   <modules>
     <module>common</module>
     <module>web</module>
-    <module>selenium</module>
   </modules>
   <packaging>pom</packaging>
-
+  <profiles>
+    <profile>
+      <id>selenium</id>
+      <modules>
+        <module>selenium</module>
+      </modules>
+    </profile>
+  </profiles>
   <prerequisites>
     <maven>3.0.4</maven>
   </prerequisites>
