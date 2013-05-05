@@ -24,8 +24,6 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
 
     public static final String[] EMPTY_STRING_ARRAY = new String[]{""};
 
-    public static final String[] ASTERIX_STRING_ARRAY = new String[]{"*"};
-
     @Autowired(required = true)
     JasperAnnotationViewResolver resolver;
 
@@ -66,7 +64,7 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
         RequestMapping methodMapping = findAnnotation(method, RequestMapping.class);
         if (methodMapping != null) {
             String[] methodMappingValue = methodMapping.value().length > 0 ?
-                                                  filterParams(methodMapping.value()) : ASTERIX_STRING_ARRAY;
+                                                  filterParams(methodMapping.value()) : EMPTY_STRING_ARRAY;
             ReportPath methodReport = findAnnotation(method, ReportPath.class);
             if (methodReport != null) {
                 addReportMapping(classMappings, methodMappingValue, classReport + methodReport.value());
@@ -78,7 +76,7 @@ public class ReportPathBeanPostProcessor implements BeanPostProcessor {
     private void addReportMapping(String[] classMappings, String[] methodMappings, String reportPath) {
         for (String classMapping : classMappings) {
             for (String methodMapping : methodMappings) {
-                resolver.addReportPath(classMapping + methodMapping + "*", reportPath);
+                resolver.addReportPath(classMapping + methodMapping, reportPath);
             }
         }
     }

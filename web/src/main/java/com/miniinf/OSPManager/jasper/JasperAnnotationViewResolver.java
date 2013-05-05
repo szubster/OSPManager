@@ -6,6 +6,7 @@ package com.miniinf.OSPManager.jasper;
 
 import com.miniinf.OSPManager.util.ReverseComparator;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.AbstractView;
@@ -82,8 +83,9 @@ public class JasperAnnotationViewResolver extends JasperReportsViewResolver {
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
         String ext = viewName.substring(viewName.length() - 4);
         if (!ext.startsWith(".")) {
-            ext = "";
+            return null;
         }
+        viewName = viewName.substring(0, viewName.length() - 4);
         Class<?> oldClass = getViewClass();
         Class<?> reportClass = formatMappings.get(ext);
         if (reportClass != null) {
