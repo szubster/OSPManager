@@ -48,7 +48,7 @@
   </bean>
   <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
   <bean class="com.miniinf.OSPManager.jasper.JasperAnnotationViewResolver"
-        p:suffix=".jrxml" p:prefix="WEB-INF/jasper/" p:order="2" p:cache="false"
+        p:suffix=".jrxml" p:prefix="WEB-INF/jasper/" p:order="2"
         p:viewClass="com.miniinf.OSPManager.jasper.JRPdfWithPageSupport"/>
   <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
     <property name="definitions">
@@ -73,7 +73,7 @@
   <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
         id="messageSource" p:fileEncodings="UTF-8" p:defaultEncoding="UTF-8"
         p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application,WEB-INF/i18n/validation"
-        p:fallbackToSystemLocale="false" p:cacheSeconds="0"/>
+        p:fallbackToSystemLocale="false"/>
   <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
         id="localeResolver" p:cookieName="locale"/>
   <bean class="org.springframework.ui.context.support.ResourceBundleThemeSource"
