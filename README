@@ -1,1 +1,8 @@
-This file was created by IntelliJ IDEA 11.1.4 for binding GitHub repository
+Aby zainstalować wywołaj polecenie:
+mvn clean install
+z katalogu głównego projektu.
+Aby uruchomić aplikację po poprzedniej instalacji wywołaj:
+mvn jetty:run -pl web
+z katalogu głównego projektu.
+Aplikacja zostanie uruchoiona na porcie 8080 i dostępne pod adresem localhost:8080
+Przed uruchomieniem upewnij się, że włączony jest serwer mongoDB na standardowym porcie 27017
